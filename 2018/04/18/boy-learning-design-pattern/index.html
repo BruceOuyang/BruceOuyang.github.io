@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>boy-learning-design-pattern | BuGMaker&#39; Bruce Ouyang</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Bruce Ouyang 正在学习《设计模式Java版》 http://woquanke.com/books/gof/这本书个人学习的主要内容以及对应源码记录在https://github.com/BruceOuyang/boy-design-pattern目录下  初衷 系统的学习一遍设计模式    书的原链接https://gof.quanke.name 这个地址貌似正常情况下访问不了，习惯">
+<meta name="keywords" content="design-patterns">
+<meta property="og:type" content="article">
+<meta property="og:title" content="boy-learning-design-pattern">
+<meta property="og:url" content="http://bruce.bugmakers.club/2018/04/18/boy-learning-design-pattern/index.html">
+<meta property="og:site_name" content="BuGMaker&#39; Bruce Ouyang">
+<meta property="og:description" content="Bruce Ouyang 正在学习《设计模式Java版》 http://woquanke.com/books/gof/这本书个人学习的主要内容以及对应源码记录在https://github.com/BruceOuyang/boy-design-pattern目录下  初衷 系统的学习一遍设计模式    书的原链接https://gof.quanke.name 这个地址貌似正常情况下访问不了，习惯">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.zhangruipeng.me/hexo-theme-icarus/gallery/snow-wolf.jpg">
+<meta property="og:updated_time" content="2018-04-18T23:10:43.863Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="boy-learning-design-pattern">
+<meta name="twitter:description" content="Bruce Ouyang 正在学习《设计模式Java版》 http://woquanke.com/books/gof/这本书个人学习的主要内容以及对应源码记录在https://github.com/BruceOuyang/boy-design-pattern目录下  初衷 系统的学习一遍设计模式    书的原链接https://gof.quanke.name 这个地址貌似正常情况下访问不了，习惯">
+<meta name="twitter:image" content="http://blog.zhangruipeng.me/hexo-theme-icarus/gallery/snow-wolf.jpg">
+    
+
+    
+        <link rel="alternate" href="/" title="BuGMaker&#39; Bruce Ouyang" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">BuGMaker&#39; Bruce Ouyang</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/bruce-avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/bruce-avatar.png" />
+            <h2 id="name">Bruce Ouyang</h2>
+            <h3 id="title">Head Of BuGMakers</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Shanghai, China</span>
+            <a id="follow" target="_blank" href="https://github.com/BruceOuyang">关注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                5
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                3
+                <span>标签</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/BruceOuyang" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="twitter" class=tooltip>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="dribbble" class=tooltip>
+                            <i class="fa fa-dribbble"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-boy-learning-design-pattern" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<img src="http://blog.zhangruipeng.me/hexo-theme-icarus/gallery/snow-wolf.jpg" class="article-banner" />
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            boy-learning-design-pattern
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/04/18/boy-learning-design-pattern/">
+            <time datetime="2018-04-18T14:39:41.000Z" itemprop="datePublished">2018-04-18</time>
+        </a>
+    </div>
+
+
+                        
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/design-patterns/">design-patterns</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <blockquote>
+<p>Bruce Ouyang 正在学习<strong>《设计模式Java版》</strong> <a href="http://woquanke.com/books/gof/这本书" target="_blank" rel="noopener">http://woquanke.com/books/gof/这本书</a><br>个人学习的主要内容以及对应源码记录在<a href="https://github.com/BruceOuyang/boy-design-pattern" target="_blank" rel="noopener">https://github.com/BruceOuyang/boy-design-pattern</a>目录下</p>
+</blockquote>
+<h2 id="初衷"><a href="#初衷" class="headerlink" title="初衷"></a>初衷</h2><ol>
+<li><p>系统的学习一遍设计模式  </p>
+</li>
+<li><p>书的原链接<a href="https://gof.quanke.name" target="_blank" rel="noopener">https://gof.quanke.name</a> 这个地址貌似正常情况下访问不了，习惯了markdown不想去看csdn上旧风格的文章（<a href="http://blog.csdn.net/lovelion" target="_blank" rel="noopener">quanke大神的csdn博客</a>上也有一份设计模式）,故在此仓库copy一份，方便大家访问和一起学习  </p>
+</li>
+</ol>
+<blockquote>
+<p>最新更新，原作者提供了新域名访问地址： <a href="http://woquanke.com/books/gof/" target="_blank" rel="noopener">http://woquanke.com/books/gof/</a> ，国内访问无压力</p>
+</blockquote>
+<ol start="3">
+<li><p>融入一点自己的风格：我将刘伟大神的设计模式一书内容分散在代码的各个包里边，方便阅读  </p>
+</li>
+<li><p>原文中有一些练习，就在这个仓库的源码中做掉</p>
+</li>
+</ol>
+<h2 id="二十四种设计模式一览"><a href="#二十四种设计模式一览" class="headerlink" title="二十四种设计模式一览"></a>二十四种设计模式一览</h2><p><img src="http://upload-images.jianshu.io/upload_images/5792176-8708f103d9e62d2c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="24种设计模式"></p>
+<a id="more"></a>
+<blockquote>
+<p>以下文章持续更新中…</p>
+</blockquote>
+<h3 id="创建型"><a href="#创建型" class="headerlink" title="创建型"></a>创建型</h3><ul>
+<li><p>六个创建型模式</p>
+<ul>
+<li><p><a href="https://www.jianshu.com/p/379b8d49cecd" target="_blank" rel="noopener">SEQ1 - 简单工厂模式 Simple Factory Pattern<br>【学习难度：★★☆☆☆，使用频率：★★★☆☆】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/4bb7463f35ce" target="_blank" rel="noopener">SEQ2 - 工厂方法模式 Factory Method Pattern<br>【学习难度：★★☆☆☆，使用频率：★★★★★】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/3a5c3bc1d55a" target="_blank" rel="noopener">SEQ3 - 抽象工厂模式 Abstract Factory Pattern<br>【学习难度：★★★★☆，使用频率：★★★★★】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/fcc82e7b5e65" target="_blank" rel="noopener">SEQ4 - 单例模式 Singleton Pattern<br>【学习难度：★☆☆☆☆，使用频率：★★★★☆】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/20d3ea472d77" target="_blank" rel="noopener">SEQ5 - 原型模式 Prototype Pattern<br>【学习难度：★★★☆☆，使用频率：★★★☆☆】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/96bb25f53684" target="_blank" rel="noopener">SEQ6 - 建造者模式 Builder Pattern<br>【学习难度：★★★★☆，使用频率：★★☆☆☆】</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="结构型"><a href="#结构型" class="headerlink" title="结构型"></a>结构型</h3><ul>
+<li><p>七个结构型模式</p>
+<ul>
+<li><p><a href="https://www.jianshu.com/p/e9e203ef49f4" target="_blank" rel="noopener">SEQ1 - 适配器模式 Adapter Pattern<br>【学习难度：★★☆☆☆，使用频率：★★★★☆】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/f8e63666aed2" target="_blank" rel="noopener">SEQ2 - 桥接模式 Bridge Pattern<br>【学习难度：★★★☆☆，使用频率：★★★☆☆】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/39d6d054e853" target="_blank" rel="noopener">SEQ3 - 组合模式 Composite Pattern<br>【学习难度：★★★☆☆，使用频率：★★★★☆】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/e9b01d0a563f" target="_blank" rel="noopener">SEQ4 - 装饰模式 Decorator Pattern<br>【学习难度：★★★☆☆，使用频率：★★★☆☆】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/5e42e8c6bcd8" target="_blank" rel="noopener">SEQ5 - 外观模式 Facade Pattern<br>【学习难度：★☆☆☆☆，使用频率：★★★★★】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/3a5b2aee593b" target="_blank" rel="noopener">SEQ6 - 享元模式 Flyweight Pattern<br>【学习难度：★★★★☆，使用频率：★☆☆☆☆】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/319b57e4715f" target="_blank" rel="noopener">SEQ7 - 代理模式 Proxy Pattern<br>【学习难度：★★★☆☆，使用频率：★★★★☆】</a>  </p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="行为型"><a href="#行为型" class="headerlink" title="行为型"></a>行为型</h3><ul>
+<li><p>十一个行为型模式</p>
+<ul>
+<li><p><a href="https://www.jianshu.com/p/b9780fcd0958" target="_blank" rel="noopener">SEQ01 - 职责链模式 Chain of Responsibility Pattern<br>【学习难度：★★★☆☆，使用频率：★★☆☆☆】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/489c4f1755b8" target="_blank" rel="noopener">SEQ02 - 命令模式 Command Pattern<br>【学习难度：★★★☆☆，使用频率：★★★★☆】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/f03f6c5e2b14" target="_blank" rel="noopener">SEQ03 - 解释器模式 Interpreter Pattern<br>【学习难度：★★★★★，使用频率：★☆☆☆☆】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/66403a30b2cb" target="_blank" rel="noopener">SEQ04 - 迭代器模式 Iterator Pattern<br>【学习难度：★★★☆☆，使用频率：★★★★★】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/132add40652b" target="_blank" rel="noopener">SEQ05 - 中介者模式 Mediator Pattern<br>【学习难度：★★★☆☆，使用频率：★★☆☆☆】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/082b27e2ffa2" target="_blank" rel="noopener">SEQ06 - 备忘录模式 Memento Pattern<br>【学习难度：★★☆☆☆，使用频率：★★☆☆☆】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/f9c3f11fd8cc" target="_blank" rel="noopener">SEQ07 - 观察者模式 Observer Pattern<br>【学习难度：★★★☆☆，使用频率：★★★★★】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/ad63ee7149c4" target="_blank" rel="noopener">SEQ08 - 状态模式 State Pattern<br>【学习难度：★★★☆☆，使用频率：★★★☆☆】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/b1e8c0218786" target="_blank" rel="noopener">SEQ09 - 策略模式 Strategy Pattern<br>【学习难度：★☆☆☆☆，使用频率：★★★★☆】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/26d0c4631b44" target="_blank" rel="noopener">SEQ10 - 模板方法模式 Template Method Pattern<br>【学习难度：★★☆☆☆，使用频率：★★★☆☆】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/5a40887d1c9b" target="_blank" rel="noopener">SEQ11 - 访问者模式 Visitor Pattern<br>【学习难度：★★★★☆，使用频率：★☆☆☆☆】</a>  </p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="复习"><a href="#复习" class="headerlink" title="复习"></a>复习</h3><ul>
+<li>设计模式趣味学习<ul>
+<li><a href="https://www.jianshu.com/p/9b542038d501" target="_blank" rel="noopener">设计模式于足球</a></li>
+</ul>
+</li>
+<li>设计模式综合应用实例<ul>
+<li>多人联机射击游戏</li>
+<li>数据库同步服务</li>
+</ul>
+</li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://bruce.bugmakers.club/2018/04/18/boy-learning-design-pattern/" data-id="cjg5q3v0a0003fovta7v52zau" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://bruce.bugmakers.club/2018/04/18/boy-learning-design-pattern/#comments" class="article-comment-link">评论</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2018/04/19/bruce/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    bruce
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2018/04/18/BruceWishes/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">BruceWishes</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="uyan_frame"></div>
+</section>
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/04/19/hello-world/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://blog.zhangruipeng.me/hexo-theme-icarus/gallery/snow-wolf.jpg)" alt="Hello World" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/04/19/hello-world/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2018-04-18T23:09:49.964Z" itemprop="datePublished">2018-04-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/04/19/晨間日記/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://img007.hc360.cn/y1/M03/D5/FA/wKhQc1TLGYmEcbHmAAAAAODp6Jg943.jpg)" alt="晨間日記" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Others/">Others</a></p>
+                            <p class="item-title"><a href="/2018/04/19/晨間日記/" class="title">晨間日記</a></p>
+                            <p class="item-date"><time datetime="2018-04-18T23:02:21.000Z" itemprop="datePublished">2018-04-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/04/19/bruce/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://blog.zhangruipeng.me/hexo-theme-icarus/gallery/snow-wolf.jpg)" alt="bruce" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/04/19/bruce/" class="title">bruce</a></p>
+                            <p class="item-date"><time datetime="2018-04-18T22:43:45.000Z" itemprop="datePublished">2018-04-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/04/18/boy-learning-design-pattern/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://blog.zhangruipeng.me/hexo-theme-icarus/gallery/snow-wolf.jpg)" alt="boy-learning-design-pattern" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/04/18/boy-learning-design-pattern/" class="title">boy-learning-design-pattern</a></p>
+                            <p class="item-date"><time datetime="2018-04-18T14:39:41.000Z" itemprop="datePublished">2018-04-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/04/18/BruceWishes/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://blog.zhangruipeng.me/hexo-theme-icarus/gallery/snow-wolf.jpg)" alt="BruceWishes" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/04/18/BruceWishes/" class="title">BruceWishes</a></p>
+                            <p class="item-date"><time datetime="2018-04-18T14:19:18.000Z" itemprop="datePublished">2018-04-18</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Others/">Others</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">5</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/design-patterns/">design-patterns</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wishes/">wishes</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/晨间日记/">晨间日记</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/design-patterns/" style="font-size: 10px;">design-patterns</a> <a href="/tags/wishes/" style="font-size: 10px;">wishes</a> <a href="/tags/晨间日记/" style="font-size: 10px;">晨间日记</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="https://www.jianshu.com/u/8bc5f4428ca2">我的简书</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://blog.csdn.net/boybruce">我的CSDN</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 Bruce Ouyang<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2161465"></script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
