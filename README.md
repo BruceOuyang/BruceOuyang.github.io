@@ -1,2 +1,0 @@
-# BruceOuyang.github.io
-blog
