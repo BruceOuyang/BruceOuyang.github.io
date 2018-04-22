@@ -1,12 +1,13 @@
 ---
 title: Hello World
-date: 2018-04-19
+date: 2018-04-19 05:05:20
+tags: 
+    - Hello World
 categories:
-    - Others
-tags: Hello World
-thumbnail: https://upload-images.jianshu.io/upload_images/3424642-db2fe15902f40b71.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700
+    - 指引
+thumbnail: https://upload-images.jianshu.io/upload_images/5792176-45cc6638af2a2dc6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240
 ---
-![Hello World](https://upload-images.jianshu.io/upload_images/3424642-db2fe15902f40b71.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
+![](https://upload-images.jianshu.io/upload_images/5792176-45cc6638af2a2dc6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
 <!-- more -->

@@ -1,7 +1,7 @@
 #By SrWoOoW
 index:
     home: 'Inicio'
-    search: 'Buscar'
+    search: 'Search'
     archive: 'Archivo'
     category: 'Categoria'
     uncategorized: 'Sin categoría'
