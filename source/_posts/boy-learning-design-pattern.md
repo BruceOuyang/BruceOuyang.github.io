@@ -1,6 +1,6 @@
 ---
 title: 开始学习设计模式
-thumbnail: https://upload-images.jianshu.io/upload_images/5792176-596ad417865f8720.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240
+thumbnail: https://upload-images.jianshu.io/upload_images/5792176-de06a365cdb8af3c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240
 date: 2018-04-20 07:13:56
 tags: 
     - 设计模式

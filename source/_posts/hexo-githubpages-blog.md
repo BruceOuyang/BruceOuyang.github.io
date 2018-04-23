@@ -7,8 +7,7 @@ tags:
     - github pages
 categories: 
     - 指引
-#banner: https://upload-images.jianshu.io/upload_images/5792176-b0a8d7d510f78b1e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240
-thumbnail: https://upload-images.jianshu.io/upload_images/5792176-b0a8d7d510f78b1e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240
+thumbnail: https://upload-images.jianshu.io/upload_images/5792176-229023d54e3a1030.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240
 ---
 ![](https://upload-images.jianshu.io/upload_images/5792176-b0a8d7d510f78b1e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 > 本文实践的操作系统是windows 10，其他OS的可以当做参考用
