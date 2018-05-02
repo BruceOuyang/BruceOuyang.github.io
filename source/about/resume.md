@@ -1,5 +1,5 @@
 ---
-title: 我的简历 | 2018 | Java高级工程师
+title: 我的简历| 2018版 | 欧阳强强 | 176-0212-5174 | Java高级工程师 | 6年工作经验
 ---
 
 ## 联系方式
@@ -17,9 +17,8 @@ title: 我的简历 | 2018 | Java高级工程师
 - 专科 / 长沙学院 / 计算机科学与技术 
 - 工作年限：6年
 - 期望职位：Java高级程序员，架构师
-- 期望薪资：税前月薪22k~25k，特别喜欢的公司可例外
+- 期望薪资：面议
 - 期望城市：上海
-
 - CSDN：https://blog.csdn.net/boybruce
 - Github：http://github.com/bruceouyang
 - 个人博客：http://bruceouyang.github.io 
