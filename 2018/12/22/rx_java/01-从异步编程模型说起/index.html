@@ -3,22 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Hello World | BuGMaker&#39; Bruce Ouyang</title>
+    <title>响应式编程01 - 从异步编程模型说起 | BuGMaker&#39; Bruce Ouyang</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
-<meta name="keywords" content="Hello World">
+    <meta name="description" content="在ReactiveX社区的官网上，写着这么一句话，简单理解就是，ReactiveX用更好的方式为异步编程提供一套API接口。 可以看到，ReactiveX的核心使命是给开发者提供一套统一，好用的异步编程模型，而这也是RxJava受欢迎的最主要的原因之一，那么今天，我们就从异步编程模型谈起。看看到底什么是异步编程模型，异步编程到底面临怎样的困境。 一、什么异步编程模型同步和异步的区别如下：  在同步">
+<meta name="keywords" content="响应式编程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://bruce.bugmakers.club/2018/04/19/hello-world/index.html">
+<meta property="og:title" content="响应式编程01 - 从异步编程模型说起">
+<meta property="og:url" content="http://bruce.bugmakers.club/2018/12/22/rx_java/01-从异步编程模型说起/index.html">
 <meta property="og:site_name" content="BuGMaker&#39; Bruce Ouyang">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta property="og:description" content="在ReactiveX社区的官网上，写着这么一句话，简单理解就是，ReactiveX用更好的方式为异步编程提供一套API接口。 可以看到，ReactiveX的核心使命是给开发者提供一套统一，好用的异步编程模型，而这也是RxJava受欢迎的最主要的原因之一，那么今天，我们就从异步编程模型谈起。看看到底什么是异步编程模型，异步编程到底面临怎样的困境。 一、什么异步编程模型同步和异步的区别如下：  在同步">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5792176-229023d54e3a1030.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-04-25T23:13:09.711Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5792176-01ad974d8874fea0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-12-22T09:55:19.924Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/5792176-229023d54e3a1030.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="响应式编程01 - 从异步编程模型说起">
+<meta name="twitter:description" content="在ReactiveX社区的官网上，写着这么一句话，简单理解就是，ReactiveX用更好的方式为异步编程提供一套API接口。 可以看到，ReactiveX的核心使命是给开发者提供一套统一，好用的异步编程模型，而这也是RxJava受欢迎的最主要的原因之一，那么今天，我们就从异步编程模型谈起。看看到底什么是异步编程模型，异步编程到底面临怎样的困境。 一、什么异步编程模型同步和异步的区别如下：  在同步">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/5792176-01ad974d8874fea0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
     
 
     
@@ -226,7 +226,7 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-rx_java/01-从异步编程模型说起" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -234,7 +234,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 class="article-title" itemprop="name">
-            Hello World
+            响应式编程01 - 从异步编程模型说起
         </h1>
     
 
@@ -243,8 +243,8 @@ var _hmt = _hmt || [];
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/04/19/hello-world/">
-            <time datetime="2018-04-18T21:05:20.000Z" itemprop="datePublished">2018-04-19</time>
+        <a href="/2018/12/22/rx_java/01-从异步编程模型说起/">
+            <time datetime="2018-12-22T09:03:00.000Z" itemprop="datePublished">2018-12-22</time>
         </a>
     </div>
 
@@ -252,13 +252,13 @@ var _hmt = _hmt || [];
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/指引/">指引</a>
+        <a class="article-category-link" href="/categories/响应式编程/">响应式编程</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Hello-World/">Hello World</a>
+        <a class="tag-link" href="/tags/响应式编程/">响应式编程</a>
     </div>
 
                     </div>
@@ -269,16 +269,35 @@ var _hmt = _hmt || [];
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p><img src="https://upload-images.jianshu.io/upload_images/5792176-45cc6638af2a2dc6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<a id="more"></a>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+            <p>在ReactiveX社区的官网上，写着这么一句话，简单理解就是，ReactiveX用更好的方式为异步编程提供一套API接口。</p>
+<p>可以看到，ReactiveX的核心使命是给开发者提供一套统一，好用的异步编程模型，而这也是RxJava受欢迎的最主要的原因之一，那么今天，我们就从异步编程模型谈起。看看到底什么是异步编程模型，异步编程到底面临怎样的困境。</p>
+<h2 id="一、什么异步编程模型"><a href="#一、什么异步编程模型" class="headerlink" title="一、什么异步编程模型"></a>一、什么异步编程模型</h2><p>同步和异步的区别如下：<br><img src="https://upload-images.jianshu.io/upload_images/5792176-3992615208d008ae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="同步和异步的区别"></p>
+<blockquote>
+<p>在同步执行时，当CPU执行到红色的IO任务时,，等待IO任务完成，直至IO完成，才继续执行接下来的普通任务；而在异步任务中，耗时操作在其他线程中，主线程不会被挂起。</p>
+</blockquote>
+<p>作为开发者而言，并不希望自己的业务线程被挂起，阻塞。以Android开发为例，Android项目的主线程时不允许阻塞的，因为这回导致界面出现“假死”的状态，这对用户体验是极大的伤害。</p>
+<p>因此，在编程语言或者系统中，为了防止主线程（业务线程）阻塞，就一定会为你提供异步的调用方法，可是，如果由我们自己全权处理异步操作，异步线程之间的通信的话，往往显得比较麻烦，因此，编程语言/框架还会<strong>提供一套能够让你不用关心底层线程操作和通信的问题，可以很方便的写出异步执行代码编程方案</strong>。这就异步编程模型。</p>
+<p>总的来说，它是一套能够让你轻松处理异步操作的编码解决方案。</p>
+<h2 id="二、不同语言（系统）的异步模型"><a href="#二、不同语言（系统）的异步模型" class="headerlink" title="二、不同语言（系统）的异步模型"></a>二、不同语言（系统）的异步模型</h2><h3 id="2-1-Java语言的异步操作模型"><a href="#2-1-Java语言的异步操作模型" class="headerlink" title="2.1 Java语言的异步操作模型"></a>2.1 Java语言的异步操作模型</h3><p>具体代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// 获取一个执行器</span></span><br><span class="line"> ExecutorService executor = Executors.newCachedThreadPool();</span><br><span class="line"> </span><br><span class="line"> Future&lt;String&gt; future = executor.submit(<span class="keyword">new</span> Callable()&#123;</span><br><span class="line"> <span class="comment">// 提交之后立即执行</span></span><br><span class="line">     System.out.println(<span class="string">"running"</span>);</span><br><span class="line">     Thread.sleep(<span class="number">3000</span>);</span><br><span class="line">     <span class="keyword">return</span> <span class="string">"complete"</span>;</span><br><span class="line"> &#125;);</span><br><span class="line"><span class="comment">// 处理其他任务</span></span><br><span class="line"> <span class="keyword">try</span> &#123;</span><br><span class="line">   <span class="comment">// 调用future.get() 获取执行结果(这居然是一个可能阻塞的调用！)</span></span><br><span class="line">     System.out.println(future.get());  </span><br><span class="line"> &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line"> </span><br><span class="line"> &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">     executor.shutdown();</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>我们可以看到，虽然执行异步任务是相对简单的，但是获取异步结果却是一个大坑，因为调用future.get()的时候，它回去查看异步任务是否完成，如果完成，则返回结果，否则，就等待会任务完成。</p>
+<p>由于这个模型大家可能比较陌生，我做了一个调用的示意图：<br><img src="https://upload-images.jianshu.io/upload_images/5792176-226acbc5c1b8bd5e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Java的Future模型"></p>
+<blockquote>
+<p>JDK8中，提供了CompletableFuture，这是对Future的扩展功能，帮助我们简化异步编程的复杂性，提供了函数式编程的能力，可以通过回调的方式处理计算结果，并且提供了转换和组合的方法。这也说明Java一直在想办法提供更好的异步操作模型。</p>
+</blockquote>
+<h3 id="2-2-Android系统提供的异步模型"><a href="#2-2-Android系统提供的异步模型" class="headerlink" title="2.2 Android系统提供的异步模型"></a>2.2 Android系统提供的异步模型</h3><p>在Android系统中，提供了AsyncTask这个异步编程模型（Android中也提供了Handler机制帮助我们很方便的自己实现一套异步操作），这些异步编程模型帮助我们处理异步的任务，而不用担心线程之间的在的一些问题。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">private class DownloadFilesTask extends AsyncTask&lt;URL, Integer, Long&gt; &#123;</span><br><span class="line">    // 这个方法会在异步线程中执行</span><br><span class="line">     protected Long doInBackground(URL... urls) &#123;</span><br><span class="line">         int count = urls.length;</span><br><span class="line">         long totalSize = 0;</span><br><span class="line">         for (int i = 0; i &lt; count; i++) &#123;</span><br><span class="line">             totalSize += Downloader.downloadFile(urls[i]);</span><br><span class="line">             publishProgress((int) ((i / (float) count) * 100));</span><br><span class="line">             // Escape early if cancel() is called</span><br><span class="line">             if (isCancelled()) break;</span><br><span class="line">         &#125;</span><br><span class="line">         return totalSize;</span><br><span class="line">     &#125;</span><br><span class="line">    // 在异步线程执行，会定时在主线程中调用</span><br><span class="line">     protected void onProgressUpdate(Integer... progress) &#123;</span><br><span class="line">     // 展示进度条</span><br><span class="line">         setProgressPercent(progress[0]);</span><br><span class="line">     &#125;</span><br><span class="line">    // 在异步线程执行完成之后，在主线程中被调用</span><br><span class="line">     protected void onPostExecute(Long result) &#123;</span><br><span class="line">     // 展示对话框，提示用户下载完成</span><br><span class="line">         showDialog(&quot;Downloaded &quot; + result + &quot; bytes&quot;);</span><br><span class="line">     &#125;</span><br><span class="line">     // 在异步线程被调用之前，会在主线程调用这个方法</span><br><span class="line">     protected void onPreExecute()&#123;</span><br><span class="line">         </span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> //开启这个异步任务很简单，获取DownloadFilesTask对象实例，执行execute方法</span><br><span class="line">  new DownloadFilesTask().execute(url1, url2, url3);</span><br></pre></td></tr></table></figure></p>
+<p>这是Android封装给我们的一个异步编程模型，可能某些同学对于Android开发不太了解，我对这段代码做了一个调用模型的示意图：<br><img src="https://upload-images.jianshu.io/upload_images/5792176-c638b3cb8639a8ce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Android的异步编程模型"></p>
+<h2 id="三、小结"><a href="#三、小结" class="headerlink" title="三、小结"></a>三、小结</h2><p>可以看到，Android提供的异步编程模型相对于Java更加完善，主线程没有阻塞的风险，可以说，这是一个不错的异步编程模式。</p>
+<p>可是因为这套异步模型对于线程的抽象程度还不够，所以我们很难用它处理复杂的业务逻辑。比如，我现在需要两个完全不同异步任务完成之后，再提示用户操作已完成。这就很难处理，通常情况下，我们的处理方法是在一个线程里依次完成两个不同的耗时任务，但这显然不是最好的解决方案。</p>
+<blockquote>
+<p>由于Java和Android两者的地位不同，关注点也会有所差异，因此它们提供的异步编程模型在设计和使用上都是不同的。但是总的来说，他们都没有提供一个相对完美的异步编程模型。</p>
+</blockquote>
+<h3 id="3-1-异步编程模型存在的问题"><a href="#3-1-异步编程模型存在的问题" class="headerlink" title="3.1 异步编程模型存在的问题"></a>3.1 异步编程模型存在的问题</h3><p>讲到这里，我们应该能够了解，无论是编程语言还是系统，所能提供的异步编程模型都存在一些问题：</p>
+<p>某些模型不完善，依然会导致阻塞的风险<br>对于线程，同步等问题的抽象不够，导致无法应对复杂业务逻辑<br>在异步代码的编写上，也不如同步代码那样容易理解</p>
+<h3 id="3-2-异步编程的新方案？"><a href="#3-2-异步编程的新方案？" class="headerlink" title="3.2 异步编程的新方案？"></a>3.2 异步编程的新方案？</h3><p>正是因为在编程语言和系统中存在许多困境，因此大家都在探索一种更好的异步编程模型，ReactiveX就是其中一个，而且可能是目前Java世界里最好的解决方案之一。</p>
+<p>而且ReactiveX只是一套异步编程的API，而不是具体的实现，因此它具备在不同的编程语言平台提供统一的异步操作风格和代码体验的能力。</p>
+<p>那么，ReactiveX到底是如何一步步解决我们的异步编程困境的呢？</p>
+<p>这个问题，请听下周再来分解。</p>
 
         
         </div>
@@ -326,7 +345,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
 
             
     
-        <a href="http://bruce.bugmakers.club/2018/04/19/hello-world/#comments" class="article-comment-link">评论</a>
+        <a href="http://bruce.bugmakers.club/2018/12/22/rx_java/01-从异步编程模型说起/#comments" class="article-comment-link">评论</a>
     
 
         </footer>
@@ -335,15 +354,11 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
         
 <nav id="article-nav">
     
-        <a href="/2018/04/19/hexo-githubpages-blog/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    免费博客 | Hexo搭建博客并部署到Github Pages服务
-                
-            </div>
-        </a>
     
+        <a href="/2018/04/23/tools-setuna/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">推荐一款漂浮截图工具：SETUNA</div>
+        </a>
     
 </nav>
 
