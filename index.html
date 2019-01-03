@@ -1,1106 +1,335 @@
 <!DOCTYPE html>
-<html lang=zh>
-<head>
-    <meta charset="utf-8">
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="BruceOuyang&#39;s BLOG">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
     
-    <title>BuGMaker&#39; Bruce Ouyang</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="BuGMaker&#39; Bruce Ouyang">
-<meta property="og:url" content="http://bruce.bugmakers.club/index.html">
-<meta property="og:site_name" content="BuGMaker&#39; Bruce Ouyang">
-<meta property="og:locale" content="zh-CN">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BuGMaker&#39; Bruce Ouyang">
+      BuGMaker&#39; Bruce Ouyang
     
+  </title>
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/plugins/gitment.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="/js/qrious.js"></script>
+<script src="/js/gitment.js"></script>
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
 
-    
-        <link rel="alternate" href="/" title="BuGMaker&#39; Bruce Ouyang" type="application/atom+xml" />
-    
-
-    
-        <link rel="icon" href="/css/images/favicon.ico" />
-    
-
-    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/libs/open-sans/styles.css">
-    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
-
-    <link rel="stylesheet" href="/css/style.css">
-
-    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
-    
-    
-        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
-    
-    
-        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
-    
-    
-    
-    
-        <script>
-var _hmt = _hmt || [];
-(function() {
-    var hm = document.createElement("script");
-    hm.src = "//hm.baidu.com/hm.js?fb12fb5b9b6b0bb798e3ad6553aec2ee";
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(hm, s);
-})();
-</script>
-
-    
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
 
 
 </head>
-
-<body>
-    <div id="container">
-        <header id="header">
-    <div id="header-main" class="header-inner">
-        <div class="outer">
-            <a href="/" id="logo">
-                <i class="logo"></i>
-                <span class="site-title">BuGMaker&#39; Bruce Ouyang</span>
-            </a>
-            <nav id="main-nav">
-                
-                    <a class="main-nav-link" href="/.">首页</a>
-                
-                    <a class="main-nav-link" href="/archives">归档</a>
-                
-                    <a class="main-nav-link" href="/categories">分类</a>
-                
-                    <a class="main-nav-link" href="/tags">标签</a>
-                
-                    <a class="main-nav-link" href="/about">关于</a>
-                
-            </nav>
-            
-                
-                <nav id="sub-nav">
-                    <div class="profile" id="profile-nav">
-                        <a id="profile-anchor" href="javascript:;">
-                            <img class="avatar" src="/css/images/bruce-avatar.png" />
-                            <i class="fa fa-caret-down"></i>
-                        </a>
-                    </div>
-                </nav>
-            
-            <div id="search-form-wrap">
-
-    <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
-        <button type="submit" class="search-form-submit"></button>
-    </form>
-    <div class="ins-search">
-    <div class="ins-search-mask"></div>
-    <div class="ins-search-container">
-        <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
-            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
 </div>
-<script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: '文章',
-            PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
-            UNTITLED: '(未命名)',
-        },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
-</script>
-<script src="/js/insight.js"></script>
 
-</div>
-        </div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>BuGMaker' Bruce Ouyang</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link active">首页</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
     </div>
-    <div id="main-nav-mobile" class="header-sub header-inner">
-        <table class="menu outer">
-            <tr>
-                
-                    <td><a class="main-nav-link" href="/.">首页</a></td>
-                
-                    <td><a class="main-nav-link" href="/archives">归档</a></td>
-                
-                    <td><a class="main-nav-link" href="/categories">分类</a></td>
-                
-                    <td><a class="main-nav-link" href="/tags">标签</a></td>
-                
-                    <td><a class="main-nav-link" href="/about">关于</a></td>
-                
-                <td>
-                    
-    <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link mobile-active">首页</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">标签</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">归档</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">关于</a>
+            
+          </li>
+        
+      </ul>
     </div>
-
-                </td>
-            </tr>
-        </table>
-    </div>
+  </div>
 </header>
 
-        <div class="outer">
-            
-                
-
-<aside id="profile">
-    <div class="inner profile-inner">
-        <div class="base-info profile-block">
-            <img id="avatar" src="/css/images/bruce-avatar.png" />
-            <h2 id="name">Bruce Ouyang</h2>
-            <h3 id="title">Head Of BuGMakers</h3>
-            <span id="location"><i class="fa fa-map-marker"></i>Shanghai, China</span>
-            <a id="follow" target="_blank" href="https://github.com/BruceOuyang">关注我</a>
-        </div>
-        <div class="article-info profile-block">
-            <div class="article-info-block">
-                6
-                <span>文章</span>
-            </div>
-            <div class="article-info-block">
-                9
-                <span>标签</span>
-            </div>
-        </div>
+    <main class="app-body">
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2018/12/22/awesome/QLExpress/">规则引擎 - QLExpress</a>
+      </h2>
+      <p class="article-date">2018年12月22日</p>
+      
         
-        <div class="profile-block social-links">
-            <table>
-                <tr>
-                    
-                    
-                    <td>
-                        <a href="https://github.com/BruceOuyang" target="_blank" title="github" >
-                            <i class="fa fa-github"></i>
-                        </a>
-                    </td>
-                    
-                    <td>
-                        <a href="/" target="_blank" title="twitter" >
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                    </td>
-                    
-                    <td>
-                        <a href="/" target="_blank" title="facebook" >
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                    </td>
-                    
-                    <td>
-                        <a href="/" target="_blank" title="dribbble" >
-                            <i class="fa fa-dribbble"></i>
-                        </a>
-                    </td>
-                    
-                    <td>
-                        <a href="/" target="_blank" title="rss" >
-                            <i class="fa fa-rss"></i>
-                        </a>
-                    </td>
-                    
-                </tr>
-            </table>
-        </div>
+  <a href="/tags#规则引擎" >
+    <span class="tag-code">规则引擎</span>
+  </a>
+
+      
+      <div class="article-summary">
         
-    </div>
-</aside>
-
-            
-            <section id="main">
-    <article id="post-awesome/QLExpress" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
+          一、简介QlExpress脚本语言解析工具诞生于2010年，是玄难大师根据当时汇金的业务需要开始编写。
+该项目是由阿里的电商业务规则、表达式（布尔组合）、特殊数学公式计算（高精度）、语法分析、脚本二次定制等强需求而设计的一门动态脚本引擎解析工具。
+在阿里集团有很强的影响力，同时为了自身不断优 ...
         
+      </div>
+      <a class="more" href="/2018/12/22/awesome/QLExpress/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2018/04/23/tools-setuna/">推荐一款漂浮截图工具：SETUNA</a>
+      </h2>
+      <p class="article-date">2018年4月23日</p>
+      
         
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/12/22/awesome/QLExpress/">规则引擎 - QLExpress</a>
-        </h1>
-    
+  <a href="/tags#小工具" >
+    <span class="tag-code">小工具</span>
+  </a>
 
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/12/22/awesome/QLExpress/">
-            <time datetime="2018-12-22T09:03:00.000Z" itemprop="datePublished">2018-12-22</time>
-        </a>
-    </div>
+  <a href="/tags#漂浮截图" >
+    <span class="tag-code">漂浮截图</span>
+  </a>
 
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/awesome/">awesome</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/规则引擎/">规则引擎</a>
-    </div>
-
-                    </div>
-                
-            </header>
+      
+      <div class="article-summary">
         
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p>QlExpress脚本语言解析工具诞生于2010年，是玄难大师根据当时汇金的业务需要开始编写。</p>
-<p>该项目是由阿里的电商业务规则、表达式（布尔组合）、特殊数学公式计算（高精度）、语法分析、脚本二次定制等强需求而设计的一门动态脚本引擎解析工具。</p>
-<p>在阿里集团有很强的影响力，同时为了自身不断优化、发扬开源贡献精神，于2012年开源。</p>
-<p>QlExpress经过40多个小版本的迭代，性能和功能更加趋于稳定，被更多的团队接受和认可，在双11洪流高峰、复杂规则业务配置平台等场景下也得到更好的实战考验。</p>
-<p>开源地址：<a href="https://github.com/alibaba/QLExpress" target="_blank" rel="noopener">https://github.com/alibaba/QLExpress</a></p>
-<h2 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a>二、使用</h2><h3 id="1、-依赖和调用说明"><a href="#1、-依赖和调用说明" class="headerlink" title="1、 依赖和调用说明"></a>1、 依赖和调用说明</h3><p>maven 依赖<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>QLExpress<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.2.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>简单示例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ExpressRunner runner = new ExpressRunner();</span><br><span class="line">DefaultContext&lt;String, Object&gt; context = new DefaultContext&lt;String, Object&gt;();</span><br><span class="line">context.put(&quot;a&quot;,1);</span><br><span class="line">context.put(&quot;b&quot;,2);</span><br><span class="line">context.put(&quot;c&quot;,3);</span><br><span class="line">String express = &quot;a+b*c&quot;;</span><br><span class="line">Object r = runner.execute(express, context, null, true, false);</span><br><span class="line">System.out.println(r);</span><br></pre></td></tr></table></figure></p>
-<h3 id="2、语法介绍"><a href="#2、语法介绍" class="headerlink" title="2、语法介绍"></a>2、语法介绍</h3><h4 id="2-1-操作符和-java-对象操作"><a href="#2-1-操作符和-java-对象操作" class="headerlink" title="2.1 操作符和 java 对象操作"></a>2.1 操作符和 java 对象操作</h4><p>普通 Java 语法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//支持 +,-,*,/,&lt;,&gt;,&lt;=,&gt;=,==,!=,&lt;&gt;【等同于!=】,%,mod【取模等同于%】,++,--,</span><br><span class="line">//in【类似sql】,like【sql语法】,&amp;&amp;,||,!,等操作符</span><br><span class="line">//支持for，break、continue、if then else 等标准的程序控制逻辑</span><br><span class="line">n=10;</span><br><span class="line">for(sum=0,i=0;i&lt;n;i++)&#123;</span><br><span class="line">sum=sum+i;</span><br><span class="line">&#125;</span><br><span class="line">return sum;</span><br><span class="line"> </span><br><span class="line">//逻辑三元操作</span><br><span class="line">a=1;</span><br><span class="line">b=2;</span><br><span class="line">max = a&gt;b?a:b;</span><br></pre></td></tr></table></figure></p>
-<p>Java 的对象操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import com.ql.util.express.test.OrderQuery;</span><br><span class="line">//系统自动会import java.lang.*,import java.util.*;</span><br><span class="line"></span><br><span class="line">query = new OrderQuery();//创建class实例,会根据classLoader信息，自动补全类路径</span><br><span class="line">query.setCreateDate(new Date());//设置属性</span><br><span class="line">query.buyer = &quot;张三&quot;;//调用属性,默认会转化为setBuyer(&quot;张三&quot;)</span><br><span class="line">result = bizOrderDAO.query(query);//调用bean对象的方法</span><br><span class="line">System.out.println(result.getId());//静态方法</span><br></pre></td></tr></table></figure></p>
-<h4 id="2-2-脚本中定义function"><a href="#2-2-脚本中定义function" class="headerlink" title="2.2 脚本中定义function"></a>2.2 脚本中定义function</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function add(int a,int b)&#123;</span><br><span class="line">  return a+b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">function sub(int a,int b)&#123;</span><br><span class="line">  return a - b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">a=10;</span><br><span class="line">return add(a,4) + sub(a,9);</span><br></pre></td></tr></table></figure>
-<h4 id="2-3-扩展操作符：Operator"><a href="#2-3-扩展操作符：Operator" class="headerlink" title="2.3 扩展操作符：Operator"></a>2.3 扩展操作符：Operator</h4><p>替换if then else 等关键字<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">runner.addOperatorWithAlias(&quot;如果&quot;, &quot;if&quot;,null);</span><br><span class="line">runner.addOperatorWithAlias(&quot;则&quot;, &quot;then&quot;,null);</span><br><span class="line">runner.addOperatorWithAlias(&quot;否则&quot;, &quot;else&quot;,null);</span><br><span class="line"></span><br><span class="line">exp = &quot;如果  (语文+数学+英语&gt;270) 则 &#123;return 1;&#125; 否则 &#123;return 0;&#125;&quot;;</span><br><span class="line">DefaultContext&lt;String, Object&gt; context = new DefaultContext&lt;String, Object&gt;();</span><br><span class="line">runner.execute(exp,context,null,false,false,null);</span><br></pre></td></tr></table></figure></p>
-<p>如何自定义Operator<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//定义一个继承自com.ql.util.express.Operator的操作符</span><br><span class="line">public class JoinOperator extends Operator&#123;</span><br><span class="line">	public Object executeInner(Object[] list) throws Exception &#123;</span><br><span class="line">		Object opdata1 = list[0];</span><br><span class="line">		Object opdata2 = list[1];</span><br><span class="line">		if(opdata1 instanceof java.util.List)&#123;</span><br><span class="line">			((java.util.List)opdata1).add(opdata2);</span><br><span class="line">			return opdata1;</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			java.util.List result = new java.util.ArrayList();</span><br><span class="line">			result.add(opdata1);</span><br><span class="line">			result.add(opdata2);</span><br><span class="line">			return result;				</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>如何使用Operator<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">//(1)addOperator</span><br><span class="line">ExpressRunner runner = new ExpressRunner();</span><br><span class="line">DefaultContext&lt;String, Object&gt; context = new DefaultContext&lt;String, Object&gt;();</span><br><span class="line">runner.addOperator(&quot;join&quot;,new JoinOperator());</span><br><span class="line">Object r = runner.execute(&quot;1 join 2 join 3&quot;, context, null, false, false);</span><br><span class="line">System.out.println(r);</span><br><span class="line">//返回结果  [1, 2, 3]</span><br><span class="line"></span><br><span class="line">//(2)replaceOperator</span><br><span class="line">ExpressRunner runner = new ExpressRunner();</span><br><span class="line">DefaultContext&lt;String, Object&gt; context = new DefaultContext&lt;String, Object&gt;();</span><br><span class="line">runner.replaceOperator(&quot;+&quot;,new JoinOperator());</span><br><span class="line">Object r = runner.execute(&quot;1 + 2 + 3&quot;, context, null, false, false);</span><br><span class="line">System.out.println(r);</span><br><span class="line">//返回结果  [1, 2, 3]</span><br><span class="line"></span><br><span class="line">//(3)addFunction</span><br><span class="line">ExpressRunner runner = new ExpressRunner();</span><br><span class="line">DefaultContext&lt;String, Object&gt; context = new DefaultContext&lt;String, Object&gt;();</span><br><span class="line">runner.addFunction(&quot;join&quot;,new JoinOperator());</span><br><span class="line">Object r = runner.execute(&quot;join(1,2,3)&quot;, context, null, false, false);</span><br><span class="line">System.out.println(r);</span><br><span class="line">//返回结果  [1, 2, 3]</span><br></pre></td></tr></table></figure></p>
-<h4 id="2-4-绑定java类或者对象的method"><a href="#2-4-绑定java类或者对象的method" class="headerlink" title="2.4 绑定java类或者对象的method"></a>2.4 绑定java类或者对象的method</h4><p>addFunctionOfClassMethod + addFunctionOfServiceMethod<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">public class BeanExample &#123;</span><br><span class="line">	public static String upper(String abc) &#123;</span><br><span class="line">		return abc.toUpperCase();</span><br><span class="line">	&#125;</span><br><span class="line">	public boolean anyContains(String str, String searchStr) &#123;</span><br><span class="line"></span><br><span class="line">        char[] s = str.toCharArray();</span><br><span class="line">        for (char c : s) &#123;</span><br><span class="line">            if (searchStr.contains(c+&quot;&quot;)) &#123;</span><br><span class="line">                return true;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">runner.addFunctionOfClassMethod(&quot;取绝对值&quot;, Math.class.getName(), &quot;abs&quot;,</span><br><span class="line">				new String[] &#123; &quot;double&quot; &#125;, null);</span><br><span class="line">runner.addFunctionOfClassMethod(&quot;转换为大写&quot;, BeanExample.class.getName(),</span><br><span class="line">				&quot;upper&quot;, new String[] &#123; &quot;String&quot; &#125;, null);</span><br><span class="line"></span><br><span class="line">runner.addFunctionOfServiceMethod(&quot;打印&quot;, System.out, &quot;println&quot;,new String[] &#123; &quot;String&quot; &#125;, null);</span><br><span class="line">runner.addFunctionOfServiceMethod(&quot;contains&quot;, new BeanExample(), &quot;anyContains&quot;,</span><br><span class="line">            new Class[] &#123; String.class, String.class &#125;, null);</span><br><span class="line"></span><br><span class="line">String exp = “取绝对值(-100);转换为大写(\&quot;hello world\&quot;);打印(\&quot;你好吗？\&quot;);contains(&quot;helloworld&quot;,\&quot;aeiou\&quot;)”;</span><br><span class="line">runner.execute(exp, context, null, false, false);</span><br></pre></td></tr></table></figure></p>
-<h4 id="2-5-macro-宏定义"><a href="#2-5-macro-宏定义" class="headerlink" title="2.5 macro 宏定义"></a>2.5 macro 宏定义</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">runner.addMacro(&quot;计算平均成绩&quot;, &quot;(语文+数学+英语)/3.0&quot;);</span><br><span class="line">runner.addMacro(&quot;是否优秀&quot;, &quot;计算平均成绩&gt;90&quot;);</span><br><span class="line">IExpressContext&lt;String, Object&gt; context =new DefaultContext&lt;String, Object&gt;();</span><br><span class="line">context.put(&quot;语文&quot;, 88);</span><br><span class="line">context.put(&quot;数学&quot;, 99);</span><br><span class="line">context.put(&quot;英语&quot;, 95);</span><br><span class="line">Object result = runner.execute(&quot;是否优秀&quot;, context, null, false, false);</span><br><span class="line">System.out.println(r);</span><br><span class="line">//返回结果true</span><br></pre></td></tr></table></figure>
-<h4 id="2-6-编译脚本，查询外部需要定义的变量和函数"><a href="#2-6-编译脚本，查询外部需要定义的变量和函数" class="headerlink" title="2.6 编译脚本，查询外部需要定义的变量和函数"></a>2.6 编译脚本，查询外部需要定义的变量和函数</h4><blockquote>
-<p>注意以下脚本int和没有int的区别<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">String express = &quot;int 平均分 = (语文+数学+英语+综合考试.科目2)/4.0;return 平均分&quot;;</span><br><span class="line">ExpressRunner runner = new ExpressRunner(true,true);</span><br><span class="line">String[] names = runner.getOutVarNames(express);</span><br><span class="line">for(String s:names)&#123;</span><br><span class="line"> System.out.println(&quot;var : &quot; + s);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//输出结果：</span><br><span class="line"></span><br><span class="line">var : 数学</span><br><span class="line">var : 综合考试</span><br><span class="line">var : 英语</span><br><span class="line">var : 语文</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h4 id="2-7-关于不定参数的使用"><a href="#2-7-关于不定参数的使用" class="headerlink" title="2.7 关于不定参数的使用"></a>2.7 关于不定参数的使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">   public void testMethodReplace() throws Exception &#123;</span><br><span class="line">       ExpressRunner runner = new ExpressRunner();</span><br><span class="line">       IExpressContext&lt;String,Object&gt; expressContext = new DefaultContext&lt;String,Object&gt;();</span><br><span class="line">       runner.addFunctionOfServiceMethod(&quot;getTemplate&quot;, this, &quot;getTemplate&quot;, new Class[]&#123;Object[].class&#125;, null);</span><br><span class="line"></span><br><span class="line">       //(1)默认的不定参数可以使用数组来代替</span><br><span class="line">       Object r = runner.execute(&quot;getTemplate([11,&apos;22&apos;,33L,true])&quot;, expressContext, null,false, false);</span><br><span class="line">       System.out.println(r);</span><br><span class="line">       //(2)像java一样,支持函数动态参数调用,需要打开以下全局开关,否则以下调用会失败</span><br><span class="line">       DynamicParamsUtil.supportDynamicParams = true;</span><br><span class="line">       r = runner.execute(&quot;getTemplate(11,&apos;22&apos;,33L,true)&quot;, expressContext, null,false, false);</span><br><span class="line">       System.out.println(r);</span><br><span class="line">   &#125;</span><br><span class="line">   //等价于getTemplate(Object[] params)</span><br><span class="line">   public Object getTemplate(Object... params) throws Exception&#123;</span><br><span class="line">       String result = &quot;&quot;;</span><br><span class="line">       for(Object obj:params)&#123;</span><br><span class="line">           result = result+obj+&quot;,&quot;;</span><br><span class="line">       &#125;</span><br><span class="line">       return result;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<h4 id="2-8-关于集合的快捷写法"><a href="#2-8-关于集合的快捷写法" class="headerlink" title="2.8 关于集合的快捷写法"></a>2.8 关于集合的快捷写法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">public void testSet() throws Exception &#123;</span><br><span class="line">    ExpressRunner runner = new ExpressRunner(false,false);</span><br><span class="line">    DefaultContext&lt;String, Object&gt; context = new DefaultContext&lt;String, Object&gt;();</span><br><span class="line">    String express = &quot;abc = NewMap(1:1,2:2); return abc.get(1) + abc.get(2);&quot;;</span><br><span class="line">    Object r = runner.execute(express, context, null, false, false);</span><br><span class="line">    System.out.println(r);</span><br><span class="line">    express = &quot;abc = NewList(1,2,3); return abc.get(1)+abc.get(2)&quot;;</span><br><span class="line">    r = runner.execute(express, context, null, false, false);</span><br><span class="line">    System.out.println(r);</span><br><span class="line">    express = &quot;abc = [1,2,3]; return abc[1]+abc[2];&quot;;</span><br><span class="line">    r = runner.execute(express, context, null, false, false);</span><br><span class="line">    System.out.println(r);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="2-9-集合的遍历"><a href="#2-9-集合的遍历" class="headerlink" title="2.9 集合的遍历"></a>2.9 集合的遍历</h4><p>其实类似java的语法，只是ql不支持for(obj:list){}的语法，只能通过下标访问<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//遍历map</span><br><span class="line">  map = new HashMap();</span><br><span class="line">  map.put(&quot;a&quot;, &quot;a_value&quot;);</span><br><span class="line">  map.put(&quot;b&quot;, &quot;b_value&quot;);</span><br><span class="line">  keySet = map.keySet();</span><br><span class="line">  objArr = keySet.toArray();</span><br><span class="line">  for (i=0;i&lt;objArr.length;i++) &#123;</span><br><span class="line">    key = objArr[i];</span><br><span class="line">    System.out.println(map.get(key));</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="3、运行参数和API列表介绍"><a href="#3、运行参数和API列表介绍" class="headerlink" title="3、运行参数和API列表介绍"></a>3、运行参数和API列表介绍</h3><p>QLExpressRunner如下图所示，从语法树分析、上下文、执行过程三个方面提供二次定制的功能扩展。<br><img src="https://upload-images.jianshu.io/upload_images/5792176-a102dd5d32f05c1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="QLExpressRunner"></p>
-<h4 id="3-1-属性开关"><a href="#3-1-属性开关" class="headerlink" title="3.1 属性开关"></a>3.1 属性开关</h4><p>isPrecise<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 是否需要高精度计算</span><br><span class="line"> */</span><br><span class="line">private boolean isPrecise = false;</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>高精度计算在会计财务中非常重要，java的float、double、int、long存在很多隐式转换，做四则运算和比较的时候其实存在非常多的安全隐患。 所以类似汇金的系统中，会有很多BigDecimal转换代码。而使用QLExpress，你只要关注数学公式本身 订单总价 = 单价 <em> 数量 + 首重价格 + （ 总重量 - 首重） </em> 续重单价 ，然后设置这个属性即可，所有的中间运算过程都会保证不丢失精度。</p>
-</blockquote>
-<p>isShortCircuit<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 是否使用逻辑短路特性</span><br><span class="line"> */</span><br><span class="line">private boolean isShortCircuit = true;</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>在很多业务决策系统中，往往需要对布尔条件表达式进行分析输出，普通的java运算一般会通过逻辑短路来减少性能的消耗。例如规则公式： star&gt;10000 and shoptype in(‘tmall’,’juhuasuan’) and price between (100,900) 假设第一个条件 star&gt;10000 不满足就停止运算。但业务系统却还是希望把后面的逻辑都能够运算一遍，并且输出中间过程，保证更快更好的做出决策。 </p>
-</blockquote>
-<p>参照单元测试: <a href="https://github.com/alibaba/QLExpress/blob/master/src/test/java/com/ql/util/express/test/logic/ShortCircuitLogicTest.java" target="_blank" rel="noopener">ShortCircuitLogicTest.java</a></p>
-<p>isTrace<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 是否输出所有的跟踪信息，同时还需要log级别是DEBUG级别</span><br><span class="line"> */</span><br><span class="line">private boolean isTrace = false;</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>这个主要是是否输出脚本的编译解析过程，一般对于业务系统来说关闭之后会提高性能。</p>
-</blockquote>
-<h4 id="3-2-调用入参"><a href="#3-2-调用入参" class="headerlink" title="3.2 调用入参"></a>3.2 调用入参</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 执行一段文本</span><br><span class="line"> * @param expressString 程序文本</span><br><span class="line"> * @param context 执行上下文，可以扩展为包含ApplicationContext</span><br><span class="line"> * @param errorList 输出的错误信息List</span><br><span class="line"> * @param isCache 是否使用Cache中的指令集,建议为true</span><br><span class="line"> * @param isTrace 是否输出详细的执行指令信息，建议为false</span><br><span class="line"> * @param aLog 输出的log</span><br><span class="line"> * @return</span><br><span class="line"> * @throws Exception</span><br><span class="line"> */</span><br><span class="line">Object execute(String expressString, IExpressContext&lt;String,Object&gt; context,List&lt;String&gt; errorList, boolean isCache, boolean isTrace, Log aLog);</span><br></pre></td></tr></table></figure>
-<h4 id="3-3-功能扩展API列表"><a href="#3-3-功能扩展API列表" class="headerlink" title="3.3 功能扩展API列表"></a>3.3 功能扩展API列表</h4><p>QLExpress主要通过子类实现Operator.java提供的以下方法来最简单的操作符定义，然后可以被通过addFunction或者addOperator的方式注入到ExpressRunner中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public abstract Object executeInner(Object[] list) throws Exception;</span><br></pre></td></tr></table></figure></p>
-<p>比如我们几行代码就可以实现一个功能超级强大、非常好用的join操作符:<br>list = 1 join 2 join 3; -&gt; [1,2,3] list = join(list,4,5,6); -&gt; [1,2,3,4,5,6]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class JoinOperator extends Operator&#123;</span><br><span class="line">	public Object executeInner(Object[] list) throws Exception &#123;</span><br><span class="line">        java.util.List result = new java.util.ArrayList();</span><br><span class="line">        Object opdata1 = list[0];</span><br><span class="line">        if(opdata1 instanceof java.util.List)&#123;</span><br><span class="line">           result.addAll((java.util.List)opdata1);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            result.add(opdata1);</span><br><span class="line">        &#125;</span><br><span class="line">        for(int i=1;i&lt;list.length;i++)&#123;</span><br><span class="line">           result.add(list[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        return result;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>如果你使用Operator的基类OperatorBase.java将获得更强大的能力，基本能够满足所有的要求。</p>
-<h5 id="3-3-1-function相关API"><a href="#3-3-1-function相关API" class="headerlink" title="3.3.1 function相关API"></a>3.3.1 function相关API</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//通过name获取function的定义</span><br><span class="line">OperatorBase getFunciton(String name);</span><br><span class="line"></span><br><span class="line">//通过自定义的Operator来实现类似：fun(a,b,c)</span><br><span class="line">void addFunction(String name, OperatorBase op);</span><br><span class="line">//fun(a,b,c) 绑定 object.function(a,b,c)对象方法</span><br><span class="line">void addFunctionOfServiceMethod(String name, Object aServiceObject,</span><br><span class="line">			String aFunctionName, Class&lt;?&gt;[] aParameterClassTypes,</span><br><span class="line">			String errorInfo);</span><br><span class="line">//fun(a,b,c) 绑定 Class.function(a,b,c)类方法</span><br><span class="line">void addFunctionOfClassMethod(String name, String aClassName,</span><br><span class="line">			String aFunctionName, Class&lt;?&gt;[] aParameterClassTypes,</span><br><span class="line">			String errorInfo);</span><br><span class="line">//给Class增加或者替换method，同时 支持a.fun(b) ，fun(a,b) 两种方法调用</span><br><span class="line">//比如扩展String.class的isBlank方法:“abc”.isBlank()和isBlank(&quot;abc&quot;)都可以调用</span><br><span class="line">void addFunctionAndClassMethod(String name,Class&lt;?&gt;bindingClass, OperatorBase op);</span><br></pre></td></tr></table></figure>
-<h5 id="3-3-2-Operator相关API"><a href="#3-3-2-Operator相关API" class="headerlink" title="3.3.2 Operator相关API"></a>3.3.2 Operator相关API</h5><p>提到脚本语言的操作符，优先级、运算的目数、覆盖原始的操作符(+,-,*,/等等)都是需要考虑的问题，QLExpress统统帮你搞定了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//添加操作符号,可以设置优先级</span><br><span class="line">void addOperator(String name,Operator op);</span><br><span class="line">void addOperator(String name,String aRefOpername,Operator op);</span><br><span class="line">	</span><br><span class="line">//替换操作符处理</span><br><span class="line">OperatorBase replaceOperator(String name,OperatorBase op);</span><br><span class="line">    </span><br><span class="line">//添加操作符和关键字的别名，比如 if..then..else -&gt; 如果。。那么。。否则。。</span><br><span class="line">void addOperatorWithAlias(String keyWordName, String realKeyWordName, String errorInfo);</span><br></pre></td></tr></table></figure></p>
-<h5 id="3-3-3-宏定义相关API"><a href="#3-3-3-宏定义相关API" class="headerlink" title="3.3.3 宏定义相关API"></a>3.3.3 宏定义相关API</h5><p>QLExpress的宏定义比较简单，就是简单的用一个变量替换一段文本，和传统的函数替换有所区别。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//比如addMacro(&quot;天猫卖家&quot;,&quot;userDO.userTag &amp;1024 ==1024&quot;)</span><br><span class="line">void addMacro(String macroName,String express)</span><br></pre></td></tr></table></figure></p>
-<h5 id="3-3-4-java-class的相关api"><a href="#3-3-4-java-class的相关api" class="headerlink" title="3.3.4 java class的相关api"></a>3.3.4 java class的相关api</h5><p>QLExpress可以通过给java类增加或者改写一些method和field，比如 链式调用：”list.join(“1”).join(“2”)”，比如中文属性：”list.长度”。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//添加类的属性字段</span><br><span class="line">void addClassField(String field,Class&lt;?&gt;bindingClass,Class&lt;?&gt;returnType,Operator op);</span><br><span class="line"></span><br><span class="line">//添加类的方法</span><br><span class="line">void addClassMethod(String name,Class&lt;?&gt;bindingClass,OperatorBase op);</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>注意，这些类的字段和方法是执行器通过解析语法执行的，而不是通过字节码增强等技术，所以只在脚本运行期间生效，不会对jvm整体的运行产生任何影响，所以是绝对安全的。</p>
-</blockquote>
-<h5 id="3-3-5-语法树解析变量、函数的API"><a href="#3-3-5-语法树解析变量、函数的API" class="headerlink" title="3.3.5 语法树解析变量、函数的API"></a>3.3.5 语法树解析变量、函数的API</h5><p>这些接口主要是对一个脚本内容的静态分析，可以作为上下文创建的依据，也可以用于系统的业务处理。<br>比如：计算 “a+fun1(a)+fun2(a+b)+c.getName()” 包含的变量:a,b,c 包含的函数:fun1,fun2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//获取一个表达式需要的外部变量名称列表</span><br><span class="line">String[] getOutVarNames(String express);</span><br><span class="line"></span><br><span class="line">String[] getOutFunctionNames(String express);</span><br></pre></td></tr></table></figure></p>
-<h5 id="3-3-6-语法解析校验api"><a href="#3-3-6-语法解析校验api" class="headerlink" title="3.3.6 语法解析校验api"></a>3.3.6 语法解析校验api</h5><p>脚本语法是否正确，可以通过ExpressRunner编译指令集的接口来完成。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String expressString = &quot;for(i=0;i&lt;10;i++)&#123;sum=i+1&#125;return sum;&quot;;</span><br><span class="line">InstructionSet instructionSet = expressRunner.parseInstructionSet(expressString);</span><br><span class="line">//如果调用过程不出现异常，指令集instructionSet就是可以被加载运行（execute）了！</span><br></pre></td></tr></table></figure></p>
-<h5 id="3-3-7-指令集缓存相关的api"><a href="#3-3-7-指令集缓存相关的api" class="headerlink" title="3.3.7 指令集缓存相关的api"></a>3.3.7 指令集缓存相关的api</h5><p>因为QLExpress对文本到指令集做了一个本地HashMap缓存，通常情况下一个设计合理的应用脚本数量应该是有限的，缓存是安全稳定的，但是也提供了一些接口进行管理。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//优先从本地指令集缓存获取指令集，没有的话生成并且缓存在本地</span><br><span class="line">InstructionSet getInstructionSetFromLocalCache(String expressString);</span><br><span class="line">//清除缓存</span><br><span class="line">void clearExpressCache();</span><br></pre></td></tr></table></figure></p>
-<h5 id="3-3-8-增强上下文参数Context相关的api-01与spring框架的无缝集成"><a href="#3-3-8-增强上下文参数Context相关的api-01与spring框架的无缝集成" class="headerlink" title="3.3.8 增强上下文参数Context相关的api - 01与spring框架的无缝集成"></a>3.3.8 增强上下文参数Context相关的api - 01与spring框架的无缝集成</h5><p>上下文参数 IExpressContext context 非常有用，它允许put任何变量，然后在脚本中识别出来。<br>在实际中我们很希望能够无缝的集成到spring框架中，可以仿照下面的例子使用一个子类。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">public class QLExpressContext extends HashMap&lt;String, Object&gt; implements</span><br><span class="line">		IExpressContext&lt;String, Object&gt; &#123;</span><br><span class="line"></span><br><span class="line">	private ApplicationContext context;</span><br><span class="line"></span><br><span class="line">	//构造函数，传入context和 ApplicationContext</span><br><span class="line">	public QLExpressContext(Map&lt;String, Object&gt; map,</span><br><span class="line">                            ApplicationContext aContext) &#123;</span><br><span class="line">		super(map);</span><br><span class="line">		this.context = aContext;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 抽象方法：根据名称从属性列表中提取属性值</span><br><span class="line">	 */</span><br><span class="line">	public Object get(Object name) &#123;</span><br><span class="line">		Object result = null;</span><br><span class="line">		result = super.get(name);</span><br><span class="line">		try &#123;</span><br><span class="line">			if (result == null &amp;&amp; this.context != null</span><br><span class="line">					&amp;&amp; this.context.containsBean((String) name)) &#123;</span><br><span class="line">				// 如果在Spring容器中包含bean，则返回String的Bean</span><br><span class="line">				result = this.context.getBean((String) name);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; catch (Exception e) &#123;</span><br><span class="line">			throw new RuntimeException(e);</span><br><span class="line">		&#125;</span><br><span class="line">		return result;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public Object put(String name, Object object) &#123;</span><br><span class="line">		return super.put(name, object);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>完整的demo参照 <a href="https://github.com/alibaba/QLExpress/blob/master/src/test/java/com/ql/util/express/test/spring/SpringDemoTest.java" target="_blank" rel="noopener">SpringDemoTest.java</a></p>
-<h5 id="3-3-9-增强上下文参数Context相关的api-02自定义函数操作符获取原始的context控制上下文"><a href="#3-3-9-增强上下文参数Context相关的api-02自定义函数操作符获取原始的context控制上下文" class="headerlink" title="3.3.9 增强上下文参数Context相关的api - 02自定义函数操作符获取原始的context控制上下文"></a>3.3.9 增强上下文参数Context相关的api - 02自定义函数操作符获取原始的context控制上下文</h5><p>自定义的Operator需要直接继承OperatorBase，获取到parent即可，可以用于在运行一组脚本的时候，直接编辑上下文信息，业务逻辑处理上也非常有用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">public class ContextMessagePutTest &#123;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    class OperatorContextPut extends OperatorBase &#123;</span><br><span class="line">        </span><br><span class="line">        public OperatorContextPut(String aName) &#123;</span><br><span class="line">            this.name = aName;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        @Override</span><br><span class="line">        public OperateData executeInner(InstructionSetContext parent, ArraySwap list) throws Exception &#123;</span><br><span class="line">            String key = list.get(0).toString();</span><br><span class="line">            Object value = list.get(1);</span><br><span class="line">            parent.put(key,value);</span><br><span class="line">            return null;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    @Test</span><br><span class="line">    public void test() throws Exception&#123;</span><br><span class="line">        ExpressRunner runner = new ExpressRunner();</span><br><span class="line">        OperatorBase op = new OperatorContextPut(&quot;contextPut&quot;);</span><br><span class="line">        runner.addFunction(&quot;contextPut&quot;,op);</span><br><span class="line">        String exp = &quot;contextPut(&apos;success&apos;,&apos;false&apos;);contextPut(&apos;error&apos;,&apos;错误信息&apos;);contextPut(&apos;warning&apos;,&apos;提醒信息&apos;)&quot;;</span><br><span class="line">        IExpressContext&lt;String, Object&gt; context = new DefaultContext&lt;String, Object&gt;();</span><br><span class="line">        context.put(&quot;success&quot;,&quot;true&quot;);</span><br><span class="line">        Object result = runner.execute(exp,context,null,false,true);</span><br><span class="line">        System.out.println(result);</span><br><span class="line">        System.out.println(context);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-    <div class="bdsharebuttonbox">
-    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
-    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
-    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
-    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
-    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
-    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
-</div>
-<script>
-window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-</script>
-<style>
-    .bdshare_popup_box {
-        border-radius: 4px;
-        border: #e1e1e1 solid 1px;
-    }
-    .bdshare-button-style0-16 a,
-    .bdshare-button-style0-16 .bds_more {
-        padding-left: 20px;
-        margin: 6px 10px 6px 0;
-    }
-    .bdshare_dialog_list a,
-    .bdshare_popup_list a,
-    .bdshare_popup_bottom a {
-        font-family: 'Microsoft Yahei';
-    }
-    .bdshare_popup_top {
-        display: none;
-    }
-    .bdshare_popup_bottom {
-        height: auto;
-        padding: 5px;
-    }
-</style>
-
-
-</div>
-
-            
-    
-        <a href="http://bruce.bugmakers.club/2018/12/22/awesome/QLExpress/#comments" class="article-comment-link">评论</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-tools-setuna" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/23/tools-setuna/">推荐一款漂浮截图工具：SETUNA</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/23/tools-setuna/">
-            <time datetime="2018-04-23T15:30:19.000Z" itemprop="datePublished">2018-04-23</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/小工具/">小工具</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/小工具/">小工具</a>, <a class="tag-link" href="/tags/漂浮截图/">漂浮截图</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><p><img src="https://upload-images.jianshu.io/upload_images/5792176-ff704ac5e3151251.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+          <p><img src="https://upload-images.jianshu.io/upload_images/5792176-ff704ac5e3151251.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <ul>
 <li>演示</li>
-</ul></p>
-            <p class="article-more-link">
-                <a href="/2018/04/23/tools-setuna/#more">查看更多</a>
-            </p>
+</ul>
         
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-    <div class="bdsharebuttonbox">
-    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
-    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
-    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
-    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
-    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
-    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
-</div>
-<script>
-window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-</script>
-<style>
-    .bdshare_popup_box {
-        border-radius: 4px;
-        border: #e1e1e1 solid 1px;
-    }
-    .bdshare-button-style0-16 a,
-    .bdshare-button-style0-16 .bds_more {
-        padding-left: 20px;
-        margin: 6px 10px 6px 0;
-    }
-    .bdshare_dialog_list a,
-    .bdshare_popup_list a,
-    .bdshare_popup_bottom a {
-        font-family: 'Microsoft Yahei';
-    }
-    .bdshare_popup_top {
-        display: none;
-    }
-    .bdshare_popup_bottom {
-        height: auto;
-        padding: 5px;
-    }
-</style>
-
-
-</div>
-
-            
-    
-        <a href="http://bruce.bugmakers.club/2018/04/23/tools-setuna/#comments" class="article-comment-link">评论</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-boy-learning-design-pattern" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
+      </div>
+      <a class="more" href="/2018/04/23/tools-setuna/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2018/04/20/boy-learning-design-pattern/">开始学习设计模式</a>
+      </h2>
+      <p class="article-date">2018年4月20日</p>
+      
         
+  <a href="/tags#设计模式" >
+    <span class="tag-code">设计模式</span>
+  </a>
+
+      
+      <div class="article-summary">
         
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/20/boy-learning-design-pattern/">开始学习设计模式</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/20/boy-learning-design-pattern/">
-            <time datetime="2018-04-19T23:13:56.000Z" itemprop="datePublished">2018-04-20</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/设计模式/">设计模式</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><p><img src="https://upload-images.jianshu.io/upload_images/5792176-596ad417865f8720.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+          <p><img src="https://upload-images.jianshu.io/upload_images/5792176-596ad417865f8720.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <blockquote>
 <p>Bruce Ouyang 正在学习<strong>《设计模式Java版》</strong> <a href="http://woquanke.com/books/gof/这本书" target="_blank" rel="noopener">http://woquanke.com/books/gof/这本书</a><br>个人学习的主要内容以及对应源码记录在<a href="https://github.com/BruceOuyang/boy-design-pattern" target="_blank" rel="noopener">https://github.com/BruceOuyang/boy-design-pattern</a>目录下</p>
-</blockquote></p>
-            <p class="article-more-link">
-                <a href="/2018/04/20/boy-learning-design-pattern/#more">查看更多</a>
-            </p>
+</blockquote>
         
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-    <div class="bdsharebuttonbox">
-    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
-    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
-    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
-    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
-    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
-    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
-</div>
-<script>
-window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-</script>
-<style>
-    .bdshare_popup_box {
-        border-radius: 4px;
-        border: #e1e1e1 solid 1px;
-    }
-    .bdshare-button-style0-16 a,
-    .bdshare-button-style0-16 .bds_more {
-        padding-left: 20px;
-        margin: 6px 10px 6px 0;
-    }
-    .bdshare_dialog_list a,
-    .bdshare_popup_list a,
-    .bdshare_popup_bottom a {
-        font-family: 'Microsoft Yahei';
-    }
-    .bdshare_popup_top {
-        display: none;
-    }
-    .bdshare_popup_bottom {
-        height: auto;
-        padding: 5px;
-    }
-</style>
-
-
-</div>
-
-            
-    
-        <a href="http://bruce.bugmakers.club/2018/04/20/boy-learning-design-pattern/#comments" class="article-comment-link">评论</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-tools-liceecap" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
+      </div>
+      <a class="more" href="/2018/04/20/boy-learning-design-pattern/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2018/04/19/tools-liceecap/">推荐一款gif录制工具：LICEcap</a>
+      </h2>
+      <p class="article-date">2018年4月19日</p>
+      
         
+  <a href="/tags#小工具" >
+    <span class="tag-code">小工具</span>
+  </a>
+
+  <a href="/tags#gif录制" >
+    <span class="tag-code">gif录制</span>
+  </a>
+
+      
+      <div class="article-summary">
         
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/19/tools-liceecap/">推荐一款gif录制工具：LICEcap</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/19/tools-liceecap/">
-            <time datetime="2018-04-19T15:30:19.000Z" itemprop="datePublished">2018-04-19</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/小工具/">小工具</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/gif录制/">gif录制</a>, <a class="tag-link" href="/tags/小工具/">小工具</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><p><img src="https://upload-images.jianshu.io/upload_images/5792176-14a2cb9c9a53817f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+          <p><img src="https://upload-images.jianshu.io/upload_images/5792176-14a2cb9c9a53817f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <ul>
 <li>演示<br><img src="https://upload-images.jianshu.io/upload_images/5792176-46e31b990e5ad32d.gif?imageMogr2/auto-orient/strip" alt="introduction-LICEcap.gif"></li>
-</ul></p>
-            <p class="article-more-link">
-                <a href="/2018/04/19/tools-liceecap/#more">查看更多</a>
-            </p>
+</ul>
         
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-    <div class="bdsharebuttonbox">
-    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
-    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
-    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
-    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
-    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
-    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
-</div>
-<script>
-window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-</script>
-<style>
-    .bdshare_popup_box {
-        border-radius: 4px;
-        border: #e1e1e1 solid 1px;
-    }
-    .bdshare-button-style0-16 a,
-    .bdshare-button-style0-16 .bds_more {
-        padding-left: 20px;
-        margin: 6px 10px 6px 0;
-    }
-    .bdshare_dialog_list a,
-    .bdshare_popup_list a,
-    .bdshare_popup_bottom a {
-        font-family: 'Microsoft Yahei';
-    }
-    .bdshare_popup_top {
-        display: none;
-    }
-    .bdshare_popup_bottom {
-        height: auto;
-        padding: 5px;
-    }
-</style>
-
-
-</div>
-
-            
-    
-        <a href="http://bruce.bugmakers.club/2018/04/19/tools-liceecap/#comments" class="article-comment-link">评论</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-hexo-githubpages-blog" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
+      </div>
+      <a class="more" href="/2018/04/19/tools-liceecap/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2018/04/19/hexo-githubpages-blog/">免费博客 | Hexo搭建博客并部署到Github Pages服务</a>
+      </h2>
+      <p class="article-date">2018年4月19日</p>
+      
         
+  <a href="/tags#免费博客" >
+    <span class="tag-code">免费博客</span>
+  </a>
+
+  <a href="/tags#hexo" >
+    <span class="tag-code">hexo</span>
+  </a>
+
+  <a href="/tags#github pages" >
+    <span class="tag-code">github pages</span>
+  </a>
+
+      
+      <div class="article-summary">
         
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/19/hexo-githubpages-blog/">免费博客 | Hexo搭建博客并部署到Github Pages服务</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/19/hexo-githubpages-blog/">
-            <time datetime="2018-04-19T14:05:20.000Z" itemprop="datePublished">2018-04-19</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/指引/">指引</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/github-pages/">github pages</a>, <a class="tag-link" href="/tags/hexo/">hexo</a>, <a class="tag-link" href="/tags/免费博客/">免费博客</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><p><img src="https://upload-images.jianshu.io/upload_images/5792176-b0a8d7d510f78b1e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+          <p><img src="https://upload-images.jianshu.io/upload_images/5792176-b0a8d7d510f78b1e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <blockquote>
 <p>本文实践的操作系统是windows 10，其他OS的可以当做参考用</p>
-</blockquote></p>
-            <p class="article-more-link">
-                <a href="/2018/04/19/hexo-githubpages-blog/#more">查看更多</a>
-            </p>
+</blockquote>
         
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
+      </div>
+      <a class="more" href="/2018/04/19/hexo-githubpages-blog/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2018/04/19/hello-world/">Hello World</a>
+      </h2>
+      <p class="article-date">2018年4月19日</p>
+      
+        
+  <a href="/tags#Hello World" >
+    <span class="tag-code">Hello World</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          <p><img src="https://upload-images.jianshu.io/upload_images/5792176-45cc6638af2a2dc6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+        
+      </div>
+      <a class="more" href="/2018/04/19/hello-world/">Read more</a>
+    </article>
+  
+
+  
+</main>
 
 
-    <div class="bdsharebuttonbox">
-    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
-    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
-    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
-    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
-    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
-    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
 </div>
-<script>
-window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-</script>
-<style>
-    .bdshare_popup_box {
-        border-radius: 4px;
-        border: #e1e1e1 solid 1px;
-    }
-    .bdshare-button-style0-16 a,
-    .bdshare-button-style0-16 .bds_more {
-        padding-left: 20px;
-        margin: 6px 10px 6px 0;
-    }
-    .bdshare_dialog_list a,
-    .bdshare_popup_list a,
-    .bdshare_popup_bottom a {
-        font-family: 'Microsoft Yahei';
-    }
-    .bdshare_popup_top {
-        display: none;
-    }
-    .bdshare_popup_bottom {
-        height: auto;
-        padding: 5px;
-    }
-</style>
-
-
-</div>
-
-            
-    
-        <a href="http://bruce.bugmakers.club/2018/04/19/hexo-githubpages-blog/#comments" class="article-comment-link">评论</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/19/hello-world/">Hello World</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/19/hello-world/">
-            <time datetime="2018-04-18T21:05:20.000Z" itemprop="datePublished">2018-04-19</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/指引/">指引</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Hello-World/">Hello World</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><p><img src="https://upload-images.jianshu.io/upload_images/5792176-45cc6638af2a2dc6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p></p>
-            <p class="article-more-link">
-                <a href="/2018/04/19/hello-world/#more">查看更多</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-    <div class="bdsharebuttonbox">
-    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
-    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
-    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
-    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
-    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
-    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
-</div>
-<script>
-window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-</script>
-<style>
-    .bdshare_popup_box {
-        border-radius: 4px;
-        border: #e1e1e1 solid 1px;
-    }
-    .bdshare-button-style0-16 a,
-    .bdshare-button-style0-16 .bds_more {
-        padding-left: 20px;
-        margin: 6px 10px 6px 0;
-    }
-    .bdshare_dialog_list a,
-    .bdshare_popup_list a,
-    .bdshare_popup_bottom a {
-        font-family: 'Microsoft Yahei';
-    }
-    .bdshare_popup_top {
-        display: none;
-    }
-    .bdshare_popup_bottom {
-        height: auto;
-        padding: 5px;
-    }
-</style>
-
-
-</div>
-
-            
-    
-        <a href="http://bruce.bugmakers.club/2018/04/19/hello-world/#comments" class="article-comment-link">评论</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-</section>
-            
-                
-<aside id="sidebar">
-   
-        
-    <div class="widget-wrap">
-        <h3 class="widget-title">最新文章</h3>
-        <div class="widget">
-            <ul id="recent-post" class="">
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/12/22/awesome/QLExpress/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://upload-images.jianshu.io/upload_images/5792176-6ecb4b0c3693076f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)" alt="规则引擎 - QLExpress" class="thumbnail-image"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/awesome/">awesome</a></p>
-                            <p class="item-title"><a href="/2018/12/22/awesome/QLExpress/" class="title">规则引擎 - QLExpress</a></p>
-                            <p class="item-date"><time datetime="2018-12-22T09:03:00.000Z" itemprop="datePublished">2018-12-22</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/04/23/tools-setuna/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://upload-images.jianshu.io/upload_images/5792176-5ff5e1e15212174b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)" alt="推荐一款漂浮截图工具：SETUNA" class="thumbnail-image"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/小工具/">小工具</a></p>
-                            <p class="item-title"><a href="/2018/04/23/tools-setuna/" class="title">推荐一款漂浮截图工具：SETUNA</a></p>
-                            <p class="item-date"><time datetime="2018-04-23T15:30:19.000Z" itemprop="datePublished">2018-04-23</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/04/20/boy-learning-design-pattern/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://upload-images.jianshu.io/upload_images/5792176-de06a365cdb8af3c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)" alt="开始学习设计模式" class="thumbnail-image"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/设计模式/">设计模式</a></p>
-                            <p class="item-title"><a href="/2018/04/20/boy-learning-design-pattern/" class="title">开始学习设计模式</a></p>
-                            <p class="item-date"><time datetime="2018-04-19T23:13:56.000Z" itemprop="datePublished">2018-04-20</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/04/19/tools-liceecap/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://upload-images.jianshu.io/upload_images/5792176-5ff5e1e15212174b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)" alt="推荐一款gif录制工具：LICEcap" class="thumbnail-image"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/小工具/">小工具</a></p>
-                            <p class="item-title"><a href="/2018/04/19/tools-liceecap/" class="title">推荐一款gif录制工具：LICEcap</a></p>
-                            <p class="item-date"><time datetime="2018-04-19T15:30:19.000Z" itemprop="datePublished">2018-04-19</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/04/19/hexo-githubpages-blog/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://upload-images.jianshu.io/upload_images/5792176-229023d54e3a1030.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)" alt="免费博客 | Hexo搭建博客并部署到Github Pages服务" class="thumbnail-image"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/指引/">指引</a></p>
-                            <p class="item-title"><a href="/2018/04/19/hexo-githubpages-blog/" class="title">免费博客 | Hexo搭建博客并部署到Github Pages服务</a></p>
-                            <p class="item-date"><time datetime="2018-04-19T14:05:20.000Z" itemprop="datePublished">2018-04-19</time></p>
-                        </div>
-                    </li>
-                
-            </ul>
-        </div>
-    </div>
-
-    
-        
-    <div class="widget-wrap">
-        <h3 class="widget-title">分类</h3>
-        <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/awesome/">awesome</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/小工具/">小工具</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/指引/">指引</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">1</span></li></ul>
-        </div>
-    </div>
-
-    
-        
-    <div class="widget-wrap">
-        <h3 class="widget-title">归档</h3>
-        <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">5</span></li></ul>
-        </div>
-    </div>
-
-    
-        
-    <div class="widget-wrap">
-        <h3 class="widget-title">标签</h3>
-        <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hello-World/">Hello World</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gif录制/">gif录制</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github-pages/">github pages</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/免费博客/">免费博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小工具/">小工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/漂浮截图/">漂浮截图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/规则引擎/">规则引擎</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a><span class="tag-list-count">1</span></li></ul>
-        </div>
-    </div>
-
-    
-        
-    <div class="widget-wrap">
-        <h3 class="widget-title">标签云</h3>
-        <div class="widget tagcloud">
-            <a href="/tags/Hello-World/" style="font-size: 10px;">Hello World</a> <a href="/tags/gif录制/" style="font-size: 10px;">gif录制</a> <a href="/tags/github-pages/" style="font-size: 10px;">github pages</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/免费博客/" style="font-size: 10px;">免费博客</a> <a href="/tags/小工具/" style="font-size: 20px;">小工具</a> <a href="/tags/漂浮截图/" style="font-size: 10px;">漂浮截图</a> <a href="/tags/规则引擎/" style="font-size: 10px;">规则引擎</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
-        </div>
-    </div>
-
-    
-        
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">链接</h3>
-        <div class="widget">
-            <ul>
-                
-                    <li>
-                        <a href="https://www.jianshu.com/u/8bc5f4428ca2">我的简书</a>
-                    </li>
-                
-                    <li>
-                        <a href="https://blog.csdn.net/boybruce">我的CSDN</a>
-                    </li>
-                
-            </ul>
-        </div>
-    </div>
-
-
-    
-    <div id="toTop" class="fa fa-angle-up"></div>
-</aside>
-
-            
-        </div>
-        <footer id="footer">
-    <div class="outer">
-        <div id="footer-info" class="inner">
-            &copy; 2018 Bruce Ouyang<br>
-            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
-        </div>
-    </div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
+  </p>
 </footer>
-        
-    
-    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2161465"></script>
 
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
 
+<script>
+  var hasLine = 'true';
+  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
 
-
-    
-        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
-    
-    
-        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
-    
-    
-
-
-
-<!-- Custom Scripts -->
-<script src="/js/main.js"></script>
-
-    </div>
-</body>
+<script src="/js/script.js"></script>
+  </body>
 </html>
