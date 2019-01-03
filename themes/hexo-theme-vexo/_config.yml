@@ -1,0 +1,61 @@
+author: BruceOuyang # 作者
+description: BruceOuyang's BLOG
+keyword: hexo-theme, vuejs
+favicon: 
+
+excerpt_link: Read more
+
+menu:
+ 首页: /
+ 标签: /tags/
+ 归档: /archives/
+ #项目: /project/
+ 关于: /about/
+
+# highlight
+highlight:
+  tomorrow
+
+# catalog
+catalog: true
+
+# donate
+donate: true
+
+# qrcode
+qrcode: true
+
+# comment
+# you can set gitment, uyan or disqus
+
+comment: gitment
+
+# gitment config
+gitment_owner: BruceOuyang
+gitment_repo: BruceOuyang.github.io
+gitment_oauth_id: ef246fa43759b5976dc8
+gitment_oauth_secret: b97e74b26013e1c14b31a2632e8d03cbafc6d380
+
+# uyan config
+# if you want to use uyan as your blog comment, plz remove/comment out gitment config
+baidu_id: 
+
+# disqus config
+disqus_shortname: 
+
+about: 
+  banner: http://file.muyutech.com/about.jpg
+  avatar: https://avatars2.githubusercontent.com/u/5382942?s=460&v=4
+  description: "The end is always near."
+  #weibo_username: Bruce
+  #twitter_username: Bruce
+  github_username: BruceOuyang
+  #zhihu_username: yummy1121
+  #douban_username: yanm1ng
+  #linkedin_username:
+
+# MathJax Support
+mathjax:
+  enable: true
+  per_page: false
+  cdn: //cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML

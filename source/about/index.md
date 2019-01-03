@@ -1,7 +1,6 @@
 ---
 title: 关于
 date: 2018-04-19 14:13:36
-banner: https://upload-images.jianshu.io/upload_images/5792176-3c75b99e91137ec9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240
 ---
 
 ## BuGMakersClub
