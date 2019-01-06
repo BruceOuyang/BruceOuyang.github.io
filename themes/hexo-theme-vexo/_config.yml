@@ -3,7 +3,7 @@ description: BruceOuyang's BLOG
 keyword: hexo-theme, vuejs
 favicon: 
 
-excerpt_link: Read more
+excerpt_link: read more...
 
 menu:
  首页: /
@@ -38,20 +38,20 @@ gitment_oauth_secret: b97e74b26013e1c14b31a2632e8d03cbafc6d380
 
 # uyan config
 # if you want to use uyan as your blog comment, plz remove/comment out gitment config
-baidu_id: 
+baidu_id:
 
 # disqus config
-disqus_shortname: 
+disqus_shortname:
 
 about: 
   banner: http://file.muyutech.com/about.jpg
   avatar: https://avatars2.githubusercontent.com/u/5382942?s=460&v=4
   description: "The end is always near."
-  #weibo_username: Bruce
-  #twitter_username: Bruce
+  #weibo_username: BruceOuyang
+  #twitter_username: BruceOuyang
   github_username: BruceOuyang
-  #zhihu_username: yummy1121
-  #douban_username: yanm1ng
+  #zhihu_username: BruceOuyang
+  #douban_username: BruceOuyang
   #linkedin_username:
 
 # MathJax Support
