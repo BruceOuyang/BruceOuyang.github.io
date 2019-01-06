@@ -1,18 +1,15 @@
 ---
 title: 免费博客 | Hexo搭建博客并部署到Github Pages服务
-date: 2018-04-19 22:05:20
+date: 2018-04-19 22:05
 tags: 
     - 免费博客
     - hexo
     - github pages
 categories: 
     - 指引
-thumbnail: https://upload-images.jianshu.io/upload_images/5792176-229023d54e3a1030.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240
 ---
-![](https://upload-images.jianshu.io/upload_images/5792176-b0a8d7d510f78b1e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-> 本文实践的操作系统是windows 10，其他OS的可以当做参考用
-
 <!-- more -->
+> 本文实践的操作系统是windows 10，其他OS的可以当做参考用
 
 # 一、Hexo搭建博客
 ## 1. 环境准备

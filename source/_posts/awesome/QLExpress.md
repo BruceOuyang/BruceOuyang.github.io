@@ -1,13 +1,13 @@
 ---
-title: 规则引擎 - QLExpress
-thumbnail: https://upload-images.jianshu.io/upload_images/5792176-6ecb4b0c3693076f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240
+title: awesome | 规则引擎 - QLExpress
 date: 2018-12-22 17:03
 tags:
+    - awesome
     - 规则引擎
 categories:
     - awesome
 ---
-
+<!--more-->
 ## 一、简介
 QlExpress脚本语言解析工具诞生于2010年，是玄难大师根据当时汇金的业务需要开始编写。
 

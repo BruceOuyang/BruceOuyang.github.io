@@ -1,17 +1,14 @@
 ---
-title: 开始学习设计模式
-thumbnail: https://upload-images.jianshu.io/upload_images/5792176-de06a365cdb8af3c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240
-date: 2018-04-20 07:13:56
+title: 设计模式 | 开篇
+date: 2018-04-20 07:13
 tags: 
     - 设计模式
 categories:
     - 设计模式
 ---
-![](https://upload-images.jianshu.io/upload_images/5792176-596ad417865f8720.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+<!-- more -->
 > Bruce Ouyang 正在学习**《设计模式Java版》** http://woquanke.com/books/gof/这本书  
 > 个人学习的主要内容以及对应源码记录在[https://github.com/BruceOuyang/boy-design-pattern](https://github.com/BruceOuyang/boy-design-pattern)目录下
-
-<!-- more -->
 
 ## 初衷
 1. 系统的学习一遍设计模式  
