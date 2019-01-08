@@ -5,7 +5,7 @@ tags:
     - awesome
     - 规则引擎
 categories:
-    - awesome
+    - java
 ---
 <!--more-->
 ## 一、简介

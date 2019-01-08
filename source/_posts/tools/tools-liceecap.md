@@ -1,10 +1,10 @@
 ---
 title: tools | 推荐一款gif录制工具：LICEcap
 date: 2018-04-21 23:30
-tags: 
-    - 小工具
+tags:
+    - 效率
 categories: 
-    - 小工具
+    - 工具
 ---
 <!-- more -->
 ### 1、演示

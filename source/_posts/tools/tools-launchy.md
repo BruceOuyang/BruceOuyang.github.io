@@ -2,9 +2,9 @@
 title: tools | 推荐一款本地文件检索工具：Launchy
 date: 2018-04-25 22:10
 tags:
-    - 小工具
+    - 效率
 categories:
-    - 小工具
+    - 工具
 ---
 <!-- more -->
 ### 1、演示

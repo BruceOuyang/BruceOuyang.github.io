@@ -1,8 +1,9 @@
 ---
 title: 免费博客 | Hello Hexo
 date: 2018-04-19 05:05
-tags: 
+tags:
     - hexo
+    - 免费博客
 categories:
     - hexo
 ---
