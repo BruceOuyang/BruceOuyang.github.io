@@ -1,5 +1,5 @@
 ---
-title: 网易云课堂公开课 | Java高级开发工程师
+title: 公开课 | 网易云课堂Java高级开发工程师(持续更新中)
 date: 2018-12-12 07:03
 tags: 
     - 公开课
@@ -7,7 +7,7 @@ categories:
     - JAVA高级
 ---
 <!-- more -->
-### 网易云课堂Java高级开发工程师公开课索引
+## 网易云课堂Java高级开发工程师公开课索引
 
 ### 第一期
 1. [Java高级开发工程师直播公开课](https://study.163.com/course/courseMain.htm?courseId=1006355036)
