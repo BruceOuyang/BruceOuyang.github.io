@@ -10,7 +10,7 @@
   
   <title>
     
-      免费博客 | Hello Hexo | BuGMaker&#39; Bruce Ouyang
+      Spring | Transaction 事物 | BuGMaker&#39; Bruce Ouyang
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -126,8 +126,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>免费博客 | Hello Hexo</h2>
-  <p class="post-date">2018-04-19</p>
+  <h2>Spring | Transaction 事物</h2>
+  <p class="post-date">2019-04-21</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -136,27 +136,34 @@
   <!-- Article START -->
   <article class="post-article">
     <section class="markdown-content"><a id="more"></a>
-<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<h3 id="Spring-事物抽象"><a href="#Spring-事物抽象" class="headerlink" title="Spring 事物抽象"></a>Spring 事物抽象</h3><ul>
+<li>一致的事物模型<ul>
+<li>JDBC/Hibernate/MyBatis</li>
+<li>DataSource/JTA</li>
+</ul>
+</li>
+</ul>
+<h4 id="事物抽象的核心接口"><a href="#事物抽象的核心接口" class="headerlink" title="事物抽象的核心接口"></a>事物抽象的核心接口</h4><p><strong>PlatformTransactionManager</strong></p>
+<ul>
+<li>DataSrouceTransactionManager</li>
+<li>HibernateTransactionManager</li>
+<li>JtaTransactionManager</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">commit</span><span class="params">(TransactionStatus status)</span> <span class="keyword">throws</span> TransactionException</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">rollback</span><span class="params">(TransactionStatus status)</span> <span class="keyword">throws</span> TransactionException</span>;</span><br><span class="line"><span class="function">TransactionStatus <span class="title">getTransaction</span><span class="params">(@Nullable TransactionDefinition definition)</span> <span class="keyword">throws</span> TransactionException</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="事物传播特性"><a href="#事物传播特性" class="headerlink" title="事物传播特性"></a>事物传播特性</h4><p>// todo</p>
+<h4 id="事物隔离级别"><a href="#事物隔离级别" class="headerlink" title="事物隔离级别"></a>事物隔离级别</h4><p>// todo</p>
 </section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#免费博客" >
-    <span class="tag-code">免费博客</span>
+  <a href="/tags#Java 基础" >
+    <span class="tag-code">Java 基础</span>
   </a>
 
-  <a href="/tags#hexo" >
-    <span class="tag-code">hexo</span>
+  <a href="/tags#Spring Transaction" >
+    <span class="tag-code">Spring Transaction</span>
   </a>
 
       </div>
@@ -167,13 +174,13 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-    
-      <a class="nav-right" href="/2018/04/19/hexo/hexo-githubpages-blog/">
+      <a class="nav-left" href="/2019/01/26/health/为什么你总是感到疲劳？脑科学+冥想=最有效的休息方法/">
+        <span class="nav-arrow">← </span>
         
-          免费博客 | Hexo搭建博客并部署到Github Pages服务
+          健康 | 为什么你总是感到疲劳？脑科学+冥想=最有效的休息方法
         
-        <span class="nav-arrow"> →</span>
       </a>
+    
     
   </div>
 
@@ -219,7 +226,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Quick-Start"><span class="toc-nav-text">Quick Start</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Create-a-new-post"><span class="toc-nav-text">Create a new post</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Run-server"><span class="toc-nav-text">Run server</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Generate-static-files"><span class="toc-nav-text">Generate static files</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Deploy-to-remote-sites"><span class="toc-nav-text">Deploy to remote sites</span></a></li></ol></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Spring-事物抽象"><span class="toc-nav-text">Spring 事物抽象</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#事物抽象的核心接口"><span class="toc-nav-text">事物抽象的核心接口</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#事物传播特性"><span class="toc-nav-text">事物传播特性</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#事物隔离级别"><span class="toc-nav-text">事物隔离级别</span></a></li></ol></li></ol>
     
   </div>
 </aside>
@@ -229,7 +236,7 @@
 
 <script>
   (function () {
-    var url = 'http://bruce.bugmakers.club/2018/04/19/hexo/hello-world/';
+    var url = 'http://bruce.bugmakers.club/2019/04/21/spring/transaction/Spring 事物基础/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -285,7 +292,7 @@
     var gitmentConfig = "BruceOuyang";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "免费博客 | Hello Hexo",
+        id: "Spring | Transaction 事物",
         owner: "BruceOuyang",
         repo: "BruceOuyang.github.io",
         oauth: {
@@ -313,7 +320,7 @@
 <script>
   var disqus_shortname = '';
   
-  var disqus_url = 'http://bruce.bugmakers.club/2018/04/19/hexo/hello-world/';
+  var disqus_url = 'http://bruce.bugmakers.club/2019/04/21/spring/transaction/Spring 事物基础/';
   
   (function(){
     var dsq = document.createElement('script');
