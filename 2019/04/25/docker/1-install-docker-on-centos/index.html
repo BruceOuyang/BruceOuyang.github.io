@@ -10,7 +10,7 @@
   
   <title>
     
-      免费博客 | Hello Hexo | BuGMaker&#39; Bruce Ouyang
+      docker | 在 centos 上安装 docker | BuGMaker&#39; Bruce Ouyang
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -126,8 +126,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>免费博客 | Hello Hexo</h2>
-  <p class="post-date">2018-04-19</p>
+  <h2>docker | 在 centos 上安装 docker</h2>
+  <p class="post-date">2019-04-25</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -136,27 +136,35 @@
   <!-- Article START -->
   <article class="post-article">
     <section class="markdown-content"><a id="more"></a>
-<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<h3 id="install-docker-on-centos"><a href="#install-docker-on-centos" class="headerlink" title="install docker on centos"></a>install docker on centos</h3><blockquote>
+<p><a href="https://docs.docker.com/install/linux/docker-ce/centos/" target="_blank" rel="noopener">https://docs.docker.com/install/linux/docker-ce/centos/</a></p>
+</blockquote>
+<h4 id="1-uninstall-old-versions"><a href="#1-uninstall-old-versions" class="headerlink" title="1 uninstall old versions"></a>1 uninstall old versions</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo yum remove docker \</span><br><span class="line">                  docker-client \</span><br><span class="line">                  docker-client-latest \</span><br><span class="line">                  docker-common \</span><br><span class="line">                  docker-latest \</span><br><span class="line">                  docker-latest-logrotate \</span><br><span class="line">                  docker-logrotate \</span><br><span class="line">                  docker-engine</span><br></pre></td></tr></table></figure>
+<h4 id="2-install-docker-ce-using-the-repository"><a href="#2-install-docker-ce-using-the-repository" class="headerlink" title="2 install docker-ce using the repository"></a>2 install docker-ce using the repository</h4><p>install required packages</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y yum-utils \</span><br><span class="line">  device-mapper-persistent-data \</span><br><span class="line">  lvm2</span><br></pre></td></tr></table></figure>
+<p>set up the <strong>stable</strong> repository</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo yum-config-manager \</span><br><span class="line">    --add-repo \</span><br><span class="line">    https://download.docker.com/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
+<p><strong>A</strong> install the latest version of docker-ce</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install docker-ce docker-ce-cli containerd.io</span><br></pre></td></tr></table></figure>
+<p><strong>B</strong> install a specific version of docker-ce</p>
+<p>list avaiable in your repo</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">yum list docker-ce --showduplicates | sort -r</span><br><span class="line"></span><br><span class="line"><span class="comment"># output</span></span><br><span class="line">docker-ce.x86_64  3:18.09.1-3.el7                     docker-ce-stable</span><br><span class="line">docker-ce.x86_64  3:18.09.0-3.el7                     docker-ce-stable</span><br><span class="line">docker-ce.x86_64  18.06.1.ce-3.el7                    docker-ce-stable</span><br><span class="line">docker-ce.x86_64  18.06.0.ce-3.el7                    docker-ce-stable</span><br></pre></td></tr></table></figure>
+<p>select your specific version &amp; install</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install docker-ce-&lt;VERSION_STRING&gt; docker-ce-cli-&lt;VERSION_STRING&gt; containerd.io</span><br><span class="line"></span><br><span class="line"><span class="comment"># example: </span></span><br><span class="line">sudo yum install docker-ce-18.09.0 docker-ce-cli-18.09.0 containerd.io</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>&lt;VERSION_STRING&gt; 取第二列的第一个冒号和第一个横杠中间的字符串</p>
+</blockquote>
+<h4 id="3-start-docker"><a href="#3-start-docker" class="headerlink" title="3 start docker"></a>3 start docker</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></figure>
+<h4 id="4-verify-that-docker-ce-is-installed-correctly-by-running-the-hello-world-image"><a href="#4-verify-that-docker-ce-is-installed-correctly-by-running-the-hello-world-image" class="headerlink" title="4 verify that docker-ce is installed correctly by running the hello-world image"></a>4 verify that docker-ce is installed correctly by running the <code>hello-world</code> image</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run hello-world</span><br></pre></td></tr></table></figure>
+<p>#### </p>
 </section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#hexo" >
-    <span class="tag-code">hexo</span>
-  </a>
-
-  <a href="/tags#免费博客" >
-    <span class="tag-code">免费博客</span>
+  <a href="/tags#docker 安装" >
+    <span class="tag-code">docker 安装</span>
   </a>
 
       </div>
@@ -167,20 +175,13 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2017/08/15/agile/敏捷开发/">
+      <a class="nav-left" href="/2019/04/21/spring/transaction/Spring 事物基础/">
         <span class="nav-arrow">← </span>
         
-          敏捷开发 | Scrum 实践分享
+          Spring | Transaction 事物
         
       </a>
     
-    
-      <a class="nav-right" href="/2018/04/19/hexo/hexo-githubpages-blog/">
-        
-          免费博客 | Hexo搭建博客并部署到Github Pages服务
-        
-        <span class="nav-arrow"> →</span>
-      </a>
     
   </div>
 
@@ -226,7 +227,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Quick-Start"><span class="toc-nav-text">Quick Start</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Create-a-new-post"><span class="toc-nav-text">Create a new post</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Run-server"><span class="toc-nav-text">Run server</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Generate-static-files"><span class="toc-nav-text">Generate static files</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Deploy-to-remote-sites"><span class="toc-nav-text">Deploy to remote sites</span></a></li></ol></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#install-docker-on-centos"><span class="toc-nav-text">install docker on centos</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#1-uninstall-old-versions"><span class="toc-nav-text">1 uninstall old versions</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2-install-docker-ce-using-the-repository"><span class="toc-nav-text">2 install docker-ce using the repository</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#3-start-docker"><span class="toc-nav-text">3 start docker</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#4-verify-that-docker-ce-is-installed-correctly-by-running-the-hello-world-image"><span class="toc-nav-text">4 verify that docker-ce is installed correctly by running the hello-world image</span></a></li></ol></li></ol>
     
   </div>
 </aside>
@@ -236,7 +237,7 @@
 
 <script>
   (function () {
-    var url = 'http://bruce.bugmakers.club/2018/04/19/hexo/hello-world/';
+    var url = 'http://bruce.bugmakers.club/2019/04/25/docker/1-install-docker-on-centos/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -292,7 +293,7 @@
     var gitmentConfig = "BruceOuyang";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "免费博客 | Hello Hexo",
+        id: "docker | 在 centos 上安装 docker",
         owner: "BruceOuyang",
         repo: "BruceOuyang.github.io",
         oauth: {
@@ -320,7 +321,7 @@
 <script>
   var disqus_shortname = '';
   
-  var disqus_url = 'http://bruce.bugmakers.club/2018/04/19/hexo/hello-world/';
+  var disqus_url = 'http://bruce.bugmakers.club/2019/04/25/docker/1-install-docker-on-centos/';
   
   (function(){
     var dsq = document.createElement('script');
