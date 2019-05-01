@@ -1,0 +1,91 @@
+---
+title: docker | 在 centos 上安装 docker
+date: 2019/04/25 11:50
+tags: 
+    - docker 安装
+categories: 
+    - docker
+---
+<!-- more -->
+### install docker on centos
+
+> https://docs.docker.com/install/linux/docker-ce/centos/
+
+#### 1 uninstall old versions
+
+```bash
+sudo yum remove docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-engine
+```
+
+#### 2 install docker-ce using the repository
+
+install required packages
+
+```bash
+sudo yum install -y yum-utils \
+  device-mapper-persistent-data \
+  lvm2
+```
+
+set up the **stable** repository
+
+```bash
+sudo yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+```
+
+**A** install the latest version of docker-ce
+
+```bash
+sudo yum install docker-ce docker-ce-cli containerd.io
+```
+
+**B** install a specific version of docker-ce
+
+list avaiable in your repo
+
+```bash
+yum list docker-ce --showduplicates | sort -r
+
+# output
+docker-ce.x86_64  3:18.09.1-3.el7                     docker-ce-stable
+docker-ce.x86_64  3:18.09.0-3.el7                     docker-ce-stable
+docker-ce.x86_64  18.06.1.ce-3.el7                    docker-ce-stable
+docker-ce.x86_64  18.06.0.ce-3.el7                    docker-ce-stable
+```
+
+select your specific version & install
+
+```bash
+sudo yum install docker-ce-<VERSION_STRING> docker-ce-cli-<VERSION_STRING> containerd.io
+
+# example: 
+sudo yum install docker-ce-18.09.0 docker-ce-cli-18.09.0 containerd.io
+```
+
+> <VERSION_STRING> 取第二列的第一个冒号和第一个横杠中间的字符串
+
+#### 3 start docker
+
+```bash
+sudo systemctl start docker
+```
+
+#### 4 verify that docker-ce is installed correctly by running the `hello-world` image
+
+```bash
+sudo docker run hello-world
+```
+
+#### 
+
+
+
