@@ -6,11 +6,11 @@ favicon:
 excerpt_link: read more...
 
 menu:
- 首页: /
- 标签: /tags/
- 归档: /archives/
- #项目: /project/
- 关于: /about/
+ Home: /
+ Tags: /tags/
+ Archives: /archives/
+ Projects: /project/
+ About: /about/
 
 # highlight
 highlight:

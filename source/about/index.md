@@ -1,6 +1,7 @@
 ---
 title: 关于
 date: 2018-04-19 14:13:36
+layout: about
 ---
 
 ## BuGMakersClub
