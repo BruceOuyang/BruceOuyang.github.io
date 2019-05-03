@@ -8,10 +8,4 @@ layout: about
 
 希望有想法的小伙伴们可以集结在一起，让所做的事情变得更有价值。 
 
-> 如果你对 **BuGMakersClub** 感兴趣，可以加我们的QQ群 `111915819`。
-
-## 我
-
-我叫布鲁斯(Bruce)，一个简单的程序员。
-
-Head Of BuGMakers
+如果你对 **BuGMakersClub** 感兴趣，可以加我们的QQ群 `111915819`。

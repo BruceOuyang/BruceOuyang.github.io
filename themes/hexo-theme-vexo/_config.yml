@@ -3,7 +3,7 @@ description: BruceOuyang's BLOG
 keyword: hexo-theme, vuejs
 favicon: 
 
-excerpt_link: read more...
+excerpt_link: read more
 
 menu:
  Home: /
@@ -46,7 +46,7 @@ disqus_shortname:
 about: 
   banner: http://file.muyutech.com/about.jpg
   avatar: https://avatars2.githubusercontent.com/u/5382942?s=460&v=4
-  description: "The end is always near."
+  description: ["HEAD OF BUG-MAKERS", "持之以恒，循序渐进"]
   #weibo_username: BruceOuyang
   #twitter_username: BruceOuyang
   github_username: BruceOuyang
