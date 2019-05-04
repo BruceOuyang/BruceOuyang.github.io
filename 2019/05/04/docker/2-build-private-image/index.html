@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="BruceOuyang&#39;s BLOG">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      docker | 构建私有镜像 | BuGMaker&#39; Bruce Ouyang
+    
+  </title>
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/plugins/gitment.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="/js/qrious.js"></script>
+<script src="/js/gitment.js"></script>
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>BuGMaker' Bruce Ouyang</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>docker | 构建私有镜像</h2>
+  <p class="post-date">2019-05-04</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><a id="more"></a>
+<h3 id="一、使用-Dockerfile-定制镜像"><a href="#一、使用-Dockerfile-定制镜像" class="headerlink" title="一、使用 Dockerfile 定制镜像"></a>一、使用 Dockerfile 定制镜像</h3><p><strong>1、FROM 指定基础镜像</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FROM nginx</span><br></pre></td></tr></table></figure>
+<p><strong>2、RUN 执行命令</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RUN echo &apos;&lt;h1&gt;hello docker&lt;/h1&gt;&apos; &gt; /usr/share/nginx/html/index.html</span><br></pre></td></tr></table></figure>
+<p><strong>3、构建镜像</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 构建</span><br><span class="line">docker build -t mynginx:1.0 .</span><br><span class="line"></span><br><span class="line"># 查看镜像</span><br><span class="line">docker images</span><br></pre></td></tr></table></figure>
+<p><strong>4、运行镜像</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 运行</span><br><span class="line">docker run --name mynginx -p 80:80 mynginx:1.0</span><br><span class="line"></span><br><span class="line"># 查看运行中的容器</span><br><span class="line">docker ps</span><br><span class="line"></span><br><span class="line"># 检查宿主机端口</span><br><span class="line">netstat -na | grep 80</span><br><span class="line"></span><br><span class="line"># 进入容器内部，可以检查 index.html 是否是我们预期的内容</span><br><span class="line">docker exec -it mynginx /bin/bash</span><br></pre></td></tr></table></figure>
+<p><strong>Dockerfile 指令详解</strong></p>
+<ul>
+<li><p>COPY 复制文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># COPY &lt;源路径&gt; ... &lt;目标路径&gt;</span><br><span class="line"># COPY [&lt;源路径&gt; ... &lt;目标路径&gt;]</span><br><span class="line">COPY package.json /usr/src/app/</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>COPY</code> 指令将从构建上下文目录中&lt;源路径&gt;的文件/目录复制到新的一层的镜像内的&lt;目标路径&gt;位置</p>
+</blockquote>
+<p>&lt;源路径&gt;可以是多个，甚至可以是通配符，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">COPY hom* /mydir/</span><br><span class="line">COPY hom?.txt /mydir/</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>ADD 更高级的复制文件</p>
+<p>在 <code>COPY</code> 的基础上增加了一些功能，例如：&lt;源路径&gt;可以是一个 URL 。由于 <code>COPY</code> 的语义很明确，官方推荐尽可能的使用 <code>COPY</code> 。</p>
+<p>在 <code>COPY</code> 和 <code>ADD</code> 指令选择的时候，可以遵循这样的原则，所有的文件复制均使用 <code>COPY</code> 指令，尽在需要自动解压缩的场合使用 <code>ADD</code> 。</p>
+</li>
+<li><p>CMD 容器启动命令</p>
+<p><code>CMD</code> 指令的格式和 <code>RUN</code> 相似，也是两种格式</p>
+<ul>
+<li>shell 格式： CMD &lt;命令&gt;</li>
+<li>exec 格式：CMD [“可执行文件”, “参数1”, “参数2”…]</li>
+<li>参数列表格式：CMD [“参数1”, “参数2”…]。在指定了 <code>ENTRYPOINT</code> 指令后，用 <code>CMD</code> 指定具体的参数。</li>
+</ul>
+<blockquote>
+<p>Docker 不是虚拟机，容器就是进程。既然是进程，那么在启动容器的时候，需要指定所运行的程序及参数。<code>CMD</code> 指令就是用于指定默认的容器主进程启动的命令。</p>
+</blockquote>
+</li>
+<li><p>ENTRYPOINT 入口点</p>
+<p><code>ENTRYPOINT</code> 的目的和 <code>CMD</code> 一样，都是在指定容器启动程序及参数。 <code>ENTRYPOINT</code> 在运行时也可以替代，不过比 <code>CMD</code> 要略显繁琐，需要通过 <code>docker run</code> 的参数 <code>--entrypoint</code> 来指定。</p>
+<p>当指定了 <code>ENTRYPOINT</code> 后，<code>CMD</code> 的含义就发生了改变，不再是直接的运行其命令了，而是将 <code>CMD</code>  的内容作为参数传给 <code>ENTRYPOINT</code> 指令，换句话说实际执行时，将变为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;ENTRYPOINT&gt; &quot;&lt;CMD&gt;&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ENV 设置环境变量</p>
+<p>格式有两种：</p>
+<ul>
+<li>ENV <key> <value></value></key></li>
+<li>ENV <key1>=<value1> <key2>=<value2></value2></key2></value1></key1></li>
+</ul>
+<p>这个指令很简单，就是设置环境变量而已，无论是后面的其他指令，如 <code>RUN</code> ，还是运行时的应用，都可以直接使用这里定义的环境变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ENV VERSION=1.0 DEBUG=on NAME=&quot;Happy Feet&quot;</span><br><span class="line">$VERSION # 使用环境变量</span><br></pre></td></tr></table></figure>
+<p>下列指令可以支持环境变量展开：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ADD</span><br><span class="line">COPY</span><br><span class="line">ENV</span><br><span class="line">EXPOSE</span><br><span class="line">LABEL</span><br><span class="line">USER</span><br><span class="line">WORKDIR</span><br><span class="line">VOLUME</span><br><span class="line">STOPSIGNAL</span><br><span class="line">ONBUILD</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ARG 构建参数</p>
+<p>格式：</p>
+<ul>
+<li>ARG &lt;参数名&gt;[=&lt;默认值&gt;]</li>
+</ul>
+<p>构建参数和 <code>ENV</code> 的效果一样，都是设置环境变量。所不同的是，<code>ARG</code> 所设置的构建环境的环境变量，在将来容器运行时是不会存在这些环境变量的。但是不要因此就使用 <code>ARG</code> 保存密码之类的信息，因为 <code>docker history</code> 还是可以看到所有值的。</p>
+<p>Dockerfile 中的 <code>ARG</code> 指令是定义参数名称，以及定义期默认值。该默认值可以在构建命令 <code>docker build</code> 中用 <code>--build-arg &lt;参数名称&gt;=&lt;值&gt;</code> 来覆盖。 </p>
+</li>
+<li><p>VOLUME 定义匿名卷</p>
+<p>格式为：</p>
+<ul>
+<li>VOLUME [“路径1”, “路径2”…]</li>
+<li>VOLUME &lt;路径&gt;</li>
+</ul>
+<p>容器运行时应该尽量保持容器存储层不发生些操作，对于数据库类需要保持动态数据的应用，其数据库文件应该保持与卷(volume)中，我们可以实现指定某些目录挂载为匿名卷，这样在运行时如果用户不指定挂载，其应用也可以正常运行，不会向容器存储层写入大量数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">VOLUME /data</span><br></pre></td></tr></table></figure>
+<p>这里的 /data 目录就会在运行时自动挂载为匿名卷，任何向 /data 中写入的信息都不会记录进容器存储层，从而保证了容器存储层的无状态化。当然，运行时可以覆盖这个挂载设置。</p>
+<p>比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -v mydata:/data xxxx</span><br></pre></td></tr></table></figure>
+<p>在这行命令中，就是用了 mydata 这个命令卷挂载到了 /data 这个位置，代替了 Dockerfile 中定义的匿名卷的挂载配置。</p>
+</li>
+<li><p>EXPOSE 声明端口</p>
+<p>格式为：</p>
+<ul>
+<li>EXPOSE &lt;端口1&gt; [&lt;端口2&gt;…]</li>
+</ul>
+<p><code>EXPOSE</code> 指令是声明运行时容器提供服务端口，这只是一个声明，在运行时并不会因为这个声明应用就会开启这个端口的服务。</p>
+</li>
+</ul>
+<p>  在 Dockerfile 中写入这样的声明有两个好处：</p>
+<ol>
+<li>是帮助镜像使用者理解这个镜像服务的守护端口，以方便配置映射；</li>
+<li>在运行时使用随机端口映射时，也就是 <code>docker run -P</code> 时，会自动随机映射 <code>EXPOSE</code> 的端口。</li>
+</ol>
+<ul>
+<li><p>WORKDIR 指定工作目录</p>
+<p>格式为：</p>
+<ul>
+<li>WORKDIR &lt;工作目录路径&gt;</li>
+</ul>
+<p>使用 <code>WORKDIR</code> 指令可以来指定工作目录（或者称为当前目录），以后各层的当前目录就被改为指定的目录，如果该目录不存在，<code>WORKDIR</code> 会帮你建立目录。</p>
+</li>
+</ul>
+<p>  之前提到的一些初学者常犯的错误是把 Dockfile 等同于 Shell 脚本来书写，这种错误的理解还可能会导致出现下面这样的错误：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RUN cd /app</span><br><span class="line">RUN echo &quot;hello&quot; &gt; world.txt</span><br></pre></td></tr></table></figure>
+<p>  如果将这个 Dockerfile 进行构建镜像运行后，会发现找不到 /app/world.txt 文件。</p>
+<p>  <em>原因</em></p>
+<ol>
+<li>在 shell 中，连续两行是同一个进程执行环境，因此前一个命令修改的内存状态，会直接影响后一个命令</li>
+<li><p>在 Dockerfile 中，这两行 <code>RUN</code> 命令的执行环境根本不同，是两个完全不同的容器。</p>
+<p>这就是对 Dockerfile 构建分层存储的概念不了解所导致的错误。</p>
+</li>
+</ol>
+<p>  每一个 <code>RUN</code> 都是启动一个容器、执行命令、然后提交存储层文件变更。</p>
+<p>  第一层 <code>RUN cd /app</code> 的执行仅仅是当前进程的工作目录变更，一个内存上的变化而已，其结果不会造成任何文件变更。而到第二层的时候，启动的是一个全新的容器，跟第一层的容器更完全没关系，自然不可能继承前一层构建过程中的内存变化。</p>
+<p>  因此如果需要改变以后各层的工作目录的位置，那么应该使用 <code>WORKDIR</code> 指令。</p>
+<ul>
+<li><p>USER 指定当前用户</p>
+<p>格式：</p>
+<ul>
+<li>USER &lt;用户名&gt;</li>
+</ul>
+<p><code>USER</code>  指令和 <code>WORKDIR</code> 相似，都是改变环境状态并影响以后的层。<code>WORKDIR</code> 是改变工作目录，<code>USER</code> 则是改变之后层的执行 <code>RUN</code> 、<code>CMD</code> 以及 <code>ENTRYPOINT</code> 这类命令的身份</p>
+<p>当然，和 <code>WORKDIR</code> 一样，<code>USER</code> 只是帮助你切换到指定的用户而已，这个用户必须是实现建立好的，否则无法切换。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RUN groupadd -r redis &amp;&amp; useradd -r -g redis redis</span><br><span class="line">USER redis</span><br><span class="line">RUN [&quot;redis-server&quot;]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>HEALTHCHECK 健康检查</p>
+<p>格式：</p>
+<ul>
+<li><p>HEALTHCHECK [选项] CMD &lt;命令&gt;：设置检查容器健康状况的命令</p>
+</li>
+<li><p>HEALTHCHECK NONE：如果基础镜像有健康检查指令，可以屏蔽掉漆健康检查指令</p>
+<p><code>HEALTHCHECK</code> 指令是告诉 Docker 应该如何进行判断容器的状态是否正常，这是 Docker 1.12 引入的新指令。通过该指令指定一行命令，用这行命令来判断容器的主进程的服务状态是否正常，从而比较真实的反应容器实际状态。</p>
+<blockquote>
+<p>一个镜像指定了 <code>HEALTHCHECK</code> 指令后，用其启动容器，初始状态会为 starting，在执行健康检查成功之后变为 healthy，如果连续一定次数失败，则会变为 unhealthy。</p>
+<p><code>HEALTHCHECK</code> 支持下列选项：</p>
+<ul>
+<li>–interval=&lt;间隔&gt;：两次健康检查的间隔，默认为30秒；</li>
+<li>–timeout=&lt;时长&gt;：健康检查命令运行超时时间，如果超过这个时间，本次健康检查就被石炜失败，默认30秒；</li>
+<li>–retries=&lt;次数&gt;：当连续失败指定次数后，则将容器状态视为 unhealthy，默认3次。</li>
+</ul>
+</blockquote>
+<p>为了帮助排查，健康检查命令的输出（包括 stdout 以及 stderr）都会被存储于健康状态里，可以用 <code>docker inspect</code> 来查看。</p>
+</li>
+</ul>
+</li>
+<li><p>ONBUILD 为他人做嫁衣</p>
+<p>格式：</p>
+<ul>
+<li>ONBUILD &lt;其他指令&gt;</li>
+</ul>
+<p><code>ONBUILD</code> 是一个特殊的指令，它后面跟的是其他指令，比如 <code>RUN</code> , <code>COPY</code> 等，而这些指令，在当前镜像构建时并不会被执行。只有当以当前镜像为基础镜像，去构建下一级镜像的时候才会被执行。</p>
+<p>Dockerfile 中的其他指令都是为了定制当前镜像而准备的，唯有 <code>ONBUILD</code> 是为了帮助别人定制自己而准备的。</p>
+</li>
+</ul>
+<h3 id="二、其他制作镜像的方式"><a href="#二、其他制作镜像的方式" class="headerlink" title="二、其他制作镜像的方式"></a>二、其他制作镜像的方式</h3><p><strong>1、docker save 和 docker load</strong></p>
+<p>Docker 还提供了 <code>docker save</code> 和 <code>docker load</code> 命令，用以将镜像保存为一个 tar 文件，然后传输到另一个位置上，再加载进来。这是在没有 Docker Registry 时的做法，现在已经不推荐了，镜像迁移应该直接使用 Docker Registry，无论是直接使用 Docker Hub 还是使用内网私有 Registry 都可以。</p>
+<p>例如：</p>
+<p>保存 nginx 镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker save nginx | gzip &gt; nginx-latest.tar.gz</span><br></pre></td></tr></table></figure>
+<p>然后，我们将 nginx-latest.tar.gz 文件复制到另一个机器上，再加载镜像：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker load -i nginx-latest.tar.gz</span><br></pre></td></tr></table></figure>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#私有镜像" >
+    <span class="tag-code">私有镜像</span>
+  </a>
+
+  <a href="/tags#构建镜像" >
+    <span class="tag-code">构建镜像</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/04/25/docker/1-install-docker-on-centos/">
+        <span class="nav-arrow">← </span>
+        
+          docker | 在 centos 上安装 docker
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+      <div class="money-like">
+        <div class="reward-btn">
+          赏
+          <span class="money-code">
+            <span class="alipay-code">
+              <div class="code-image"></div>
+              <b>使用支付宝打赏</b>
+            </span>
+            <span class="wechat-code">
+              <div class="code-image"></div>
+              <b>使用微信打赏</b>
+            </span>
+          </span>
+        </div>
+        <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+      </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- Gitment START -->
+      <div id="comments"></div>
+      <!-- Gitment END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#一、使用-Dockerfile-定制镜像"><span class="toc-nav-text">一、使用 Dockerfile 定制镜像</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#二、其他制作镜像的方式"><span class="toc-nav-text">二、其他制作镜像的方式</span></a></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://bruce.bugmakers.club/2019/05/04/docker/2-build-private-image/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+     // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+        
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+
+    // qrcode
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+
+    // gitment
+    var gitmentConfig = "BruceOuyang";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "docker | 构建私有镜像",
+        owner: "BruceOuyang",
+        repo: "BruceOuyang.github.io",
+        oauth: {
+          client_id: "ef246fa43759b5976dc8",
+          client_secret: "b97e74b26013e1c14b31a2632e8d03cbafc6d380"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  })();
+</script>
+
+<script>
+  var disqus_shortname = '';
+  
+  var disqus_url = 'http://bruce.bugmakers.club/2019/05/04/docker/2-build-private-image/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = 'source/js/go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a> Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>

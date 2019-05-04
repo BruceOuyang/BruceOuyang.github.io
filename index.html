@@ -65,25 +65,31 @@
       
         <li class="list-item">
           
-            <a href="/" class="item-link active">首页</a>
+            <a href="/" class="item-link active">Home</a>
           
         </li>
       
         <li class="list-item">
           
-            <a href="/tags/" class="item-link">标签</a>
+            <a href="/tags/" class="item-link">Tags</a>
           
         </li>
       
         <li class="list-item">
           
-            <a href="/archives/" class="item-link">归档</a>
+            <a href="/archives/" class="item-link">Archives</a>
           
         </li>
       
         <li class="list-item">
           
-            <a href="/about/" class="item-link">关于</a>
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
           
         </li>
       
@@ -98,25 +104,31 @@
         
           <li class="menu-item">
             
-              <a href="/" class="menu-link mobile-active">首页</a>
+              <a href="/" class="menu-link mobile-active">Home</a>
             
           </li>
         
           <li class="menu-item">
             
-              <a href="/tags/" class="menu-link">标签</a>
+              <a href="/tags/" class="menu-link">Tags</a>
             
           </li>
         
           <li class="menu-item">
             
-              <a href="/archives/" class="menu-link">归档</a>
+              <a href="/archives/" class="menu-link">Archives</a>
             
           </li>
         
           <li class="menu-item">
             
-              <a href="/about/" class="menu-link">关于</a>
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
             
           </li>
         
@@ -126,6 +138,34 @@
 </header>
 
     <main class="app-body">
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/05/04/docker/2-build-private-image/">docker | 构建私有镜像</a>
+      </h2>
+      <p class="article-date">2019年5月4日</p>
+      
+        
+  <a href="/tags#私有镜像" >
+    <span class="tag-code">私有镜像</span>
+  </a>
+
+  <a href="/tags#构建镜像" >
+    <span class="tag-code">构建镜像</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          
+一、使用 Dockerfile 定制镜像1、FROM 指定基础镜像
+1FROM nginx
+2、RUN 执行命令
+1RUN echo &apos;&lt;h1&gt;hello docker&lt;/h1&gt;&apos; &gt; /usr/share/nginx/html/index ...
+        
+      </div>
+      <a class="more" href="/2019/05/04/docker/2-build-private-image/">read more</a>
+    </article>
   
     <article class="article-card">
       <h2 class="article-head">
@@ -148,7 +188,7 @@ https://docs.docker.com/install/linux/docker-ce/centos/
 1 uninstall old versions12345678sudo yum remove docker \        ...
         
       </div>
-      <a class="more" href="/2019/04/25/docker/1-install-docker-on-centos/">read more...</a>
+      <a class="more" href="/2019/04/25/docker/1-install-docker-on-centos/">read more</a>
     </article>
   
     <article class="article-card">
@@ -183,7 +223,7 @@ DataSrouceTransactionManager
 HibernateTransacti ...
         
       </div>
-      <a class="more" href="/2019/04/21/spring/transaction/Spring 事物基础/">read more...</a>
+      <a class="more" href="/2019/04/21/spring/transaction/Spring 事物基础/">read more</a>
     </article>
   
     <article class="article-card">
@@ -215,7 +255,7 @@ HibernateTransacti ...
 原因：大脑虽然最多占人体重量的2%，但却消耗了全部能量的20%，是名副其实的“大胃王”。而且，其中，大脑所消耗能量的60%至80%被DMN（即 ...
         
       </div>
-      <a class="more" href="/2019/01/26/health/为什么你总是感到疲劳？脑科学+冥想=最有效的休息方法/">read more...</a>
+      <a class="more" href="/2019/01/26/health/为什么你总是感到疲劳？脑科学+冥想=最有效的休息方法/">read more</a>
     </article>
   
     <article class="article-card">
@@ -236,7 +276,7 @@ HibernateTransacti ...
 
         
       </div>
-      <a class="more" href="/2019/01/11/idea/Intellij IDEA神器居然还有这些小技巧/">read more...</a>
+      <a class="more" href="/2019/01/11/idea/Intellij IDEA神器居然还有这些小技巧/">read more</a>
     </article>
   
     <article class="article-card">
@@ -272,7 +312,7 @@ JVM 运行时数据区
 线程共享：所有线程能访问这块内存数据， ...
         
       </div>
-      <a class="more" href="/2019/01/08/java/base/JAVA程序运行原理分析/">read more...</a>
+      <a class="more" href="/2019/01/08/java/base/JAVA程序运行原理分析/">read more</a>
     </article>
   
     <article class="article-card">
@@ -299,7 +339,7 @@ JVM 运行时数据区
 在阿里集团有很强的影响力，同时为了自身不断 ...
         
       </div>
-      <a class="more" href="/2018/12/22/awesome/QLExpress/">read more...</a>
+      <a class="more" href="/2018/12/22/awesome/QLExpress/">read more</a>
     </article>
   
     <article class="article-card">
@@ -327,7 +367,7 @@ Java高级开发工程师直播公开课
 《Java高级开发工程师》直 ...
         
       </div>
-      <a class="more" href="/2018/12/12/网易公开课/Java高级工程师公开课/">read more...</a>
+      <a class="more" href="/2018/12/12/网易公开课/Java高级工程师公开课/">read more</a>
     </article>
   
     <article class="article-card">
@@ -353,7 +393,7 @@ Java高级开发工程师直播公开课
 组件使用示例 backTopDemo.vue1234567891011121314151617&lt;template&gt;  &lt;div style=&quot;height: 2000px;&quot;&gt;    &lt;back-top&gt;&lt;/back ...
         
       </div>
-      <a class="more" href="/2018/06/14/vue/vue组件 - 回到顶部/">read more...</a>
+      <a class="more" href="/2018/06/14/vue/vue组件 - 回到顶部/">read more</a>
     </article>
   
     <article class="article-card">
@@ -386,38 +426,7 @@ VUE
 进阶： ...
         
       </div>
-      <a class="more" href="/2018/05/30/vue/vue基础/">read more...</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2018/04/25/tools/tools-launchy/">tools | 推荐一款本地文件检索工具：Launchy</a>
-      </h2>
-      <p class="article-date">2018年4月25日</p>
-      
-        
-  <a href="/tags#效率" >
-    <span class="tag-code">效率</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          
-1、演示
-2、优点
-轻量级，安装后占用空间才10+MB
-
-操作简单，体验很好
-
-免费
-
-
-3、下载地址http://www.launchy.net/download.php#windows
-
-        
-      </div>
-      <a class="more" href="/2018/04/25/tools/tools-launchy/">read more...</a>
+      <a class="more" href="/2018/05/30/vue/vue基础/">read more</a>
     </article>
   
 
@@ -439,9 +448,7 @@ VUE
 </div>
     <footer class="app-footer">
   <p class="copyright">
-    &copy; 2019 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
-    <br>
-    Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
+    &copy; 2019 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a> Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
   </p>
 </footer>
 

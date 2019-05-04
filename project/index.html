@@ -10,7 +10,7 @@
   
   <title>
     
-      BuGMaker&#39; Bruce Ouyang
+      Project | BuGMaker&#39; Bruce Ouyang
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -138,136 +138,54 @@
 </header>
 
     <div id="article-banner">
-  <h2>Archives</h2>
-  <p class="post-date">文章归档</p>
+  <h2>Projects</h2>
+  <p class="post-date">开源项目</p>
 </div>
-<main class="app-body" id="archives">
-  
-  
-  
-    <section class="time-section">
-  <h1 class="section-year">
-    2019
-  </h1>
-  <div class="section-list">
-    
-    
-      <div class="section-list-item">
-        <a href="/2019/05/04/docker/2-build-private-image/" class="archive-title">docker | 构建私有镜像</a>
-        <p class="archive-date">05-04</p>
-      </div>
-    
-      <div class="section-list-item">
-        <a href="/2019/04/25/docker/1-install-docker-on-centos/" class="archive-title">docker | 在 centos 上安装 docker</a>
-        <p class="archive-date">04-25</p>
-      </div>
-    
-      <div class="section-list-item">
-        <a href="/2019/04/21/spring/transaction/Spring 事物基础/" class="archive-title">Spring | Transaction 事物</a>
-        <p class="archive-date">04-21</p>
-      </div>
-    
-      <div class="section-list-item">
-        <a href="/2019/01/26/health/为什么你总是感到疲劳？脑科学+冥想=最有效的休息方法/" class="archive-title">健康 | 为什么你总是感到疲劳？脑科学+冥想=最有效的休息方法</a>
-        <p class="archive-date">01-26</p>
-      </div>
-    
-      <div class="section-list-item">
-        <a href="/2019/01/11/idea/Intellij IDEA神器居然还有这些小技巧/" class="archive-title">开发工具 | Intellij IDEA神器居然还有这些小技巧</a>
-        <p class="archive-date">01-11</p>
-      </div>
-    
-      <div class="section-list-item">
-        <a href="/2019/01/08/java/base/JAVA程序运行原理分析/" class="archive-title">JAVA基础 | JAVA程序运行原理分析</a>
-        <p class="archive-date">01-08</p>
-      </div>
-    
-  </div>
-</section>
-  
-    <section class="time-section">
-  <h1 class="section-year">
-    2018
-  </h1>
-  <div class="section-list">
-    
-    
-      <div class="section-list-item">
-        <a href="/2018/12/22/awesome/QLExpress/" class="archive-title">awesome | 规则引擎 - QLExpress</a>
-        <p class="archive-date">12-22</p>
-      </div>
-    
-      <div class="section-list-item">
-        <a href="/2018/12/12/网易公开课/Java高级工程师公开课/" class="archive-title">公开课 | 网易云课堂Java高级开发工程师(持续更新中)</a>
-        <p class="archive-date">12-12</p>
-      </div>
-    
-      <div class="section-list-item">
-        <a href="/2018/06/14/vue/vue组件 - 回到顶部/" class="archive-title">vue | VUE组件 - 回到顶部</a>
-        <p class="archive-date">06-14</p>
-      </div>
-    
-      <div class="section-list-item">
-        <a href="/2018/05/30/vue/vue基础/" class="archive-title">vue | VUE - 教程收集</a>
-        <p class="archive-date">05-30</p>
-      </div>
-    
-      <div class="section-list-item">
-        <a href="/2018/04/25/tools/tools-launchy/" class="archive-title">tools | 推荐一款本地文件检索工具：Launchy</a>
-        <p class="archive-date">04-25</p>
-      </div>
-    
-      <div class="section-list-item">
-        <a href="/2018/04/23/tools/tools-setuna/" class="archive-title">tools | 推荐一款漂浮截图工具：SETUNA</a>
-        <p class="archive-date">04-23</p>
-      </div>
-    
-      <div class="section-list-item">
-        <a href="/2018/04/21/tools/tools-liceecap/" class="archive-title">tools | 推荐一款gif录制工具：LICEcap</a>
-        <p class="archive-date">04-21</p>
-      </div>
-    
-      <div class="section-list-item">
-        <a href="/2018/04/20/design-pattern/00-boy-learning-design-pattern/" class="archive-title">设计模式 | 开篇</a>
-        <p class="archive-date">04-20</p>
-      </div>
-    
-      <div class="section-list-item">
-        <a href="/2018/04/19/hexo/hexo-githubpages-blog/" class="archive-title">免费博客 | Hexo搭建博客并部署到Github Pages服务</a>
-        <p class="archive-date">04-19</p>
-      </div>
-    
-      <div class="section-list-item">
-        <a href="/2018/04/19/hexo/hello-world/" class="archive-title">免费博客 | Hello Hexo</a>
-        <p class="archive-date">04-19</p>
-      </div>
-    
-  </div>
-</section>
-  
-    <section class="time-section">
-  <h1 class="section-year">
-    2017
-  </h1>
-  <div class="section-list">
-    
-    
-      <div class="section-list-item">
-        <a href="/2017/08/15/agile/敏捷开发/" class="archive-title">敏捷开发 | Scrum 实践分享</a>
-        <p class="archive-date">08-15</p>
-      </div>
-    
-  </div>
-</section>
-  
+<main class="app-body project-app">
+  <div class="card-container" id="all-project"></div>
 </main>
-
 <script>
-  (function () {
-    var url = 'http://bruce.bugmakers.club/categories/工具/index.html';
+  (function() {
+    var url = 'http://bruce.bugmakers.club/project/index.html';
     $('#article-banner').geopattern(url);
-    $('.header').removeClass('fixed-header');
-  })();
+    $('.header').removeClass('fixed-header')
+    $.ajax({
+      headers: {
+        Accept: 'application/vnd.github.v3.raw'
+      },
+      type: 'get',
+      url: 'https://api.github.com/users/BruceOuyang/repos',
+      success: function (data) {
+        var repos = data.sort(function(a, b) {
+          return (b.stargazers_count - a.stargazers_count)
+        }).slice(0, 100)
+        var cardHtml = repos.map(function(item) {
+          var description = item.description || ""
+          if (description.replace(/[\u0391-\uFFE5]/g, "aa").length > 72) {
+            description = description.slice(0, 72) + '...'
+          }
+          return (
+            '<section class="project-card">' + 
+              '<a class="card-wrap" href="'+ item.html_url +'" target="_blank">' +
+                '<div class="card-header" data-name="'+ item.name +'"></div>' +
+                '<h3 class="card-title">' + item.name + '</h3>' +
+                '<p class="card-description">' + description + '</p>' +
+                '<div class="card-footer">' +
+                  '<span><i class="fa fa-star"></i>'+ item.stargazers_count +'</span>' +
+                  '<span><i class="fa fa-code-fork"></i>' + item.forks_count +'</span>' +
+                '</div>' +
+              '</a>' +
+            '</section>'
+          )
+        }).join('')
+        $('#all-project').html(cardHtml)
+        $('.card-header').each(function() {
+          var name = $(this).data('name');
+          $(this).geopattern(name);
+        })
+      }
+    });
+  })()
 </script>
     <div class="scroll-top">
   <span class="arrow-icon"></span>
