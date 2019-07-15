@@ -1,0 +1,40 @@
+<a id="more"></a>
+<h4 id="1、Docker-Hub-公有仓库"><a href="#1、Docker-Hub-公有仓库" class="headerlink" title="1、Docker Hub 公有仓库"></a>1、Docker Hub 公有仓库</h4><p><strong>在Docker Hub官网上注册账号</strong></p>
+<p><a href="https://hub.docker.com" target="_blank" rel="noopener">https://hub.docker.com</a></p>
+<p><strong>在自己的docker环境上登录公有仓库</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># login</span><br><span class="line">docker login</span><br><span class="line"></span><br><span class="line"># logout</span><br><span class="line">docker logout</span><br></pre></td></tr></table></figure>
+<p><strong>从公有仓库上拉取镜像</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># search image</span><br><span class="line">docker search &lt;image&gt;</span><br><span class="line"></span><br><span class="line">docker search hello-world</span><br><span class="line"></span><br><span class="line"># pull image</span><br><span class="line">docker pull &lt;image&gt;</span><br><span class="line"></span><br><span class="line">docker pull hello-world</span><br></pre></td></tr></table></figure>
+<p><strong>将本地镜像推送到公有仓库</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># list local images</span><br><span class="line">docker images</span><br><span class="line"></span><br><span class="line"># create a test image for hello-world to push (bruceouyang as your username)</span><br><span class="line">docker tag &lt;image&gt;[:&lt;tag&gt;] &lt;username&gt;/&lt;image_name or image_id&gt;[:&lt;tag&gt;]</span><br><span class="line"></span><br><span class="line">docker tag hello-world bruceouyang/hello-world:latest</span><br><span class="line"></span><br><span class="line"># check images</span><br><span class="line">docker images</span><br><span class="line"></span><br><span class="line"># push image</span><br><span class="line">docker push &lt;image&gt;:&lt;tag&gt;</span><br><span class="line"></span><br><span class="line">docker push bruceouyang/hello-world:latest</span><br></pre></td></tr></table></figure>
+<h4 id="2、私有仓库"><a href="#2、私有仓库" class="headerlink" title="2、私有仓库"></a>2、私有仓库</h4><p>docker-registry 是官方提供的工具，可以用于构建私有镜像仓库。</p>
+<p><strong>安装运行 docker-registry</strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name registry -d -p 5000:5000 --restart=always -v /opt/data/registry:/var/lib/registry registry</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>–name 取个名字</p>
+<p>-d 后台运行</p>
+<p>-p 端口映射</p>
+<p>–restart 重启设置</p>
+<p>-v 挂在目录</p>
+<p>最后一个 <code>registry</code> 表示基于 <code>registry</code> 镜像启动一个</p>
+</blockquote>
+<p><strong>检查运行中的容器</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
+<p>可以看到刚运行的 <code>registry</code></p>
+<p><strong>推送本地镜像到私有仓库</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># list local images</span><br><span class="line">docker images</span><br><span class="line"></span><br><span class="line"># create a test image for a big one to push</span><br><span class="line">docker tag &lt;image&gt; &lt;registry_server_addr&gt;/&lt;image&gt;[:&lt;tag&gt;]</span><br><span class="line"></span><br><span class="line">docker tag tomcat:latest 127.0.0.1:5000/tomcat:latest</span><br><span class="line"></span><br><span class="line"># check images</span><br><span class="line">docker images</span><br><span class="line"></span><br><span class="line"># push image</span><br><span class="line">push 127.0.0.1:5000/tomcat:latest</span><br></pre></td></tr></table></figure>
+<p><strong>检查私有仓库中的镜像</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl 127.0.0.1:5000/v2/_catalog</span><br><span class="line"></span><br><span class="line"># output</span><br><span class="line">&gt; &#123;&quot;repositories&quot;:[&quot;tomcat&quot;]&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>从私有仓库中拉取镜像</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># remove local image</span><br><span class="line">docker rmi -f &lt;image&gt;</span><br><span class="line"></span><br><span class="line">docker rmi -f 127.0.0.1:5000/tomcat</span><br><span class="line"></span><br><span class="line"># pull image from private registry</span><br><span class="line">docker pull 127.0.0.1:5000/tomcat</span><br></pre></td></tr></table></figure>
+<p><strong>私有仓库对内网提供服务</strong></p>
+<blockquote>
+<p>注意</p>
+<p>直接将127.0.0.1修改为本机的 ip 地址是没有效果的。</p>
+<p>Docker 默认不允许非 HTTPS 方式推送镜像。</p>
+</blockquote>
+<p>对于使用 systemd 的系统，可以在 /etc/docker/daemon.json 中写入如下内容（不存在则创建）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	&quot;registry-mirror&quot;: [</span><br><span class="line">		&quot;http://hub-mirror.c.163.com&quot;,</span><br><span class="line">		&quot;https://registry.docker-cn.com&quot;</span><br><span class="line">	],</span><br><span class="line">	&quot;insecure-registries&quot;:[</span><br><span class="line">		&quot;192.168.1.6: 5000&quot;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>192.168.1.6 是我本地的 ip 地址，请修改为你自己的本地 ip</p>
+</blockquote>
