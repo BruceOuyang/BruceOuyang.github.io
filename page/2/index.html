@@ -141,169 +141,158 @@
   
     <article class="article-card">
       <h2 class="article-head">
-        <a href="/2018/06/14/vue/vue组件 - 回到顶部/">vue | VUE组件 - 回到顶部</a>
+        <a href="/2019/05/20/docker/4-docker-temp/">docker/4-docker-temp</a>
       </h2>
-      <p class="article-date">2018年6月14日</p>
-      
-        
-  <a href="/tags#vue" >
-    <span class="tag-code">vue</span>
-  </a>
-
-  <a href="/tags#前端" >
-    <span class="tag-code">前端</span>
-  </a>
-
+      <p class="article-date">2019年5月20日</p>
       
       <div class="article-summary">
         
           
-组件效果图
-组件使用示例 backTopDemo.vue1234567891011121314151617&lt;template&gt;  &lt;div style=&quot;height: 2000px;&quot;&gt;    &lt;back-top&gt;&lt;/back ...
+1、Docker Hub 公有仓库在Docker Hub官网上注册账号
+https://hub.docker.com
+在自己的docker环境上登录公有仓库
+12345# logindocker login# logoutdocker logout
+从公有仓库上拉取镜像
+123456789 ...
         
       </div>
-      <a class="more" href="/2018/06/14/vue/vue组件 - 回到顶部/">read more</a>
+      <a class="more" href="/2019/05/20/docker/4-docker-temp/">read more</a>
     </article>
   
     <article class="article-card">
       <h2 class="article-head">
-        <a href="/2018/05/30/vue/vue基础/">vue | VUE - 教程收集</a>
+        <a href="/2019/05/06/docker/3-docker-registry/">docker | Docker 公有仓库和私有仓库</a>
       </h2>
-      <p class="article-date">2018年5月30日</p>
+      <p class="article-date">2019年5月6日</p>
       
         
-  <a href="/tags#vue" >
-    <span class="tag-code">vue</span>
+  <a href="/tags#公有仓库" >
+    <span class="tag-code">公有仓库</span>
   </a>
 
-  <a href="/tags#前端" >
-    <span class="tag-code">前端</span>
+  <a href="/tags#私有仓库" >
+    <span class="tag-code">私有仓库</span>
   </a>
 
       
       <div class="article-summary">
         
           
-
-主要内容整理自前端君的微信公众号：web前端教程，本文仅做个内容一览和跳转（跳转到原作者公众号文章）
-
-
-最新更新：无论学习什么，多从官网渠道获取信息，vue中文官网：https://cn.vuejs.org/index.html
-
-VUE
-基础：《vue2.0基础系列》目录大全
-进阶： ...
+1、Docker Hub 公有仓库在Docker Hub官网上注册账号
+https://hub.docker.com
+在自己的docker环境上登录公有仓库
+12345# logindocker login# logoutdocker logout
+从公有仓库上拉取镜像
+123456789 ...
         
       </div>
-      <a class="more" href="/2018/05/30/vue/vue基础/">read more</a>
+      <a class="more" href="/2019/05/06/docker/3-docker-registry/">read more</a>
     </article>
   
     <article class="article-card">
       <h2 class="article-head">
-        <a href="/2018/04/25/tools/tools-launchy/">tools | 推荐一款本地文件检索工具：Launchy</a>
+        <a href="/2019/05/04/docker/2-build-private-image/">docker | 构建私有镜像</a>
       </h2>
-      <p class="article-date">2018年4月25日</p>
+      <p class="article-date">2019年5月4日</p>
       
         
-  <a href="/tags#效率" >
-    <span class="tag-code">效率</span>
+  <a href="/tags#私有镜像" >
+    <span class="tag-code">私有镜像</span>
+  </a>
+
+  <a href="/tags#构建镜像" >
+    <span class="tag-code">构建镜像</span>
   </a>
 
       
       <div class="article-summary">
         
           
-1、演示
-2、优点
-轻量级，安装后占用空间才10+MB
-
-操作简单，体验很好
-
-免费
-
-
-3、下载地址http://www.launchy.net/download.php#windows
-
+一、使用 Dockerfile 定制镜像1、FROM 指定基础镜像
+1FROM nginx
+2、RUN 执行命令
+1RUN echo &apos;&lt;h1&gt;hello docker&lt;/h1&gt;&apos; &gt; /usr/share/nginx/html/index ...
         
       </div>
-      <a class="more" href="/2018/04/25/tools/tools-launchy/">read more</a>
+      <a class="more" href="/2019/05/04/docker/2-build-private-image/">read more</a>
     </article>
   
     <article class="article-card">
       <h2 class="article-head">
-        <a href="/2018/04/23/tools/tools-setuna/">tools | 推荐一款漂浮截图工具：SETUNA</a>
+        <a href="/2019/04/25/docker/1-install-docker-on-centos/">docker | 在 centos 上安装 docker</a>
       </h2>
-      <p class="article-date">2018年4月23日</p>
+      <p class="article-date">2019年4月25日</p>
       
         
-  <a href="/tags#效率" >
-    <span class="tag-code">效率</span>
+  <a href="/tags#docker 安装" >
+    <span class="tag-code">docker 安装</span>
   </a>
 
       
       <div class="article-summary">
         
           
-1、演示
-2、优点
-轻量级，整个软件大小只有1.17MB
+install docker on centos
+https://docs.docker.com/install/linux/docker-ce/centos/
 
-操作简单，体验很好
-
-免费
-
-
-3、下载地址
-我的百度云 https://pan.baidu.com/s/1UKG2zZ0CYVOwBJQGy21C4w
-
-类似小工具1）pureref，官网：https://www.pureref ...
+1 uninstall old versions12345678sudo yum remove docker \        ...
         
       </div>
-      <a class="more" href="/2018/04/23/tools/tools-setuna/">read more</a>
+      <a class="more" href="/2019/04/25/docker/1-install-docker-on-centos/">read more</a>
     </article>
   
     <article class="article-card">
       <h2 class="article-head">
-        <a href="/2018/04/21/tools/tools-liceecap/">tools | 推荐一款gif录制工具：LICEcap</a>
+        <a href="/2019/04/21/spring/transaction/Spring 事物基础/">Spring | Transaction 事物</a>
       </h2>
-      <p class="article-date">2018年4月21日</p>
+      <p class="article-date">2019年4月21日</p>
       
         
-  <a href="/tags#效率" >
-    <span class="tag-code">效率</span>
+  <a href="/tags#Java 基础" >
+    <span class="tag-code">Java 基础</span>
+  </a>
+
+  <a href="/tags#Spring Transaction" >
+    <span class="tag-code">Spring Transaction</span>
   </a>
 
       
       <div class="article-summary">
         
           
-1、演示
-2、优点
-轻量级，整个软件大小只有1.17MB
-
-操作简单，体验很好
-
-免费
+Spring 事物抽象
+一致的事物模型
+JDBC/Hibernate/MyBatis
+DataSource/JTA
 
 
-3、下载地址
-官网 https://www.cockos.com/licecap/
 
-我的github仓库 https://github.com/BruceOuyang/issuelist/blob ...
+事物抽象的核心接口PlatformTransactionManager
+
+DataSrouceTransactionManager
+HibernateTransacti ...
         
       </div>
-      <a class="more" href="/2018/04/21/tools/tools-liceecap/">read more</a>
+      <a class="more" href="/2019/04/21/spring/transaction/Spring 事物基础/">read more</a>
     </article>
   
     <article class="article-card">
       <h2 class="article-head">
-        <a href="/2018/04/20/design-pattern/00-boy-learning-design-pattern/">设计模式 | 开篇</a>
+        <a href="/2019/01/26/health/为什么你总是感到疲劳？脑科学+冥想=最有效的休息方法/">健康 | 为什么你总是感到疲劳？脑科学+冥想=最有效的休息方法</a>
       </h2>
-      <p class="article-date">2018年4月20日</p>
+      <p class="article-date">2019年1月26日</p>
       
         
-  <a href="/tags#设计模式" >
-    <span class="tag-code">设计模式</span>
+  <a href="/tags#健康" >
+    <span class="tag-code">健康</span>
+  </a>
+
+  <a href="/tags#大脑" >
+    <span class="tag-code">大脑</span>
+  </a>
+
+  <a href="/tags#冥想" >
+    <span class="tag-code">冥想</span>
   </a>
 
       
@@ -311,28 +300,23 @@ VUE
         
           
 
-Bruce Ouyang 正在学习《设计模式Java版》 http://woquanke.com/books/gof/这本书个人学习的主要内容以及对应源码记录在https://github.com/BruceOuyang/boy-design-pattern目录下
-
-初衷
-系统的学习一遍 ...
+利用脑科学和冥想来解决疲劳问题的七种方法前言大多数人认为：只要什么都不干，大脑就可以好好休息了。
+真实情况是：即使你什么都不做，大脑还是会疲惫。
+原因：大脑虽然最多占人体重量的2%，但却消耗了全部能量的20%，是名副其实的“大胃王”。而且，其中，大脑所消耗能量的60%至80%被DMN（即 ...
         
       </div>
-      <a class="more" href="/2018/04/20/design-pattern/00-boy-learning-design-pattern/">read more</a>
+      <a class="more" href="/2019/01/26/health/为什么你总是感到疲劳？脑科学+冥想=最有效的休息方法/">read more</a>
     </article>
   
     <article class="article-card">
       <h2 class="article-head">
-        <a href="/2018/04/19/hexo/hexo-githubpages-blog/">免费博客 | Hexo搭建博客并部署到Github Pages服务</a>
+        <a href="/2019/01/11/idea/Intellij IDEA神器居然还有这些小技巧/">开发工具 | Intellij IDEA神器居然还有这些小技巧</a>
       </h2>
-      <p class="article-date">2018年4月19日</p>
+      <p class="article-date">2019年1月11日</p>
       
         
-  <a href="/tags#免费博客" >
-    <span class="tag-code">免费博客</span>
-  </a>
-
-  <a href="/tags#github pages" >
-    <span class="tag-code">github pages</span>
+  <a href="/tags#idea" >
+    <span class="tag-code">idea</span>
   </a>
 
       
@@ -340,76 +324,100 @@ Bruce Ouyang 正在学习《设计模式Java版》 http://woquanke.com/books/gof
         
           
 
-本文实践的操作系统是windows 10，其他OS的可以当做参考用
-
-一、Hexo搭建博客1. 环境准备
-下载并安装 nodejs 
-下载并安装 git
-直接上官网看指引即可，如有疑问可以在评论中留言说明
-
-
-
-2. Hexo初始化博客
-在命令行窗口中执行下列命令
-
-
-使用npm安装he ...
         
       </div>
-      <a class="more" href="/2018/04/19/hexo/hexo-githubpages-blog/">read more</a>
+      <a class="more" href="/2019/01/11/idea/Intellij IDEA神器居然还有这些小技巧/">read more</a>
     </article>
   
     <article class="article-card">
       <h2 class="article-head">
-        <a href="/2018/04/19/hexo/hello-world/">免费博客 | Hello Hexo</a>
+        <a href="/2019/01/08/java/base/JAVA程序运行原理分析/">JAVA基础 | JAVA程序运行原理分析</a>
       </h2>
-      <p class="article-date">2018年4月19日</p>
+      <p class="article-date">2019年1月8日</p>
       
         
-  <a href="/tags#hexo" >
-    <span class="tag-code">hexo</span>
+  <a href="/tags#JAVA基础" >
+    <span class="tag-code">JAVA基础</span>
   </a>
 
-  <a href="/tags#免费博客" >
-    <span class="tag-code">免费博客</span>
+  <a href="/tags#JAVA高性能编程" >
+    <span class="tag-code">JAVA高性能编程</span>
+  </a>
+
+  <a href="/tags#运行原理" >
+    <span class="tag-code">运行原理</span>
+  </a>
+
+  <a href="/tags#网易微专业" >
+    <span class="tag-code">网易微专业</span>
   </a>
 
       
       <div class="article-summary">
         
           
-Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answe ...
+Java程序的运行，首先会将源码文件(.java)编译成Class文件(.class)，进而jvm会去解析class文件，将其解释为操作系统可识别的指令进行运算。
+JVM 运行时数据区
+线程独占：每个线程都会有它独立的空间，随线程生命周期而创建和销毁
+线程共享：所有线程能访问这块内存数据， ...
         
       </div>
-      <a class="more" href="/2018/04/19/hexo/hello-world/">read more</a>
+      <a class="more" href="/2019/01/08/java/base/JAVA程序运行原理分析/">read more</a>
     </article>
   
     <article class="article-card">
       <h2 class="article-head">
-        <a href="/2017/08/15/agile/敏捷开发/">敏捷开发 | Scrum 实践分享</a>
+        <a href="/2018/12/22/awesome/QLExpress/">awesome | 规则引擎 - QLExpress</a>
       </h2>
-      <p class="article-date">2017年8月15日</p>
+      <p class="article-date">2018年12月22日</p>
       
         
-  <a href="/tags#敏捷开发" >
-    <span class="tag-code">敏捷开发</span>
+  <a href="/tags#awesome" >
+    <span class="tag-code">awesome</span>
   </a>
 
-  <a href="/tags#Scrum" >
-    <span class="tag-code">Scrum</span>
+  <a href="/tags#规则引擎" >
+    <span class="tag-code">规则引擎</span>
   </a>
 
       
       <div class="article-summary">
         
           
-1 scrum processresource：Scrum介绍-LukeShen.pptx
-2 daily meeting info collector
-resource：sprint-standmeeting-demo.xls
-
+一、简介QlExpress脚本语言解析工具诞生于2010年，是玄难大师根据当时汇金的业务需要开始编写。
+该项目是由阿里的电商业务规则、表达式（布尔组合）、特殊数学公式计算（高精度）、语法分析、脚本二次定制等强需求而设计的一门动态脚本引擎解析工具。
+在阿里集团有很强的影响力，同时为了自身不断 ...
         
       </div>
-      <a class="more" href="/2017/08/15/agile/敏捷开发/">read more</a>
+      <a class="more" href="/2018/12/22/awesome/QLExpress/">read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2018/12/12/网易公开课/Java高级工程师公开课/">公开课 | 网易云课堂Java高级开发工程师(持续更新中)</a>
+      </h2>
+      <p class="article-date">2018年12月12日</p>
+      
+        
+  <a href="/tags#公开课" >
+    <span class="tag-code">公开课</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          
+网易云课堂Java高级开发工程师公开课索引第一期
+Java高级开发工程师直播公开课
+《Java高级开发工程师》直播课
+《Java高级开发工程师》直播课Ⅲ
+《Java高级开发工程师》直播课Ⅳ
+《Java高级开发工程师》直播课Ⅴ
+《Java高级开发工程师》直播课Ⅵ
+《Java高级开发工程师》直 ...
+        
+      </div>
+      <a class="more" href="/2018/12/12/网易公开课/Java高级工程师公开课/">read more</a>
     </article>
   
 
@@ -419,7 +427,7 @@ resource：sprint-standmeeting-demo.xls
     <a href="/"><span class="page-arrow">← </span>Prev</a>
   
   
-    <a class="unvisible" href="/">Next <span class="page-arrow">→</span></a>
+    <a href="/page/3/">Next<span class="page-arrow"> →</span></a>
   
 </div>
   
