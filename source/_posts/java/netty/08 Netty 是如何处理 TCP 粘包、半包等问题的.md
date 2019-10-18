@@ -1,5 +1,5 @@
 ---
-title: Section08 Netty 是如何处理 TCP 粘包、半包等问题的 | boy-learning-netty
+title: boy-learning-netty | 08 Netty 是如何处理 TCP 粘包、半包等问题的
 date: 2019-10-08
 tags: 
     - netty

@@ -1,5 +1,5 @@
 ---
-title: Section10 keepalive 与 idle 监测 | boy-learning-netty
+title: boy-learning-netty | 10 keepalive 与 idle 监测
 date: 2019-10-10
 tags: 
     - netty

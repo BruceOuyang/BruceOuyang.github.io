@@ -1,5 +1,5 @@
 ---
-title: Section05 Netty 的现状与趋势 | boy-learning-netty
+title: boy-learning-netty | 05 Netty 的现状与趋势
 date: 2019-10-05
 tags: 
     - netty

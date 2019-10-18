@@ -1,5 +1,5 @@
 ---
-title: Section04 Netty 的前尘往事 | boy-learning-netty
+title: boy-learning-netty | 04 Netty 的前尘往事
 date: 2019-10-04
 tags: 
     - netty

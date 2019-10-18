@@ -1,5 +1,5 @@
 ---
-title: Section01 认识 Netty | boy-learning-netty
+title: boy-learning-netty | 01 认识 Netty
 date: 2019-10-01
 tags: 
     - netty

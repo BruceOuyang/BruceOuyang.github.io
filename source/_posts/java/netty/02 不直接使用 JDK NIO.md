@@ -1,5 +1,5 @@
 ---
-title: Section02 为什么舍近求远：不直接使用 JDK NIO | boy-learning-netty
+title: boy-learning-netty | 02 为什么舍近求远：不直接使用 JDK NIO
 date: 2019-10-02
 tags: 
     - netty

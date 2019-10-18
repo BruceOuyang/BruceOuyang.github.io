@@ -1,5 +1,5 @@
 ---
-title: Section06 Netty 怎么切换三种 I/O 模式 | boy-learning-netty
+title: boy-learning-netty | 06 Netty 怎么切换三种 I/O 模式
 date: 2019-10-06
 tags: 
     - netty

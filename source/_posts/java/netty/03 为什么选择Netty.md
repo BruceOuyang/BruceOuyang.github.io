@@ -1,5 +1,5 @@
 ---
-title: Section03 为什么孤注一掷：独选 Netty | boy-learning-netty
+title: boy-learning-netty | 03 为什么孤注一掷：独选 Netty
 date: 2019-10-03
 tags: 
     - netty
