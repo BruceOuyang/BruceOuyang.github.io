@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="BruceOuyang&#39;s BLOG">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      boy-learning-thread | 1.1.6 线程池原理 | BuGMaker&#39; Bruce Ouyang
+    
+  </title>
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/plugins/gitment.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="/js/qrious.js"></script>
+<script src="/js/gitment.js"></script>
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>BuGMaker' Bruce Ouyang</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>boy-learning-thread | 1.1.6 线程池原理</h2>
+  <p class="post-date">2019-10-16</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><a id="more"></a>
+<blockquote>
+<p>相关源码：<a href="https://github.com/BruceOuyang/boy-learning-thread" target="_blank" rel="noopener">boy-learning-thread</a><br>个人博客：<a href="http://bruce.bugmakers.club">http://bruce.bugmakers.club</a><br>内容来自《网易微专业 - 高性能编程章节》</p>
+</blockquote>
+<h1 id="线程池原理"><a href="#线程池原理" class="headerlink" title="线程池原理"></a>线程池原理</h1><h2 id="1、为什么要用线程池"><a href="#1、为什么要用线程池" class="headerlink" title="1、为什么要用线程池"></a>1、为什么要用线程池</h2><p><strong>线程是不是越多越好？</strong></p>
+<p>1、线程在 java 中是一个对象，更是操作系统中的资源，线程创建、销毁需要时间。如果 “创建时间 + 销毁时间 &gt; 执行任务时间” 就恨不合算。</p>
+<p>2、java 对象占用堆内存，操作系统线程占用系统内存，根据 jvm 规范，一个线程默认最大栈大小 1M，这个空间是需要从系统内存中分配的。线程过多，会消耗很多内存。</p>
+<p>3、操作系统需要频繁切换线程上下文（大家都想被执行），线程过多会影响性能。</p>
+<p>线程池的推出，就是为了方便的控制线程数量。</p>
+<h2 id="2、线程池原理-概念"><a href="#2、线程池原理-概念" class="headerlink" title="2、线程池原理 - 概念"></a>2、线程池原理 - 概念</h2><p>1、线程池管理器：用于创建并管理线程池，包括：创建线程池、销毁线程池、添加新任务；</p>
+<p>2、工作线程：线程池中的线程，在没有任务时处于等待状态，可以循环的执行任务；</p>
+<p>3、任务接口：每个任务必须实现的接口，以供工作线程调度任务的执行，它主要规定了：任务的入口、任务执行完后的收尾工作、任务的状态；</p>
+<p>4、任务队列：用于存放没有处理的任务。以供一种缓冲机制。</p>
+<h3 id="2-1、线程池-API-接口定义和实现类"><a href="#2-1、线程池-API-接口定义和实现类" class="headerlink" title="2.1、线程池 API - 接口定义和实现类"></a>2.1、线程池 API - 接口定义和实现类</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">描述  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">接口</td>
+<td style="text-align:left">Executor</td>
+<td style="text-align:left">最上层接口，定义了执行任务的方法 execute  </td>
+</tr>
+<tr>
+<td style="text-align:left">接口</td>
+<td style="text-align:left">ExecutorService</td>
+<td style="text-align:left">继承了 Executor 接口，拓展了 Callable、Future、关闭方法  </td>
+</tr>
+<tr>
+<td style="text-align:left">接口</td>
+<td style="text-align:left">ScheduledExecutorService</td>
+<td style="text-align:left">继承了 ExecutorService，增加了定时任务相关的方法  </td>
+</tr>
+<tr>
+<td style="text-align:left">实现类</td>
+<td style="text-align:left">ThreadPoolExecutor</td>
+<td style="text-align:left">基础、标准的线程池实现类  </td>
+</tr>
+<tr>
+<td style="text-align:left">实现类</td>
+<td style="text-align:left">ScheduledThreadPoolExecutor</td>
+<td style="text-align:left">继承了 ThreadPoolExecutor，实现了 ScheduledExecutorService 中相关定时任务的方法  </td>
+</tr>
+</tbody>
+</table>
+<p>可以认为 ScheduledThreadPoolExecutor 是最丰富的实现类。</p>
+<h3 id="2-2、线程池-API-方法定义"><a href="#2-2、线程池-API-方法定义" class="headerlink" title="2.2、线程池 API - 方法定义"></a>2.2、线程池 API - 方法定义</h3><p><strong>ExecutorService</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 监测 ExecutorService 是否已关闭，直到所有任务完成执行，或超时发生，或当前线程被中断  </span></span><br><span class="line">awaitTermination(<span class="keyword">long</span> timeout, TimeUnit unit);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行给定的任务集合，执行完毕后，返回结果</span></span><br><span class="line">invokeAll(Collection&lt;? extends Callable&lt;T&gt;&gt; tasks);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行给定的任务集合，执行完毕或者超时后，返回结果，其他任务终止</span></span><br><span class="line">invokeAll(Collection&lt;? extends Callable&lt;T&gt;&gt; tasks, <span class="keyword">long</span> timeout, TimeUnit unit);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行给定的任务集合，任意一个任务执行成功后，返回结果，其他任务终止</span></span><br><span class="line">invokeAny(Collection&lt;? extends Callable&lt;T&gt;&gt; tasks);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行给定的任务集合，任意一个任务执行成功或超时后，返回结果，其他任务终止</span></span><br><span class="line">invokeAny(Collection&lt;? extends Callable&lt;T&gt;&gt; tasks, <span class="keyword">long</span> timeout, TimeUnit unit);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果线程池关闭，则返回treu</span></span><br><span class="line">isShutdown();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果关闭后，所有任务都已经执行完毕，则返回true</span></span><br><span class="line">isTerminated();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 优雅关闭线程池，之前已经提交的任务将被执行，但不接受新的任务</span></span><br><span class="line">shutdown();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 尝试停止所有正在执行的任务，停止等待任务的处理，并返回等待执行任务的列表</span></span><br><span class="line">shutdownNow();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 提交一个用于执行的 Callable 返回任务，并返回一个 Future 对象，用于获取 Callable 执行结果</span></span><br><span class="line">submit(Callable&lt;T&gt; task);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 提交可运行任务以执行，并返回一个 Future 对象，执行结果为 null</span></span><br><span class="line">submit(Runnable task);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 提交可运行任务以执行，并返回一个 Future 对象，执行结果为传入的 result</span></span><br><span class="line">sumit(Runnable task, T result);</span><br></pre></td></tr></table></figure></p>
+<p><strong>ScheduledExecutorService</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建并执行一个一次性任务，过了延迟时间就会被执行</span></span><br><span class="line">schedule(Callable&lt;T&gt; callable, <span class="keyword">long</span> delay, TimeUnit unit);</span><br><span class="line">schedule(Runnable command, <span class="keyword">long</span> delay, TimeUnit unit);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建并执行一个周期性任务，过了延迟时间会第一次执行，执行过程发生异常，那么任务就停止了</span></span><br><span class="line">scheduleAtFixedRate(Runnable command, <span class="keyword">long</span> initialDelay, <span class="keyword">long</span> period, TimeUnit unit);</span><br><span class="line">scheduleWithFixedDelay(Runnable command, <span class="keyword">long</span> initialDelay, <span class="keyword">long</span> period, TimeUnit unit);</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>scheduleAtFixedRate 方法，一次任务执行时长超过周期时间，下次任务在该次任务执行完之后，立即执行。<br>schedualWithFixedDelay 方法，一次任务执行时间长超过周期时间，下次任务会在该次任务执行完之后，计算执行延时（再等延迟一个 period 的时长）。</p>
+</blockquote>
+<h3 id="2-3、线程池-API-Executors-工具类"><a href="#2-3、线程池-API-Executors-工具类" class="headerlink" title="2.3、线程池 API - Executors 工具类"></a>2.3、线程池 API - Executors 工具类</h3><p>你也可以自己实例化线程池，也可以用 Executors 创建线程池的工厂类，常用方法如下：  </p>
+<p><strong>1) newFixedThreadPool(int nThreads)</strong>  </p>
+<p>创建一个固定大小、任务队列无界的线程池。核心线程数 = 最大线程数。</p>
+<p><strong>2) newCachedThreadPool()</strong>  </p>
+<p>创建一个大小无界的缓存线程池。他的任务队列是一个同步队列。<br>任务加入到池中，如果池中有空闲线程，则用空闲线程执行，如无则创建新的线程执行，池中的线程空闲超过60秒，将被销毁释放。<br>线程数随任务的多少变化。适用于任务量不可控，且执行耗时较小的异步任务。<br>核心线程数 = 0， 最大线程数 = Integer.MAX_VALUE</p>
+<p><strong>3) newSingleThreadExecutor()</strong>  </p>
+<p>只有一个线程来执行无界任务队列的单一线程池。该线程池确保任务按照加入队列的顺序一个一个一次执行。<br>当唯一的线程因任务异常终止时，将创建一个新的线程来执行后续的任务。<br>与 newFixedThreadPool(1) 的区别在于，单一线程池的大小在 new SingleThreadExecutor 方法中硬编码，不能再改变。</p>
+<p><strong>4) newScheduledThreadPool(int corePoolSize)</strong>  </p>
+<p>能定时执行任务的线程池。该池的核心线程数由参数来指定，最大线程数 = Integer.MAX_VALUE</p>
+<h2 id="3、线程池原理-任务-execute-过程"><a href="#3、线程池原理-任务-execute-过程" class="headerlink" title="3、线程池原理 - 任务 execute 过程"></a>3、线程池原理 - 任务 execute 过程</h2><p>1、是否达到核心线程数量？没达到，创建一个工作线程来执行任务。  </p>
+<p>2、任务队列是否已满？没满，则将新提交的任务存储在任务队列里边。</p>
+<p>3、是否达到线程池最大数量？没达到，则创建一个新的工作线程来执行任务。</p>
+<p>4、最后，执行拒绝策略来处理这个任务。</p>
+<h2 id="4、线程数量"><a href="#4、线程数量" class="headerlink" title="4、线程数量"></a>4、线程数量</h2><p><strong>如何确定合适数量的线程？</strong></p>
+<p>计算型任务：cpu数量的1~2倍。  </p>
+<p>IO型任务：根据具体的IO阻塞时长进行考量决定。  </p>
+<p>如 Tomcat 中默认的最大线程数为：200</p>
+<p>也可以考虑根据需要在一个最小数量和最大数量间自动增减线程数。</p>
+<p>监控CPU的使用率，如果远小于80%则使用不合理，大于也不可理，接近则表示使用良好。</p>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#boy-learning" >
+    <span class="tag-code">boy-learning</span>
+  </a>
+
+  <a href="/tags#thread" >
+    <span class="tag-code">thread</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/10/15/java/thread/1.1.5 线程封闭之ThreadLocal和栈封闭/">
+        <span class="nav-arrow">← </span>
+        
+          boy-learning-thread | 1.1.5 线程封闭之ThreadLocal和栈封闭
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+      <div class="money-like">
+        <div class="reward-btn">
+          赏
+          <span class="money-code">
+            <span class="alipay-code">
+              <div class="code-image"></div>
+              <b>使用支付宝打赏</b>
+            </span>
+            <span class="wechat-code">
+              <div class="code-image"></div>
+              <b>使用微信打赏</b>
+            </span>
+          </span>
+        </div>
+        <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+      </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- Gitment START -->
+      <div id="comments"></div>
+      <!-- Gitment END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#线程池原理"><span class="toc-nav-text">线程池原理</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1、为什么要用线程池"><span class="toc-nav-text">1、为什么要用线程池</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2、线程池原理-概念"><span class="toc-nav-text">2、线程池原理 - 概念</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-1、线程池-API-接口定义和实现类"><span class="toc-nav-text">2.1、线程池 API - 接口定义和实现类</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-2、线程池-API-方法定义"><span class="toc-nav-text">2.2、线程池 API - 方法定义</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-3、线程池-API-Executors-工具类"><span class="toc-nav-text">2.3、线程池 API - Executors 工具类</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3、线程池原理-任务-execute-过程"><span class="toc-nav-text">3、线程池原理 - 任务 execute 过程</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4、线程数量"><span class="toc-nav-text">4、线程数量</span></a></li></ol></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://bruce.bugmakers.club/2019/10/16/java/thread/1.1.6 线程池原理/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+     // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+        
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+
+    // qrcode
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+
+    // gitment
+    var gitmentConfig = "BruceOuyang";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "boy-learning-thread | 1.1.6 线程池原理",
+        owner: "BruceOuyang",
+        repo: "BruceOuyang.github.io",
+        oauth: {
+          client_id: "ef246fa43759b5976dc8",
+          client_secret: "b97e74b26013e1c14b31a2632e8d03cbafc6d380"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  })();
+</script>
+
+<script>
+  var disqus_shortname = '';
+  
+  var disqus_url = 'http://bruce.bugmakers.club/2019/10/16/java/thread/1.1.6 线程池原理/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = 'source/js/go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a> Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>

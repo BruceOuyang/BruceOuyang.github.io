@@ -10,7 +10,7 @@
   
   <title>
     
-      boy-learning-thread | 1.1.3 内存屏障和CPU缓存 | BuGMaker&#39; Bruce Ouyang
+      boy-learning-thread | 1.1.5 线程封闭之ThreadLocal和栈封闭 | BuGMaker&#39; Bruce Ouyang
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -138,8 +138,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>boy-learning-thread | 1.1.3 内存屏障和CPU缓存</h2>
-  <p class="post-date">2019-10-13</p>
+  <h2>boy-learning-thread | 1.1.5 线程封闭之ThreadLocal和栈封闭</h2>
+  <p class="post-date">2019-10-15</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -151,47 +151,18 @@
 <blockquote>
 <p>相关源码：<a href="https://github.com/BruceOuyang/boy-learning-thread" target="_blank" rel="noopener">boy-learning-thread</a><br>个人博客：<a href="http://bruce.bugmakers.club">http://bruce.bugmakers.club</a><br>内容来自《网易微专业 - 高性能编程章节》</p>
 </blockquote>
-<h1 id="内存屏障和CPU缓存"><a href="#内存屏障和CPU缓存" class="headerlink" title="内存屏障和CPU缓存"></a>内存屏障和CPU缓存</h1><h2 id="CPU-性能优化手段-缓存"><a href="#CPU-性能优化手段-缓存" class="headerlink" title="CPU 性能优化手段 - 缓存"></a>CPU 性能优化手段 - 缓存</h2><p>为了提高程序运行的性能，现代 CPU 在很多方面对程序进行了优化。  </p>
-<p>例如：CPU高速缓存。尽可能的避免处理器访问主内存的时间开销，处理器大多会利用缓存(cache)以提高性能。</p>
-<h3 id="CPU-多级缓存"><a href="#CPU-多级缓存" class="headerlink" title="CPU 多级缓存"></a>CPU 多级缓存</h3><p>L1 Cache 一级缓存：CPU 第一层高速缓存，分为数据缓存和指令缓存。一般服务器 CPU 的 L1 缓存的容量通常在 32~4096KB。</p>
-<p>L2 由于 L1 级高速缓存容量的限制，为了再次提高 CPU 的运算速度，在 CPU 外部放置一高速存储器，即二级缓存。</p>
-<p>L3 现在的都是内置的。而它的实际作用即是，L3 缓存的应用可以进一步降低内存延迟，同时提升大数据量计算时处理器的性能。具有较大 L3 缓存的处理器提供更有效的文件系统缓存行为及较短消息和处理器队列长度。一般是多核共享一个 L3 缓存！</p>
-<blockquote>
-<p>cpu 在读取数据时，现在L1中寻找，再从L2中寻找，再从L3中寻找，然后是内存，再后是外存储器。</p>
-</blockquote>
-<h3 id="缓存同步协议"><a href="#缓存同步协议" class="headerlink" title="缓存同步协议"></a>缓存同步协议</h3><p>多 CPU 读取同样的数据进行缓存，进行不同的运算之后，最终写入主内存以哪个 CPU 为准？  </p>
-<p>在这种高速缓存回写的场景下，有一个缓存一致性协议多数 CPU 厂商对他进行了实现。</p>
-<p>MESI 协议，他规定每条缓存有个状态位，同时定义了下面四个状态：  </p>
-<ul>
-<li><p>修改态（Modified）——此 cache 行已被修改过（脏行），内容已不同于主存，为此 cache 专有；  </p>
-</li>
-<li><p>专有态（Exclusive）——此 cache 行内容同于主存，但不出现与其他 cache 中；  </p>
-</li>
-<li><p>共享态（Shared）——此 cache 行同于主存，但也出现于其他 cache 中；  </p>
-</li>
-<li><p>无效态（Invalid）——此 cache 行内容无效（空行）。</p>
-</li>
-</ul>
-<p>多处理器时，单个 CPU 对缓存中的数据进行了改动，需要通知给其他 CPU。<br>也就是意味着，CPU 处理要控制自己的读写操作，还要监听其他 CPU 发出的通知，从而保证最终一致。</p>
-<h2 id="CPU-性能优化手段-运行时指令重排"><a href="#CPU-性能优化手段-运行时指令重排" class="headerlink" title="CPU 性能优化手段 - 运行时指令重排"></a>CPU 性能优化手段 - 运行时指令重排</h2><p>指令重排场景：当 CPU 写缓存时，发现缓存区块正在被其他 CPU 占用，为了提高 CPU 处理性能，可能将后面的读缓存命令优先执行。</p>
-<p>并非随便重排，需要遵守 as-if-serial 语义。</p>
-<p>as-if-serial 语义指的是：不管怎么重排序（编译器和处理器为了提高并行度），（单线程）程序的执行结果不能被改变。<br>编译器，runtime 和处理器都必须遵守 as-if-serial 语义。也就是说，编译器和处理器不会对存在数据依赖关系的操作做重排序。  </p>
-<h3 id="两个问题"><a href="#两个问题" class="headerlink" title="两个问题"></a>两个问题</h3><p><strong>1、CPU 高速缓存下，有一个问题：</strong>  </p>
-<p>缓存中的数据与主内存的数据并不是实时同步的，各 CPU （或 CPU 核心）间缓存的数据也不是实时同步。  </p>
-<p>在同一个时间点，各 CPU 所看到同一内存地址的数据的值可能是不一致的。</p>
-<p><strong>2、CPU 执行指令重排序优化下，有一个问题：</strong>  </p>
-<p>虽然遵守了 as-if-serial 语义，但仅在单 CPU 自己执行的情况下能保证结果正确。   </p>
-<p>多核多线程中，指令逻辑无法分辨因果关联，可能出现乱序执行，导致程序运行结果错误。</p>
-<h3 id="处理方式-——-内存屏障"><a href="#处理方式-——-内存屏障" class="headerlink" title="处理方式 —— 内存屏障"></a>处理方式 —— 内存屏障</h3><p>处理器提供了两个内存屏障指令（Memory Barrier）用于解决上述两个问题。</p>
-<p><strong>写内存屏障（Store Memory Barrier）</strong>  </p>
-<p>在指令后插入 Store Barrier，能让写入缓存中的最新数据更新写入主内存，让其他线程可见。  </p>
-<p>强制写入主内存，这种显示调用，CPU 就不会因为性能问题考虑而去对指令重排。</p>
-<p><strong>读内存屏障（Load Memory Barrier）</strong></p>
-<p>在指令前插入 Load Barrier，可以让高速缓存中的数据失效，强制重新从主内存中加载数据。</p>
-<p>强制读取主内存内容，让 CPU 缓存与主内存保持一致，避免了缓存导致的一致性问题。</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本章节内容主要是对后续 JVM 线程安全问题做的铺垫。  </p>
-<p>同时，也看到了现代 CPU 不断演进，在程序运行优化中做出的努力。  </p>
-<p>不同 CPU 厂商所付出的人力物力成本，最终体现在不同 CPU 性能差距上。</p>
+<h1 id="线程封闭之ThreadLocal和栈封闭"><a href="#线程封闭之ThreadLocal和栈封闭" class="headerlink" title="线程封闭之ThreadLocal和栈封闭"></a>线程封闭之ThreadLocal和栈封闭</h1><p><strong>线程封闭概念</strong></p>
+<p>背景：多线程访问共享可变数据时，涉及到线程间数据同步的问题。并不是所有时候，都要用到共享数据，所以线程封闭概念就提出来了。</p>
+<p>线程封闭：数据都被封闭在各自的线程之中，就不需要同步，这种将数据封闭在线程之中而避免使用同步的技术称。</p>
+<p>线程封闭具体的体现有：ThreadLocal、局部变量。</p>
+<h2 id="ThreadLocal"><a href="#ThreadLocal" class="headerlink" title="ThreadLocal"></a>ThreadLocal</h2><p>ThreadLocal 是 Java 里一种特殊的变量。</p>
+<p>它是一个线程级别的变量，每个线程都有一个 ThreadLocal 就是每个线程都有了自己独立的一个变量，竞争条件彻底被消除了，在并发模式下是绝对安全的变量。</p>
+<p>用法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ThreadLocal&lt;T&gt; var = <span class="keyword">new</span> ThreadLocal&lt;T&gt;();</span><br></pre></td></tr></table></figure></p>
+<p>会自动在每一个线程上创建一个 T 的副本，副本之间彼此独立，互不影响。</p>
+<p>可以用 ThreadLocal 存储一些参数，以便在线程中多个方法中使用，用来代替方法传参的做法。</p>
+<p>实在难以理解，可以理解为，JVM维护了一个 Map&lt;Thread, T&gt;，每个线程要用这个 T 的时候，用当前线程去 Map 里取。——仅作为概念理解。</p>
+<h2 id="栈封闭（局部变量）"><a href="#栈封闭（局部变量）" class="headerlink" title="栈封闭（局部变量）"></a>栈封闭（局部变量）</h2><p>局部变量的固有属性之一就是封闭在线程中。</p>
+<p>它们被存储在执行线程的栈内存中，其他线程无法访问这个栈。</p>
 </section>
     <!-- Tags START -->
     
@@ -214,17 +185,17 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2019/10/12/java/thread/1.1.2 线程终止/">
+      <a class="nav-left" href="/2019/10/14/java/thread/1.1.4 线程通信/">
         <span class="nav-arrow">← </span>
         
-          boy-learning-thread | 1.1.2 线程终止
+          boy-learning-thread | 1.1.4 线程通信
         
       </a>
     
     
-      <a class="nav-right" href="/2019/10/14/java/thread/1.1.4 线程通信/">
+      <a class="nav-right" href="/2019/10/16/java/thread/1.1.6 线程池原理/">
         
-          boy-learning-thread | 1.1.4 线程通信
+          boy-learning-thread | 1.1.6 线程池原理
         
         <span class="nav-arrow"> →</span>
       </a>
@@ -273,7 +244,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#内存屏障和CPU缓存"><span class="toc-nav-text">内存屏障和CPU缓存</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#CPU-性能优化手段-缓存"><span class="toc-nav-text">CPU 性能优化手段 - 缓存</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#CPU-多级缓存"><span class="toc-nav-text">CPU 多级缓存</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#缓存同步协议"><span class="toc-nav-text">缓存同步协议</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#CPU-性能优化手段-运行时指令重排"><span class="toc-nav-text">CPU 性能优化手段 - 运行时指令重排</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#两个问题"><span class="toc-nav-text">两个问题</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#处理方式-——-内存屏障"><span class="toc-nav-text">处理方式 —— 内存屏障</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#小结"><span class="toc-nav-text">小结</span></a></li></ol></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#线程封闭之ThreadLocal和栈封闭"><span class="toc-nav-text">线程封闭之ThreadLocal和栈封闭</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ThreadLocal"><span class="toc-nav-text">ThreadLocal</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#栈封闭（局部变量）"><span class="toc-nav-text">栈封闭（局部变量）</span></a></li></ol></li></ol>
     
   </div>
 </aside>
@@ -283,7 +254,7 @@
 
 <script>
   (function () {
-    var url = 'http://bruce.bugmakers.club/2019/10/13/java/thread/1.1.3 内存屏障和CPU缓存/';
+    var url = 'http://bruce.bugmakers.club/2019/10/15/java/thread/1.1.5 线程封闭之ThreadLocal和栈封闭/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -339,7 +310,7 @@
     var gitmentConfig = "BruceOuyang";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "boy-learning-thread | 1.1.3 内存屏障和CPU缓存",
+        id: "boy-learning-thread | 1.1.5 线程封闭之ThreadLocal和栈封闭",
         owner: "BruceOuyang",
         repo: "BruceOuyang.github.io",
         oauth: {
@@ -367,7 +338,7 @@
 <script>
   var disqus_shortname = '';
   
-  var disqus_url = 'http://bruce.bugmakers.club/2019/10/13/java/thread/1.1.3 内存屏障和CPU缓存/';
+  var disqus_url = 'http://bruce.bugmakers.club/2019/10/15/java/thread/1.1.5 线程封闭之ThreadLocal和栈封闭/';
   
   (function(){
     var dsq = document.createElement('script');
