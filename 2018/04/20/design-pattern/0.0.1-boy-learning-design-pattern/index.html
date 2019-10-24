@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="BruceOuyang&#39;s BLOG">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      boy-learning-design-pattern | 设计模式 - 开篇 | BuGMaker&#39; Bruce Ouyang
+    
+  </title>
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/plugins/gitment.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="/js/qrious.js"></script>
+<script src="/js/gitment.js"></script>
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>BuGMaker' Bruce Ouyang</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>boy-learning-design-pattern | 设计模式 - 开篇</h2>
+  <p class="post-date">2018-04-20</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><a id="more"></a>
+<blockquote>
+<p>Bruce Ouyang 正在学习<strong>《设计模式Java版》</strong> <a href="http://woquanke.com/books/gof/这本书" target="_blank" rel="noopener">http://woquanke.com/books/gof/这本书</a><br>个人学习的主要内容以及对应源码记录在<a href="https://github.com/BruceOuyang/boy-design-pattern" target="_blank" rel="noopener">https://github.com/BruceOuyang/boy-design-pattern</a>目录下</p>
+</blockquote>
+<h2 id="初衷"><a href="#初衷" class="headerlink" title="初衷"></a>初衷</h2><ol>
+<li><p>系统的学习一遍设计模式  </p>
+</li>
+<li><p>书的原链接<a href="https://gof.quanke.name" target="_blank" rel="noopener">https://gof.quanke.name</a> 这个地址貌似正常情况下访问不了，习惯了markdown不想去看csdn上旧风格的文章（<a href="http://blog.csdn.net/lovelion" target="_blank" rel="noopener">quanke大神的csdn博客</a>上也有一份设计模式）,故在此仓库copy一份，方便大家访问和一起学习  </p>
+</li>
+</ol>
+<blockquote>
+<p>最新更新，原作者提供了新域名访问地址： <a href="http://woquanke.com/books/gof/" target="_blank" rel="noopener">http://woquanke.com/books/gof/</a> ，国内访问无压力</p>
+</blockquote>
+<ol start="3">
+<li><p>融入一点自己的风格：我将刘伟大神的设计模式一书内容分散在代码的各个包里边，方便阅读  </p>
+</li>
+<li><p>原文中有一些练习，就在这个仓库的源码中做掉</p>
+</li>
+</ol>
+<h2 id="二十四种设计模式一览"><a href="#二十四种设计模式一览" class="headerlink" title="二十四种设计模式一览"></a>二十四种设计模式一览</h2><p><img src="http://upload-images.jianshu.io/upload_images/5792176-8708f103d9e62d2c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="24种设计模式"></p>
+<blockquote>
+<p>以下文章持续更新中…</p>
+</blockquote>
+<h3 id="创建型"><a href="#创建型" class="headerlink" title="创建型"></a>创建型</h3><ul>
+<li><p>六个创建型模式</p>
+<ul>
+<li><p><a href="https://www.jianshu.com/p/379b8d49cecd" target="_blank" rel="noopener">SEQ1 - 简单工厂模式 Simple Factory Pattern<br>【学习难度：★★☆☆☆，使用频率：★★★☆☆】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/4bb7463f35ce" target="_blank" rel="noopener">SEQ2 - 工厂方法模式 Factory Method Pattern<br>【学习难度：★★☆☆☆，使用频率：★★★★★】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/3a5c3bc1d55a" target="_blank" rel="noopener">SEQ3 - 抽象工厂模式 Abstract Factory Pattern<br>【学习难度：★★★★☆，使用频率：★★★★★】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/fcc82e7b5e65" target="_blank" rel="noopener">SEQ4 - 单例模式 Singleton Pattern<br>【学习难度：★☆☆☆☆，使用频率：★★★★☆】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/20d3ea472d77" target="_blank" rel="noopener">SEQ5 - 原型模式 Prototype Pattern<br>【学习难度：★★★☆☆，使用频率：★★★☆☆】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/96bb25f53684" target="_blank" rel="noopener">SEQ6 - 建造者模式 Builder Pattern<br>【学习难度：★★★★☆，使用频率：★★☆☆☆】</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="结构型"><a href="#结构型" class="headerlink" title="结构型"></a>结构型</h3><ul>
+<li><p>七个结构型模式</p>
+<ul>
+<li><p><a href="https://www.jianshu.com/p/e9e203ef49f4" target="_blank" rel="noopener">SEQ1 - 适配器模式 Adapter Pattern<br>【学习难度：★★☆☆☆，使用频率：★★★★☆】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/f8e63666aed2" target="_blank" rel="noopener">SEQ2 - 桥接模式 Bridge Pattern<br>【学习难度：★★★☆☆，使用频率：★★★☆☆】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/39d6d054e853" target="_blank" rel="noopener">SEQ3 - 组合模式 Composite Pattern<br>【学习难度：★★★☆☆，使用频率：★★★★☆】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/e9b01d0a563f" target="_blank" rel="noopener">SEQ4 - 装饰模式 Decorator Pattern<br>【学习难度：★★★☆☆，使用频率：★★★☆☆】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/5e42e8c6bcd8" target="_blank" rel="noopener">SEQ5 - 外观模式 Facade Pattern<br>【学习难度：★☆☆☆☆，使用频率：★★★★★】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/3a5b2aee593b" target="_blank" rel="noopener">SEQ6 - 享元模式 Flyweight Pattern<br>【学习难度：★★★★☆，使用频率：★☆☆☆☆】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/319b57e4715f" target="_blank" rel="noopener">SEQ7 - 代理模式 Proxy Pattern<br>【学习难度：★★★☆☆，使用频率：★★★★☆】</a>  </p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="行为型"><a href="#行为型" class="headerlink" title="行为型"></a>行为型</h3><ul>
+<li><p>十一个行为型模式</p>
+<ul>
+<li><p><a href="https://www.jianshu.com/p/b9780fcd0958" target="_blank" rel="noopener">SEQ01 - 职责链模式 Chain of Responsibility Pattern<br>【学习难度：★★★☆☆，使用频率：★★☆☆☆】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/489c4f1755b8" target="_blank" rel="noopener">SEQ02 - 命令模式 Command Pattern<br>【学习难度：★★★☆☆，使用频率：★★★★☆】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/f03f6c5e2b14" target="_blank" rel="noopener">SEQ03 - 解释器模式 Interpreter Pattern<br>【学习难度：★★★★★，使用频率：★☆☆☆☆】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/66403a30b2cb" target="_blank" rel="noopener">SEQ04 - 迭代器模式 Iterator Pattern<br>【学习难度：★★★☆☆，使用频率：★★★★★】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/132add40652b" target="_blank" rel="noopener">SEQ05 - 中介者模式 Mediator Pattern<br>【学习难度：★★★☆☆，使用频率：★★☆☆☆】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/082b27e2ffa2" target="_blank" rel="noopener">SEQ06 - 备忘录模式 Memento Pattern<br>【学习难度：★★☆☆☆，使用频率：★★☆☆☆】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/f9c3f11fd8cc" target="_blank" rel="noopener">SEQ07 - 观察者模式 Observer Pattern<br>【学习难度：★★★☆☆，使用频率：★★★★★】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/ad63ee7149c4" target="_blank" rel="noopener">SEQ08 - 状态模式 State Pattern<br>【学习难度：★★★☆☆，使用频率：★★★☆☆】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/b1e8c0218786" target="_blank" rel="noopener">SEQ09 - 策略模式 Strategy Pattern<br>【学习难度：★☆☆☆☆，使用频率：★★★★☆】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/26d0c4631b44" target="_blank" rel="noopener">SEQ10 - 模板方法模式 Template Method Pattern<br>【学习难度：★★☆☆☆，使用频率：★★★☆☆】</a>  </p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/5a40887d1c9b" target="_blank" rel="noopener">SEQ11 - 访问者模式 Visitor Pattern<br>【学习难度：★★★★☆，使用频率：★☆☆☆☆】</a>  </p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="复习"><a href="#复习" class="headerlink" title="复习"></a>复习</h3><ul>
+<li>设计模式趣味学习<ul>
+<li><a href="https://www.jianshu.com/p/9b542038d501" target="_blank" rel="noopener">设计模式于足球</a></li>
+</ul>
+</li>
+<li>设计模式综合应用实例<ul>
+<li>多人联机射击游戏</li>
+<li>数据库同步服务</li>
+</ul>
+</li>
+</ul>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#design-pattern" >
+    <span class="tag-code">design-pattern</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2018/04/19/hexo/02 Hexo 搭建博客并部署到Github Pages服务/">
+        <span class="nav-arrow">← </span>
+        
+          boy-learning-hexo | Hexo搭建博客并部署到Github Pages服务
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2018/04/21/tools/tools-liceecap/">
+        
+          boy&#39;s Tools | 推荐一款gif录制工具：LICEcap
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+      <div class="money-like">
+        <div class="reward-btn">
+          赏
+          <span class="money-code">
+            <span class="alipay-code">
+              <div class="code-image"></div>
+              <b>使用支付宝打赏</b>
+            </span>
+            <span class="wechat-code">
+              <div class="code-image"></div>
+              <b>使用微信打赏</b>
+            </span>
+          </span>
+        </div>
+        <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+      </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- Gitment START -->
+      <div id="comments"></div>
+      <!-- Gitment END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#初衷"><span class="toc-nav-text">初衷</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#二十四种设计模式一览"><span class="toc-nav-text">二十四种设计模式一览</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#创建型"><span class="toc-nav-text">创建型</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#结构型"><span class="toc-nav-text">结构型</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#行为型"><span class="toc-nav-text">行为型</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#复习"><span class="toc-nav-text">复习</span></a></li></ol></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://bruce.bugmakers.club/2018/04/20/design-pattern/0.0.1-boy-learning-design-pattern/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+     // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+        
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+
+    // qrcode
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+
+    // gitment
+    var gitmentConfig = "BruceOuyang";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "boy-learning-design-pattern | 设计模式 - 开篇",
+        owner: "BruceOuyang",
+        repo: "BruceOuyang.github.io",
+        oauth: {
+          client_id: "ef246fa43759b5976dc8",
+          client_secret: "b97e74b26013e1c14b31a2632e8d03cbafc6d380"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  })();
+</script>
+
+<script>
+  var disqus_shortname = '';
+  
+  var disqus_url = 'http://bruce.bugmakers.club/2018/04/20/design-pattern/0.0.1-boy-learning-design-pattern/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = 'source/js/go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a> Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>

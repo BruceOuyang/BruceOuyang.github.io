@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="BruceOuyang&#39;s BLOG">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      boy-learning-netty | 2.0.5 keepalive 与 idle 监测 | BuGMaker&#39; Bruce Ouyang
+    
+  </title>
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/plugins/gitment.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="/js/qrious.js"></script>
+<script src="/js/gitment.js"></script>
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>BuGMaker' Bruce Ouyang</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>boy-learning-netty | 2.0.5 keepalive 与 idle 监测</h2>
+  <p class="post-date">2019-10-10</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><a id="more"></a>
+<blockquote>
+<p>相关源码：<a href="https://github.com/BruceOuyang/boy-learning-netty" target="_blank" rel="noopener">boy-learning-netty</a><br>个人博客：<a href="http://bruce.bugmakers.club">http://bruce.bugmakers.club</a><br>内容来自《极客时间 - Netty源码剖析与实战》</p>
+</blockquote>
+<h1 id="keepalive-与-idle-监测"><a href="#keepalive-与-idle-监测" class="headerlink" title="keepalive 与 idle 监测"></a>keepalive 与 idle 监测</h1><ul>
+<li><p>为什么需要 keepalive？</p>
+</li>
+<li><p>怎么设计 keepalive？以 TCP keepalive 为例</p>
+</li>
+<li><p>为什么还需要应用层 keepalive？</p>
+</li>
+<li><p>Idle 监测是什么？</p>
+</li>
+<li><p>如何在 Netty 中开启 TCP keepalive 和 Idle 监测</p>
+</li>
+</ul>
+<h2 id="为什么需要-keepalive？"><a href="#为什么需要-keepalive？" class="headerlink" title="为什么需要 keepalive？"></a>为什么需要 keepalive？</h2><p><strong>生活场景</strong>  </p>
+<p>假设你开了一个饭店，别人打电话来订餐，电话通了后，客户说了一堆订餐需求，说着说着就，对方就不讲话了（可能忘记挂机/出去办事/线路故障等）。</p>
+<ul>
+<li><p>这个时候你会一直握着电话等么？</p>
+<ul>
+<li>不会</li>
+</ul>
+</li>
+<li><p>如果不会，那你一般怎么去做？</p>
+<ul>
+<li>会确认一句“你还在么？”，如果对方没有回复，那就挂机。这套机制即 “keepalive”。</li>
+</ul>
+</li>
+</ul>
+<p><strong>类比服务器应用</strong>  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">订餐电话场景</th>
+<th style="text-align:left">服务器应用  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">电话线路</td>
+<td style="text-align:left">数据连接 （TCP连接）  </td>
+</tr>
+<tr>
+<td style="text-align:left">交谈的话语</td>
+<td style="text-align:left">数据  </td>
+</tr>
+<tr>
+<td style="text-align:left">通话双方</td>
+<td style="text-align:left">数据发送方和接收方  </td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">对比场景</th>
+<th style="text-align:left">订餐电话场景</th>
+<th style="text-align:left">应用服务器  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">需要 keepalive 的场景</td>
+<td style="text-align:left">对方临时着急离开</td>
+<td style="text-align:left">对端异常“崩溃”  </td>
+</tr>
+<tr>
+<td style="text-align:left">需要 keepalive 的场景</td>
+<td style="text-align:left">对方在，但是很忙，不知道什么时候忙完</td>
+<td style="text-align:left">对端在，但是处理不过来  </td>
+</tr>
+<tr>
+<td style="text-align:left">需要 keepalive 的场景</td>
+<td style="text-align:left">电话线路故障</td>
+<td style="text-align:left">对端在，但是不可达  </td>
+</tr>
+<tr>
+<td style="text-align:left">不做 keepalive 的后果</td>
+<td style="text-align:left">线路占用，耽误其他人订餐</td>
+<td style="text-align:left">连接已坏，但是还浪费资源维持，下次用会直接报错  </td>
+</tr>
+</tbody>
+</table>
+<h2 id="怎么设计-keepalive？以-TCP-keepalive-为例"><a href="#怎么设计-keepalive？以-TCP-keepalive-为例" class="headerlink" title="怎么设计 keepalive？以 TCP keepalive 为例"></a>怎么设计 keepalive？以 TCP keepalive 为例</h2><p>TCP keepalive 核心参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># sysctl -a | grep tcp_keepalive</span><br><span class="line">net.ipv4.tcp_keepalive_time=7200   # 问题出现概率小 -&gt; 没有必要频繁</span><br><span class="line">net.ipv4.tcp_keepalive_intvl=75</span><br><span class="line">net.ipv4.tcp_keepalive_probes=9    # 判断需“谨慎” -&gt; 不能武断</span><br></pre></td></tr></table></figure></p>
+<p>当启动（默认关闭） keepalive 时，TCP 在连接没有数据通过的 7200 秒后发送 keepalive 消息，当探测没有确认时，按 75 秒的重试频率重发，一直发 9 个探测包都没有确认，就认定连接失败。</p>
+<p>所以总耗时一般为：2 小时 11 分钟（7200 秒 + 75 秒 * 9次）</p>
+<h2 id="为什么还需要应用层-keepalive？"><a href="#为什么还需要应用层-keepalive？" class="headerlink" title="为什么还需要应用层 keepalive？"></a>为什么还需要应用层 keepalive？</h2><ul>
+<li><p>协议分层，各层关注点不同：</p>
+<p>  传输层关注是否“通”，应用层关注是否可服务。类比前面的电话订餐例子，电话能通，不代表有人接；服务器连接在，但是不一定可以服务（如服务不过来等）。</p>
+</li>
+<li><p>TCP 层的 keepalive 默认关闭，且经过路由等中转设备 keepalive 包可能会被丢弃。</p>
+</li>
+<li><p>TCP 层的 keepalive 时间太长，默认 &gt; 2 小时，虽然可以改，但属于系统参数，改动影响所有应用。</p>
+</li>
+</ul>
+<p><strong>提示：</strong></p>
+<p>HTTP 属于应用层协议，但是常常听到名词“HTTP Keep-Alive”指的是对长连接和短连接的选择：  </p>
+<ul>
+<li><p>Connection：Keep-Alive 长连接（HTTP/1.1 默认长连接，不需要带这个 header）</p>
+</li>
+<li><p>Connection：Close 短连接</p>
+</li>
+</ul>
+<h2 id="Idle-监测是什么？"><a href="#Idle-监测是什么？" class="headerlink" title="Idle 监测是什么？"></a>Idle 监测是什么？</h2><p><strong>重现生活场景</strong></p>
+<p>假设你开了一个饭店，别人打电话来订餐，电话通了后，客户说了一堆订餐需求，说着说着就，对方就不讲话了（可能忘记挂机/出去办事/线路故障等）。</p>
+<ul>
+<li><p>这个时候你会一直握着电话等么？</p>
+<ul>
+<li><p>不会</p>
+</li>
+<li><p>一般你会稍微等待一定的时间，在这个时间内看看对方还会不会说话（Idle检测），如果还不说，认定对方存在问题（Idle），于是开始发问“你还在么？”（keepalive），或者问都不问干脆直接挂机。（关闭连接）</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Idle检测</strong></p>
+<p>Idle 监测，只是负责诊断，诊断后，做出不同的行为，决定 Idle 检测的最终用途：</p>
+<ul>
+<li><p>发送 keepalive：一般用来配合 keepalive，减少 keepalive 消息。</p>
+<p>  Keepalive 设计演进： V1 定时 keepalive 消息 -&gt; V2 空闲监控 + 判定为 Idle 时才发 keepalive</p>
+<ul>
+<li><p>V1：keepalive 消息与服务器正常信息交换完全不关联，定时就发送；</p>
+</li>
+<li><p>V2：有其他数据传输的时候，不发送 keepalive，无数据传输超过一定时间，判定为 Idle，再发 keepalive。</p>
+</li>
+</ul>
+</li>
+<li><p>直接关闭连接：</p>
+<ul>
+<li><p>快速释放损坏的、恶意的、很久不用的连接，让系统时刻保持最好的状态。</p>
+</li>
+<li><p>简单粗暴，客户端可能需要重连。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>实际应用中：结合起来用。按需 keepalive，保证不会空闲，如果空闲，关闭连接。</p>
+<h2 id="如何在-Netty-中开启-TCP-keepalive-和-Idle-监测"><a href="#如何在-Netty-中开启-TCP-keepalive-和-Idle-监测" class="headerlink" title="如何在 Netty 中开启 TCP keepalive 和 Idle 监测"></a>如何在 Netty 中开启 TCP keepalive 和 Idle 监测</h2><p>开启不同的 Idle Check：  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ch.pipeline().addLast(<span class="string">"idleCheckHandler"</span>, <span class="keyword">new</span> IdleStateHandler(<span class="number">0</span>, <span class="number">20</span>, <span class="number">0</span>, TimeUnit.Seconds));</span><br></pre></td></tr></table></figure>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#boy-learning-netty" >
+    <span class="tag-code">boy-learning-netty</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/10/10/java/thread/1.1.0 JVM运行时数据区/">
+        <span class="nav-arrow">← </span>
+        
+          boy-learning-thread | 1.1.0 JVM 运行时数据区
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/10/11/java/thread/1.1.1 线程状态/">
+        
+          boy-learning-thread | 1.1.1 线程状态
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+      <div class="money-like">
+        <div class="reward-btn">
+          赏
+          <span class="money-code">
+            <span class="alipay-code">
+              <div class="code-image"></div>
+              <b>使用支付宝打赏</b>
+            </span>
+            <span class="wechat-code">
+              <div class="code-image"></div>
+              <b>使用微信打赏</b>
+            </span>
+          </span>
+        </div>
+        <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+      </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- Gitment START -->
+      <div id="comments"></div>
+      <!-- Gitment END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#keepalive-与-idle-监测"><span class="toc-nav-text">keepalive 与 idle 监测</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#为什么需要-keepalive？"><span class="toc-nav-text">为什么需要 keepalive？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#怎么设计-keepalive？以-TCP-keepalive-为例"><span class="toc-nav-text">怎么设计 keepalive？以 TCP keepalive 为例</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#为什么还需要应用层-keepalive？"><span class="toc-nav-text">为什么还需要应用层 keepalive？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Idle-监测是什么？"><span class="toc-nav-text">Idle 监测是什么？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#如何在-Netty-中开启-TCP-keepalive-和-Idle-监测"><span class="toc-nav-text">如何在 Netty 中开启 TCP keepalive 和 Idle 监测</span></a></li></ol></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://bruce.bugmakers.club/2019/10/10/java/netty/2.0.5 keepalive 与 idle 监测/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+     // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+        
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+
+    // qrcode
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+
+    // gitment
+    var gitmentConfig = "BruceOuyang";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "boy-learning-netty | 2.0.5 keepalive 与 idle 监测",
+        owner: "BruceOuyang",
+        repo: "BruceOuyang.github.io",
+        oauth: {
+          client_id: "ef246fa43759b5976dc8",
+          client_secret: "b97e74b26013e1c14b31a2632e8d03cbafc6d380"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  })();
+</script>
+
+<script>
+  var disqus_shortname = '';
+  
+  var disqus_url = 'http://bruce.bugmakers.club/2019/10/10/java/netty/2.0.5 keepalive 与 idle 监测/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = 'source/js/go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a> Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>
