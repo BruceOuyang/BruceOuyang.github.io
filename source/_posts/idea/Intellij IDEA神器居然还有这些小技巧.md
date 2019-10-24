@@ -4,6 +4,6 @@ date: yyyy-MM-dd HH:mm
 tags: 
     - idea
 categories: 
-    - 开发工具
+    - idea
 ---
 <!-- more -->

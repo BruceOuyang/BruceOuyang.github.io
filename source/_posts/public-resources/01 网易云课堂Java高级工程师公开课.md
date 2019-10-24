@@ -1,10 +1,10 @@
 ---
-title: 公开课 | 网易云课堂Java高级开发工程师(持续更新中)
+title: 公共资源 | 网易云课堂Java高级开发工程师(持续更新中)
 date: 2018-12-12 07:03
 tags: 
-    - 公开课
+    - public-resources
 categories: 
-    - JAVA高级
+    - public-resources
 ---
 <!-- more -->
 ## 网易云课堂Java高级开发工程师公开课索引

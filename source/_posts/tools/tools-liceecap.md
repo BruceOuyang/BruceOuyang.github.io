@@ -1,10 +1,10 @@
 ---
-title: tools | 推荐一款gif录制工具：LICEcap
+title: boy's Tools | 推荐一款gif录制工具：LICEcap
 date: 2018-04-21 23:30
 tags:
-    - 效率
+    - tools
 categories: 
-    - 工具
+    - tools
 ---
 <!-- more -->
 ### 1、演示

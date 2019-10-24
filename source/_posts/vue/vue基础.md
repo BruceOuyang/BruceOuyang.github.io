@@ -1,11 +1,10 @@
 ---
-title: vue | VUE - 教程收集
+title: boy-learning-vue | VUE - 教程收集
 date: 2018.05.30 10:33
 tags: 
     - vue
-    - 前端
 categories: 
-    - 前端
+    - vue
 ---
 <!-- more -->
 > 主要内容整理自前端君的微信公众号：**web前端教程**，本文仅做个内容一览和跳转（跳转到原作者公众号文章）

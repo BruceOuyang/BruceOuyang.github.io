@@ -1,10 +1,10 @@
 ---
-title: tools | 推荐一款本地文件检索工具：Launchy
+title: boy's Tools | 推荐一款本地文件检索工具：Launchy
 date: 2018-04-25 22:10
 tags:
-    - 效率
+    - tools
 categories:
-    - 工具
+    - tools
 ---
 <!-- more -->
 ### 1、演示

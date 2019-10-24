@@ -2,8 +2,8 @@
 title: Spring | Transaction 事物
 date: 2019-04-21 23:57
 tags: 
-    - Java 基础
-    - Spring Transaction
+    - spring
+    - transaction
 categories: 
     - spring
 ---

@@ -1,18 +1,17 @@
 ---
-title: vue | VUE组件 - 回到顶部
+title: boy-learning-vue | VUE组件 - 回到顶部
 date: 2018.06.14 20:12
 tags: 
     - vue
-    - 前端
 categories: 
-    - 前端
+    - vue
 ---
 <!-- more -->
 ### 组件效果图
 ![backTop.gif](https://upload-images.jianshu.io/upload_images/5792176-c2d0a1f83bebab8d.gif?imageMogr2/auto-orient/strip)
 
 ### 组件使用示例 backTopDemo.vue
-```vue
+```javascript 1.8
 <template>
   <div style="height: 2000px;">
     <back-top></back-top>

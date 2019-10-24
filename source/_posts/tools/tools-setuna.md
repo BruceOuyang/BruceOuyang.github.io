@@ -1,10 +1,10 @@
 ---
-title: tools | 推荐一款漂浮截图工具：SETUNA
+title: boy's Tools | 推荐一款漂浮截图工具：SETUNA
 date: 2018-04-23 13:10
 tags:
-    - 效率
+    - tools
 categories: 
-    - 工具
+    - tools
 ---
 <!-- more -->
 ### 1、演示
