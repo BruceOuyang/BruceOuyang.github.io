@@ -1,9 +1,8 @@
 ---
-title: 免费博客 | Hexo搭建博客并部署到Github Pages服务
+title: boy-learning-hexo | Hexo搭建博客并部署到Github Pages服务
 date: 2018-04-19 22:05
 tags: 
-    - 免费博客
-    - github pages
+    - hexo
 categories: 
     - hexo
 ---

@@ -1,9 +1,8 @@
 ---
-title: 免费博客 | Hello Hexo
+title: boy-learning-hexo - Hello Hexo
 date: 2018-04-19 05:05
 tags:
     - hexo
-    - 免费博客
 categories:
     - hexo
 ---
