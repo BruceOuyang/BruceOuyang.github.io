@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
   <title>issueList</title>
+  <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
@@ -51,12 +51,21 @@
       hideSidebar: false,
       // coverpage: true,
       subMaxLevel: 4,
+      formatUpdated: '{MM}/{DD} {HH}:{mm}',
+      routerMode: 'hash', // hash | history
+      homepage: 'README.md',
+      notFoundPage: true,
+      topMargin: 90,
       alias: {
         // '/.*/_sidebar.md': '/_sidebar.md',
         '/.*/_navbar.md': '/_navbar.md'
       },
+      auto2top: true,
       search: 'auto',
-      disqus: 'ouyangbruce'
+      Valine: {
+        appId: '7khOTCuXMXQmWdPyHn8j5OSP-9Nh9j0Va',
+        appKey: 'WH9dmEx1nfnkBI80gOtFQjkV'
+      }
     }
   </script>
   <!-- Docsify v4 -->
@@ -68,24 +77,29 @@
   <!-- 代码复制 -->
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
   <!-- gittalk 评论 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
-  <script>
-    const gitalk = new Gitalk({
-      clientID: '703700002a10a2cb1978',
-      clientSecret: '3ab9911b25dcf73c2c67dcc7329df0f8558e52ae',
-      repo: 'gittalk-repo',
-      owner: 'BruceOuyang',
-      admin: ['BruceOuyang'],
-      // id: decodeURI(location.pathname),
-      id: decodeURI(document.title),
-      labels: ['Gitalk', decodeURI(document.title)],
-      // facebook-like distraction free mode
-      distractionFreeMode: false
-    })
-  </script>
+<!--  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>-->
+<!--  <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>-->
+<!--  <script>-->
+<!--    const gitalk = new Gitalk({-->
+<!--      clientID: '703700002a10a2cb1978',-->
+<!--      clientSecret: '3ab9911b25dcf73c2c67dcc7329df0f8558e52ae',-->
+<!--      repo: 'gittalk-repo',-->
+<!--      owner: 'BruceOuyang',-->
+<!--      admin: ['BruceOuyang'],-->
+<!--      // id: decodeURI(location.pathname),-->
+<!--      id: decodeURI(location.pathname),-->
+<!--      // facebook-like distraction free mode-->
+<!--      distractionFreeMode: false-->
+<!--    })-->
+<!--    console.log(location.pathname)-->
+<!--  </script>-->
+  <!-- LeanCloud 评论 -->
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script src="//unpkg.com/docsify-valine/dist/docsify-valine.min.js"></script>
   <!-- 分页 -->
   <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
-
+  <!-- 代码高亮 -->
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-java.min.js"></script>
 </body>
 </html>
