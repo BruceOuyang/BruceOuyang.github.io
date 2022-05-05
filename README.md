@@ -1,7 +1,9 @@
-# issueList
+# 老欧的 issueList :id=issuelist
 
 #### 干嘛的
-老欧用来记录工作中遇到的问题和一些经验总结的地方。
+老欧用来对工作经验做和实验学习做一些沉淀的地方。  
+
+原本已 issue 的形式记录在 [github 仓库](https://github.com/bruceouyang/issueList/issues)里边，经过`俄乌事件`后，感觉很有必要将内容拉出来，万一哪天被搞了呢~
 
 #### 内容推送
 老欧发布的更新内容的时候，会同步更新微信公众号推文，感兴趣的可以关注下公众号。

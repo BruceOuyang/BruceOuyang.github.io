@@ -1,8 +1,8 @@
 * 前端
-  * [Vue](blog/vue/ "Vue 相关")
+  * [Vue](blog/vue/)
 * 后端
-  * [Design-Pattern](blog/design-pattern/ "设计模式")
-  * [Jvm](blog/jvm "jvm 相关")
+  * [Design-Pattern](blog/design-pattern/)
+  * [Jvm](blog/jvm)
 * 服务架构
   * 发号器
   * 消息中间件
@@ -14,9 +14,9 @@
   * Dubbo
   * 中间件
 * 数据库
-  * [MySql](blog/mysql/ "xx相关")
+  * [MySql](blog/mysql/)
   * MongoDB
 * 操作系统
-  * [Linux](blog/linux/ "xx相关")
-  * [Mac](blog/mac/ "xx相关")
-* [小工具](blog/tools/ "xx相关")
+  * [Linux](blog/linux/)
+  * [Mac](blog/mac/)
+* [小工具](blog/tools/)
