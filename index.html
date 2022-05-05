@@ -45,7 +45,8 @@
     window.$docsify = {
       // logo: '/assets/logo.jpg',
       name: '老欧的 issueList',
-      nameLink: '/#/?id=issuelist',
+      nameLink: '/',
+      homepage: 'README.md',
       repo: 'bruceouyang/BruceOuyang.github.io',
       loadSidebar: true,
       loadNavbar: true,
@@ -53,20 +54,24 @@
       // coverpage: true,
       subMaxLevel: 4,
       formatUpdated: '{MM}/{DD} {HH}:{mm}',
-      routerMode: 'hash', // hash | history
-      homepage: 'README.md',
+      routerMode: 'history', // hash | history
       notFoundPage: true,
       alias: {
         // '/.*/_sidebar.md': '/_sidebar.md',
         '/.*/_navbar.md': '/_navbar.md'
       },
-      auto2top: true,
-      mergeNavbar: true,
-      search: 'auto',
+      search: {
+        maxAge: 86400000,
+        // paths: ['/', '/work', '/frontend', '/backend', '/structure-design', '/tutorial', '/blog'],
+        paths: 'auto',
+        placeholder: '搜索'
+      },
       Valine: {
         appId: '7khOTCuXMXQmWdPyHn8j5OSP-9Nh9j0Va',
         appKey: 'WH9dmEx1nfnkBI80gOtFQjkV'
-      }
+      },
+      auto2top: true,
+      mergeNavbar: true
     }
   </script>
   <!-- Docsify v4 -->
@@ -102,5 +107,6 @@
   <!-- 代码高亮 -->
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-java.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-sql.min.js"></script>
 </body>
 </html>

@@ -3,7 +3,9 @@
 #### 干嘛的
 老欧用来对工作经验做和实验学习做一些沉淀的地方。  
 
-原本已 issue 的形式记录在 [github 仓库](https://github.com/bruceouyang/issueList/issues)里边，经过`俄乌事件`后，感觉很有必要将内容拉出来，万一哪天被搞了呢~
+原本已 issue 的形式记录在 [github 仓库](https://github.com/bruceouyang/issueList/issues) 里边，经过`俄乌事件`后，感觉很有必要将内容拉出来，万一哪天被搞了呢~
+
+我会把后续更新的内容优先在此站点发布，其他站点同步更新。
 
 #### 内容推送
 老欧发布的更新内容的时候，会同步更新微信公众号推文，感兴趣的可以关注下公众号。
