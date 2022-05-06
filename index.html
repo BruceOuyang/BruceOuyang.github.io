@@ -38,27 +38,6 @@
       border-radius: 50%;
     }
   </style>
-  <!-- history 模式下，刷新 404 处理 -->
-  <script>
-    // 这段代码要放在其他js的前面
-    (function(){
-      var redirect = sessionStorage.redirect;
-      delete sessionStorage.redirect;
-      if (redirect && redirect != location.href) {
-        history.replaceState(null, null, redirect);
-      }
-    })();
-  </script>
-  <!-- utterance.es 评论 -->
-  <!--          src="https://utteranc.es/client.js" -->
-<!--  src="http://localhost:3000/assets/js/utterances.client.js"-->
-  <script
-          src="http://bruce.bugmakers.club/assets/js/utterances.client.js"
-          repo="BruceOuyang/issueListComments"
-          issue-term="pathname"
-          label="Utterances"
-          theme="github-light"
-          crossorigin="anonymous" async></script>
 </head>
 <body>
   <div id="app"></div>
@@ -75,7 +54,7 @@
       // coverpage: true,
       subMaxLevel: 4,
       formatUpdated: '{MM}/{DD} {HH}:{mm}',
-      routerMode: 'history', // hash | history
+      routerMode: 'hash', // hash | history
       notFoundPage: true,
       alias: {
         // '/.*/_sidebar.md': '/_sidebar.md',
@@ -87,24 +66,10 @@
         paths: 'auto',
         placeholder: '搜索'
       },
-      // Valine: {
-      //   appId: '7khOTCuXMXQmWdPyHn8j5OSP-9Nh9j0Va',
-      //   appKey: 'WH9dmEx1nfnkBI80gOtFQjkV'
-      // },
-      plugins: [
-        function(hook, vm) {
-
-          hook.afterEach(function(html, next) {
-
-            const utterances = `
-            <div class="docsify-utterances-container">
-                <iframe class="docsify-utterances-container-frame" scrolling="no" loading="lazy" src="${getIframeSrc()}"></iframe>
-            </div>
-            `;
-            next(html + utterances)
-          });
-        }
-      ],
+      Valine: {
+        appId: '7khOTCuXMXQmWdPyHn8j5OSP-9Nh9j0Va',
+        appKey: 'WH9dmEx1nfnkBI80gOtFQjkV'
+      },
       auto2top: true,
       mergeNavbar: true
     }
@@ -118,8 +83,8 @@
   <!-- 代码复制 -->
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
   <!-- LeanCloud 评论 -->
-<!--  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>-->
-<!--  <script src="//unpkg.com/docsify-valine/dist/docsify-valine.min.js"></script>-->
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script src="//unpkg.com/docsify-valine/dist/docsify-valine.min.js"></script>
   <!-- 分页 -->
   <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
   <!-- 代码高亮 -->
