@@ -24,7 +24,7 @@ shift + command + .
 shift + command + h
 ```
 
-### 截图
+### 系统截图方法
 #### 1、mac 系统默认截图
 > 系统偏好设置 - 键盘 - 快捷键 - 截屏
 
@@ -67,3 +67,17 @@ shift⇧ + command⌘ + 5
 第三步：按快捷键 shift⇧ + command⌘ + p
 第四步：输入 capture full 后，按回车
 ```
+
+### 重置应用软件方法（以 atom 为例）
+
+1、退出 atom
+
+2、在程序坞中，找到并打开 finder
+
+3、在 finder 中，进入用户主目录（按快捷键 `command + shift + h`）
+
+4、在 finder 中，显示隐藏目录（按快捷键 `command + shift + .`）
+
+5、在 finder 中，删除应用配置目录，atom 的配置目录是 `.atom`，直接移除到废纸篓
+
+6、重新打开 atom（按快捷键 `command + 空格` 打开聚焦，输入 atom，然后回车即可），此时 atom 已经恢复原始配置了
