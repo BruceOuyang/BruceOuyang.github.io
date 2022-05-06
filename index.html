@@ -38,6 +38,27 @@
       border-radius: 50%;
     }
   </style>
+  <!-- history 模式下，刷新 404 处理 -->
+  <script>
+    // 这段代码要放在其他js的前面
+    (function(){
+      var redirect = sessionStorage.redirect;
+      delete sessionStorage.redirect;
+      if (redirect && redirect != location.href) {
+        history.replaceState(null, null, redirect);
+      }
+    })();
+  </script>
+  <!-- utterance.es 评论 -->
+  <!--          src="https://utteranc.es/client.js" -->
+<!--  src="http://localhost:3000/assets/js/utterances.client.js"-->
+  <script
+          src="http://bruce.bugmakers.club/assets/js/utterances.client.js"
+          repo="BruceOuyang/issueListComments"
+          issue-term="pathname"
+          label="Utterances"
+          theme="github-light"
+          crossorigin="anonymous" async></script>
 </head>
 <body>
   <div id="app"></div>
@@ -54,7 +75,7 @@
       // coverpage: true,
       subMaxLevel: 4,
       formatUpdated: '{MM}/{DD} {HH}:{mm}',
-      routerMode: 'hash', // hash | history
+      routerMode: 'history', // hash | history
       notFoundPage: true,
       alias: {
         // '/.*/_sidebar.md': '/_sidebar.md',
@@ -66,10 +87,24 @@
         paths: 'auto',
         placeholder: '搜索'
       },
-      Valine: {
-        appId: '7khOTCuXMXQmWdPyHn8j5OSP-9Nh9j0Va',
-        appKey: 'WH9dmEx1nfnkBI80gOtFQjkV'
-      },
+      // Valine: {
+      //   appId: '7khOTCuXMXQmWdPyHn8j5OSP-9Nh9j0Va',
+      //   appKey: 'WH9dmEx1nfnkBI80gOtFQjkV'
+      // },
+      plugins: [
+        function(hook, vm) {
+
+          hook.afterEach(function(html, next) {
+
+            const utterances = `
+            <div class="docsify-utterances-container">
+                <iframe class="docsify-utterances-container-frame" scrolling="no" loading="lazy" src="${getIframeSrc()}"></iframe>
+            </div>
+            `;
+            next(html + utterances)
+          });
+        }
+      ],
       auto2top: true,
       mergeNavbar: true
     }
@@ -82,26 +117,9 @@
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
   <!-- 代码复制 -->
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
-  <!-- gittalk 评论 -->
-<!--  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>-->
-<!--  <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>-->
-<!--  <script>-->
-<!--    const gitalk = new Gitalk({-->
-<!--      clientID: '703700002a10a2cb1978',-->
-<!--      clientSecret: '3ab9911b25dcf73c2c67dcc7329df0f8558e52ae',-->
-<!--      repo: 'gittalk-repo',-->
-<!--      owner: 'BruceOuyang',-->
-<!--      admin: ['BruceOuyang'],-->
-<!--      // id: decodeURI(location.pathname),-->
-<!--      id: decodeURI(location.pathname),-->
-<!--      // facebook-like distraction free mode-->
-<!--      distractionFreeMode: false-->
-<!--    })-->
-<!--    console.log(location.pathname)-->
-<!--  </script>-->
   <!-- LeanCloud 评论 -->
-  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-  <script src="//unpkg.com/docsify-valine/dist/docsify-valine.min.js"></script>
+<!--  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>-->
+<!--  <script src="//unpkg.com/docsify-valine/dist/docsify-valine.min.js"></script>-->
   <!-- 分页 -->
   <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
   <!-- 代码高亮 -->
