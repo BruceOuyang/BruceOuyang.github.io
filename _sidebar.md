@@ -8,7 +8,7 @@
 * **MySql 相关**
   * [MySql性能分析](/work/mysql/MySql性能分析.md)
 * **JVM 相关**
-  * JVM 自带工具
+  * [JVM 自带工具](/work/jvm/Java自带性能分析工具.md)
   * Arthas
   * JVM实战
 * **常用工具**
