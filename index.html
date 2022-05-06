@@ -10,8 +10,6 @@
   <link rel="shortcut icon" href="/assets/logo.jpg">
   <!-- 主题样式 -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-  <!-- gittalk 评论系统 -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
   <style>
     .head {
       width: 100px;
@@ -68,8 +66,23 @@
       },
       Valine: {
         appId: '7khOTCuXMXQmWdPyHn8j5OSP-9Nh9j0Va',
-        appKey: 'WH9dmEx1nfnkBI80gOtFQjkV'
+        appKey: 'WH9dmEx1nfnkBI80gOtFQjkV',
+        visitor: true
       },
+      plugins: [
+        function(hook) {
+          var footer = `
+            <span id="bruce's issueList" class="leancloud_visitors" data-flag-title="老欧的issueList">
+              <em class="post-meta-item-text">阅读量 </em>
+              <i class="leancloud-visitors-count"></i>
+            </span>
+          `;
+
+          hook.afterEach(function(html) {
+            return html + footer;
+          });
+        }
+      ],
       auto2top: true,
       mergeNavbar: true
     }
