@@ -49,7 +49,10 @@ jstack [option] [server-id@]remote-hostname-or-ip
   - -l long listings，会打印出额外的锁信息，在发生死锁时可以用jstack -l pid来观察锁持有情况
   - -m mixed mode，不仅会输出Java堆栈信息，还会输出C/C++堆栈信息（比如Native方法）
 
-#### 2、示例：找出某个Java进程中最耗费CPU的Java线程并定位堆栈信息，一般步骤：
+#### 2、示例
+
+找出某个Java进程中最耗费CPU的Java线程并定位堆栈信息，一般步骤：
+
 * 1）找到 pid
 ```bash
 [root@localhost ~]# jps
@@ -113,13 +116,10 @@ aed6
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1134)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:748)
-
    Locked ownable synchronizers:
 	- None
-
 "DestroyJavaVM" #60 prio=5 os_prio=0 tid=0x00007fe5e004b800 nid=0xae60 waiting on condition [0x0000000000000000]
    java.lang.Thread.State: RUNNABLE
-
    Locked ownable synchronizers:
 	- None
 ```
@@ -148,10 +148,8 @@ Attaching to process ID 44639, please wait...
 Debugger attached successfully.
 Server compiler detected.
 JVM version is 25.292-b10
-
 using thread-local object allocation.
 Parallel GC with 2 thread(s)
-
 Heap Configuration:
    MinHeapFreeRatio         = 0
    MaxHeapFreeRatio         = 100
@@ -165,7 +163,6 @@ Heap Configuration:
    CompressedClassSpaceSize = 1073741824 (1024.0MB)
    MaxMetaspaceSize         = 17592186044415 MB
    G1HeapRegionSize         = 0 (0.0MB)
-
 Heap Usage:
 PS Young Generation
 Eden Space:
@@ -188,7 +185,6 @@ PS Old Generation
    used     = 77980528 (74.36802673339844MB)
    free     = 104995984 (100.13197326660156MB)
    42.61778036297905% used
-
 50915 interned Strings occupying 5130928 bytes.
 ```
 
@@ -196,7 +192,6 @@ PS Old Generation
 ```bash
 [root@localhost jvm]# jmap -histo 44639
  num     #instances         #bytes  class name
-----------------------------------------------
    1:        848943       81145048  [C
    2:        771442       24686144  java.util.concurrent.locks.AbstractQueuedSynchronizer$Node
    3:         70155       14315008  [B
@@ -209,6 +204,7 @@ PS Old Generation
   10:         84402        3376080  java.util.LinkedHashMap$Entry
   11:        148810        3194464  [Ljava.lang.Class;
 ```
+
  class name是对象类型，说明如下
 ```
 B  byte
