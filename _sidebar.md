@@ -1,4 +1,4 @@
-* [首页](/)
+
 
 * **Linux 相关**
   * [常用命令](/work/linux/Linux常用命令.md)
@@ -11,6 +11,8 @@
   * [JVM 自带工具](/work/jvm/Java自带性能分析工具.md)
   * Arthas
   * JVM实战
+* **算法**
+  * [Java 位运算基础](/work/algorithm/位运算基础.md)
 * **常用工具**
   * 开发工具
   * 小工具
