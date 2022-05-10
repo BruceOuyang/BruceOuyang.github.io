@@ -22,4 +22,5 @@ mac 下载软件有三种渠道：
 
 * 系统清理：腾讯柠檬 https://lemon.qq.com/
 * 压缩工具：BetterZip https://macwk.com/soft/betterzip
+* 更多其他软件，可以在 macwk 上面查找
 

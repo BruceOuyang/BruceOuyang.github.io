@@ -15,3 +15,4 @@
     * [网络代理](/work/tools/网络代理.md)
 * **mac 相关**
   * [Mac 小技巧](/work/mac/mac小技巧.md)
+  * [Mac 下载软件](/work/mac/mac下载软件.md)
