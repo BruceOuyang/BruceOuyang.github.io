@@ -80,20 +80,20 @@
         appKey: 'WH9dmEx1nfnkBI80gOtFQjkV',
         visitor: true
       },
-      plugins: [
-        function(hook) {
-          var footer = `
-            <span id="bruce's issueList" class="leancloud_visitors" data-flag-title="老欧的issueList">
-              <em class="post-meta-item-text">阅读量 </em>
-              <i class="leancloud-visitors-count"></i>
-            </span>
-          `;
+      // plugins: [
+      //   function(hook) {
+      //     var footer = `
+      //       <span id="bruce's issueList" class="leancloud_visitors" data-flag-title="老欧的issueList">
+      //         <em class="post-meta-item-text">阅读量 </em>
+      //         <i class="leancloud-visitors-count"></i>
+      //       </span>
+      //     `;
 
-          hook.afterEach(function(html) {
-            return html + footer;
-          });
-        }
-      ],
+      //     hook.afterEach(function(html) {
+      //       return html + footer;
+      //     });
+      //   }
+      // ],
       auto2top: true,
       mergeNavbar: true
     }
