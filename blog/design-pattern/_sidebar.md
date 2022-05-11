@@ -6,7 +6,7 @@
   * [SEQ4-单例模式](/blog/design-pattern/type1/SEQ4-单例模式.md)
   * [SEQ5-原型模式](/blog/design-pattern/type1/SEQ5-原型模式.md)
   * [SEQ6-建造者模式](/blog/design-pattern/type1/SEQ6-建造者模式.md)
-* **机构型**
+* **结构型**
   * [SEQ1-适配器模式](/blog/design-pattern/type2/SEQ1-适配器模式.md)
   * [SEQ2-桥接模式](/blog/design-pattern/type2/SEQ2-桥接模式.md)
   * [SEQ3-组合模式](/blog/design-pattern/type2/SEQ3-组合模式.md)
@@ -26,3 +26,4 @@
   * [SEQ09-策略模式](/blog/design-pattern/type3/SEQ09-策略模式.md)
   * [SEQ10-模板方法模式](/blog/design-pattern/type3/SEQ10-模板方法模式.md)
   * [SEQ11-访问者模式](/blog/design-pattern/type3/SEQ11-访问者模式.md)
+* [**趣味学习-设计模式与足球**](/blog/design-pattern/趣味学习-设计模式与足球.md)
