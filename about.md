@@ -3,13 +3,13 @@
 [![top langs](https://github-readme-stats.vercel.app/api/top-langs/?username=bruceouyang&layout=compact)](https://github-readme-stats.vercel.app/api/top-langs/?username=bruceouyang&layout=compact)
 
 #### 座右铭
-脚踏实地，循序渐进。  
-坚持到底，目标必达！
+脚踏实地，持之以恒。  
+循序渐进，目标必达！
 
 #### 自我评价
 热爱学习，善于归纳总结，胆大心细，有责任心。
 
-#### 技术清单
+#### 技能清单
 * 编程语言
     * Java / Python / Go / NodeJS
 * 微服务
@@ -23,6 +23,9 @@
 * 数据库
     * 关系型：Mysql / Oracle / SqlServer
     * NoSql：MongoDB
+* 软技能
+    * scrum
+    * 归纳总结、知识沉淀
 
 #### 工作经历
 时间 | 单位 | 部门 | 岗位 | 行业或业务方向 | 主要职责
