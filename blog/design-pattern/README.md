@@ -1,7 +1,7 @@
 ![](img/dp-banner.jpeg)
 
-> Bruce Ouyang 正在学习**《设计模式Java版》** http://woquanke.com/books/gof/这本书  
-> 个人学习的主要内容以及对应源码记录在[https://github.com/BruceOuyang/boy-design-pattern](https://github.com/BruceOuyang/boy-design-pattern)目录下
+> Bruce Ouyang 正在学习[**《设计模式Java版》**](http://woquanke.com/books/gof/)  这本书(原地址貌似gg了)  
+> 主要内容以及对应源码记录在[BruceOuyang/boy-design-pattern](https://github.com/BruceOuyang/boy-design-pattern)仓库
 
 ## 初衷
 1. 系统的学习一遍设计模式  
@@ -16,4 +16,4 @@
 2. 原文中有一些练习，就在这个仓库的源码中做掉
 
 ## 二十四种设计模式一览
-![24种设计模式](img/dp-all.png)
+[![24种设计模式](img/dp-all.png)](http://naotu.baidu.com/file/1a3f5e067aa0678dbb49570b1fa60716?token=1f65951eae2f330c)
