@@ -1,4 +1,5 @@
-### 你好，我是老欧，一个 Java 老兵 <!-- {docsify-ignore} -->
+### Hi there, <!-- {docsify-ignore} -->
+老欧，一个 Java 老兵 <br/>
 [![老欧的 GitHub Stats](https://github-readme-stats.vercel.app/api?username=bruceouyang&count_private=true&show_icons=true&bg_color=30,e96443,904e95&title_color=fff&text_color=ffffff&hide=contribs)](https://github.com/bruceouyang)
 [![top langs](https://github-readme-stats.vercel.app/api/top-langs/?username=bruceouyang&layout=compact)](https://github-readme-stats.vercel.app/api/top-langs/?username=bruceouyang&layout=compact)
 

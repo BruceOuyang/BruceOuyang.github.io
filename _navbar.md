@@ -10,4 +10,3 @@
   * [CSDN](https://blog.csdn.net/boybruce)
   * [简书](https://www.jianshu.com/u/8bc5f4428ca2)
   * [极客时间](https://time.geekbang.org/dashboard/usercenter)
-* [关于我 :smile:](/about.md)
