@@ -9,4 +9,5 @@
 * 其他站点
   * [CSDN](https://blog.csdn.net/boybruce)
   * [简书](https://www.jianshu.com/u/8bc5f4428ca2)
+  * [掘金](https://juejin.cn/user/2506542242595927)
   * [极客时间](https://time.geekbang.org/dashboard/usercenter)
