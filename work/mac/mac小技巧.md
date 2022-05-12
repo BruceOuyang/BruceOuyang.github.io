@@ -1,34 +1,64 @@
-## Mac 小技巧 <!-- {docsify-ignore} -->
+## mac 使用小技巧 <!-- {docsify-ignore} -->
 
-### 用命令行打开 idea
-1、添加 `idea` 系统指令，运行 idea，然后做如下操作
+### 1、用命令行打开开发工具
+前后开发都避免不了使用命令行来操作，那么用命令打开开发工具一定会是一个很酷的事，:smile:。
+
+#### IntellJ 系列
+以 `idea` 为例
+
+1、打开 idea；
+
+2、添加 `idea` 为系统命令
 ```
 顶部 Tools > Create command-line luancher
 ```
 
-2、打开终端，执行命令，即可打开`idea`
+![](img/create-command-line-launcher-idea.png)
+
+3、打开终端，验证
 ```bash
 # idea [project_path]
 idea ~/workspace/project1
 ```
 > 此方法可用于 IntelliJ 所有套件(idea/webstorm/datagrip/goland...)
 
-### finder 显示隐藏文件夹
-快捷键(重复按可切换显示和隐藏)
+#### VSCode
+1、打开 vscode；
+
+2、添加 `code` 为系统指令，打开命令面板，输入 `install code`，然后回车
+> 打开命令面板的快捷键 cmd + shift + p
+
+![](img/create-command-line-launcher-vscode.png)
+
+3、打开终端，验证
+```bash
+# code [project_path]
+code ~/workspace/project1
+```
+
+### 2、Finder 相关
+#### 显示默认隐藏的文件夹
+重复按可切换显示和隐藏
 ```
 shift + command + .
 ```
 
-### finder 显示 home 目录
+#### 快速进入 home 目录
 ```
 shift + command + h
 ```
 
-### 系统截图方法
-#### 1、mac 系统默认截图
+#### 显示文件路径
+重复按可切换显示和隐藏
+```
+option + command + p
+```
+
+### 3、系统截图方法
+#### mac 系统默认截图
 > 系统偏好设置 - 键盘 - 快捷键 - 截屏
 
-1.1 全屏截屏
+1 全屏截屏
 ```
 # 截屏存储为文件
 shift⇧ + command⌘ + 3
@@ -37,7 +67,7 @@ shift⇧ + command⌘ + 3
 shift⇧ + control⌃ + command⌘ + 3
 ```
 
-1.2 区域截屏
+2 区域截屏
 ```
 # 截屏存储为文件
 shift⇧ + command⌘ + 4
@@ -46,7 +76,7 @@ shift⇧ + command⌘ + 4
 shift⇧ + control⌃ + command⌘ + 4
 ```
 
-1.3 触控栏截屏
+3 触控栏截屏
 ```
 # 截屏存储为文件
 shift⇧ + command⌘ + 6
@@ -55,20 +85,21 @@ shift⇧ + command⌘ + 6
 shift⇧ + control⌃ + command⌘ + 6
 ```
 
-1.4 截屏和录制选项
+4 截屏和录制选项
 ```
 shift⇧ + command⌘ + 5
 ```
 
-#### 2、mac + chrome 网页完整截图
-```
-第一步：打开 chrome，输入目标网页地址
-第二步：按快捷键 option⌥ + command⌘ + i
-第三步：按快捷键 shift⇧ + command⌘ + p
-第四步：输入 capture full 后，按回车
-```
+#### mac + chrome 网页完整截图
+1、打开 chrome，输入目标网页地址
 
-### 重置应用软件方法（以 atom 为例）
+2、按快捷键 `option⌥ + command⌘ + i`
+
+3、按快捷键 `shift⇧ + command⌘ + p`
+
+4、输入 `capture full` 后，按回车
+
+### 4、重置应用软件方法（以 atom 为例）
 
 1、退出 atom
 
@@ -81,3 +112,29 @@ shift⇧ + command⌘ + 5
 5、在 finder 中，删除应用配置目录，atom 的配置目录是 `.atom`，直接移除到废纸篓
 
 6、重新打开 atom（按快捷键 `command + 空格` 打开聚焦，输入 atom，然后回车即可），此时 atom 已经恢复原始配置了
+
+### 5、下载软件
+
+mac 下载软件有三种渠道：
+* appstore
+* 软件官网
+* 第三方平台
+
+#### appstore
+系统自带应用商店，无需多说。
+
+#### 软件官网
+一般软件开放商都会在自己官网放置下载连接，用户可以在软件官网下载。
+例如：
+* vscode https://code.visualstudio.com/Download
+* 腾讯柠檬 https://lemon.qq.com/
+
+#### 第三方平台
+第三方平台有很多，这里推荐 https://macwk.com/
+![macwk](img/macwk.png)
+
+#### 常用软件推荐
+
+* 系统清理：腾讯柠檬 https://lemon.qq.com/
+* 压缩工具：BetterZip https://macwk.com/soft/betterzip
+* 更多其他软件，可以在 macwk 上面查找
