@@ -391,3 +391,8 @@ class Client {
 > 使用工厂方法模式设计一个程序来读取各种不同类型的图片格式，针对每一种图片格式都设计一个图片读取器，如GIF图片读取器用于读取GIF格式的图片、JPG图片读取器用于读取JPG格式的图片。需充分考虑系统的灵活性和可扩展性。
 
 > 练习会在[我的github](https://github.com/BruceOuyang/boy-design-pattern)上做掉
+
+
+### 最后 <!--{docsify-ignore}-->
+如果你喜欢老欧整理的文章，欢迎你关注我的微信公众号，老欧的issueList站点文章更新时，会同步推送到微信公众号。
+![](https://bruce.bugmakers.club/assets/wechat-subscribe-qr.jpg)

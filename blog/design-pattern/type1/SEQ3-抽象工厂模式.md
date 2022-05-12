@@ -335,4 +335,8 @@ Sunny公司使用抽象工厂模式设计了界面皮肤库，该皮肤库可以
 **练习**
 > Sunny软件公司欲推出一款新的手机游戏软件，该软件能够支持Symbian、Android和Windows Mobile等多个智能手机操作系统平台，针对不同的手机操作系统，该游戏软件提供了不同的游戏操作控制(OperationController)类和游戏界面控制(InterfaceController)类，并提供相应的工厂类来封装这些类的初始化过程。软件要求具有较好的扩展性以支持新的操作系统平台，为了满足上述需求，试采用抽象工厂模式对其进行设计。
 
-> 练习会在[我的github](https://github.com/BruceOuyang/boy-design-pattern)上做掉
+> 练习会在[我的github](https://github.com/BruceOuyang/boy-design-patt
+
+### 最后 <!--{docsify-ignore}-->
+如果你喜欢老欧整理的文章，欢迎你关注我的微信公众号，老欧的issueList站点文章更新时，会同步推送到微信公众号。
+![](https://bruce.bugmakers.club/assets/wechat-subscribe-qr.jpg)

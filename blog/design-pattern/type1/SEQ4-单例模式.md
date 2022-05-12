@@ -381,3 +381,8 @@ class Singleton {
 **思考**
 
 如何对单例模式进行改造，使得系统中某个类的对象可以存在有限多个，例如两例或三例？【注：改造之后的类可称之为多例类。】
+
+
+### 最后 <!--{docsify-ignore}-->
+如果你喜欢老欧整理的文章，欢迎你关注我的微信公众号，老欧的issueList站点文章更新时，会同步推送到微信公众号。
+![](https://bruce.bugmakers.club/assets/wechat-subscribe-qr.jpg)

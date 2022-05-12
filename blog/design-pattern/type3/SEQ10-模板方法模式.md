@@ -417,3 +417,7 @@ class Program
 (2) 各子类中公共的行为应被提取出来并集中到一个公共父类中以避免代码重复。
 
 (3) 需要通过子类来决定父类算法中某个步骤是否执行，实现子类对父类的反向控制。
+
+### 最后 <!--{docsify-ignore}-->
+如果你喜欢老欧整理的文章，欢迎你关注我的微信公众号，老欧的issueList站点文章更新时，会同步推送到微信公众号。
+![](https://bruce.bugmakers.club/assets/wechat-subscribe-qr.jpg)

@@ -548,3 +548,7 @@ class Client {
 图III中的类图设计采用了中介者(Mediator)设计模式，请说明该模式的内涵。
 
 > 练习会在[我的github](https://github.com/BruceOuyang/boy-design-pattern)上做掉
+
+### 最后 <!--{docsify-ignore}-->
+如果你喜欢老欧整理的文章，欢迎你关注我的微信公众号，老欧的issueList站点文章更新时，会同步推送到微信公众号。
+![](https://bruce.bugmakers.club/assets/wechat-subscribe-qr.jpg)

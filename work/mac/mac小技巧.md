@@ -138,3 +138,8 @@ mac 下载软件有三种渠道：
 * 系统清理：腾讯柠檬 https://lemon.qq.com/
 * 压缩工具：BetterZip https://macwk.com/soft/betterzip
 * 更多其他软件，可以在 macwk 上面查找
+  
+
+### 最后 <!--{docsify-ignore}-->
+如果你喜欢老欧整理的文章，欢迎你关注我的微信公众号，老欧的issueList站点文章更新时，会同步推送到微信公众号。
+![](https://bruce.bugmakers.club/assets/wechat-subscribe-qr.jpg)
