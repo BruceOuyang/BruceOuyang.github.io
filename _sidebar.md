@@ -19,6 +19,7 @@
     * [网络代理](/work/tools/网络代理.md)
 * **mac 相关**
   * [Mac 使用小技巧](/work/mac/mac小技巧.md)
+  * [mac 远程连接 windows 桌面](/work/mac/mac远程windows桌面.md)
 
 
 * **JS基础**
