@@ -8,6 +8,7 @@
 我会把后续更新的内容优先在此站点发布，其他站点同步更新。
 
 #### 内容推送
+老欧的文章首发在[老欧的 issueList站点](https://bruce.bugmakers.club)，陆续同步更新到[CSDN](https://blog.csdn.net/boybruce)、[简书](https://www.jianshu.com/u/8bc5f4428ca2)、[掘金](https://juejin.cn/user/2506542242595927)和[微信公众号](https://bruce.bugmakers.club/assets/wechat-subscribe-qr.jpg)等平台。  
 如果你喜欢老欧整理的文章，欢迎你关注我的微信公众号，老欧的issueList站点文章更新时，会同步推送到微信公众号。
 
 ![微信公众号](/assets/wechat-subscribe-qr.jpg)
