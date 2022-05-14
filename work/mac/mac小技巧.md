@@ -140,6 +140,19 @@ mac 下载软件有三种渠道：
 * 更多其他软件，可以在 macwk 上面查找
   
 
+### 6、关闭 Microsoft 自动更新
+方法一：设置更新程序无权访问
+```
+cd /Library/Application\ Support/Microsoft/MAU2.0/
+sudo chmod 000 Microsoft\ AutoUpdate.app
+```
+
+方法二：直接删除掉更新程序
+```
+cd /Library/Application\ Support/Microsoft/MAU2.0/
+sudo rm -rf Microsoft\ AutoUpdate.app
+```
+
 ### 最后 <!--{docsify-ignore}-->
 如果你喜欢老欧整理的文章，欢迎你关注我的微信公众号，老欧的issueList站点文章更新时，会同步推送到微信公众号。
 ![](https://bruce.bugmakers.club/assets/wechat-subscribe-qr.jpg)
