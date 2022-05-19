@@ -1,4 +1,4 @@
-* **基础**
+* **Guitar基础**
   * [基础知识](/blog/guitar/base/基础知识.md)
 * **五月天**
   * [疯狂世界](/blog/guitar/疯狂世界.md)
