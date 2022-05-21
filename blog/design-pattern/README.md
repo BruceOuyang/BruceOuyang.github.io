@@ -1,6 +1,6 @@
 ![](img/dp-banner.jpeg)
 
-> Bruce Ouyang 正在学习[**《设计模式Java版》**](http://woquanke.com/books/gof/)  这本书(原地址貌似gg了)  
+> Bruce Ouyang 正在学习[**《设计模式Java版》**](https://gof.quanke.name/)  这本书  
 > 主要内容以及对应源码记录在[BruceOuyang/boy-design-pattern](https://github.com/BruceOuyang/boy-design-pattern)仓库
 
 ## 初衷
