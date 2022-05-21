@@ -9,6 +9,25 @@
 
 #### 内容推送
 老欧的文章首发在[老欧的 issueList站点](https://bruce.bugmakers.club)，陆续同步更新到[CSDN](https://blog.csdn.net/boybruce)、[简书](https://www.jianshu.com/u/8bc5f4428ca2)、[掘金](https://juejin.cn/user/2506542242595927)和[微信公众号](https://bruce.bugmakers.club/assets/wechat-subscribe-qr.jpg)等平台。  
+
+```mermaid
+graph LR
+    老欧 --> issueList["issueList 站点"]
+    issueList --> 微信公众号
+    issueList --> CSDN
+    issueList --> 简书
+    issueList --> 掘金
+```
+
+```websequencediagrams
+    title 发布顺序
+    老欧 --> 老欧: 本地书写
+    老欧 -> issueList: 首发issueList站点
+    老欧 -> 微信公众号: 二发issueList站点
+    老欧 -> 其他: 最后发其他平台
+    note right of 其他: csdn/简书/掘金等
+```
+
 如果你喜欢老欧整理的文章，欢迎你关注我的微信公众号，老欧的issueList站点文章更新时，会同步推送到微信公众号。
 
 ![微信公众号](/assets/wechat-subscribe-qr.jpg)
@@ -30,3 +49,4 @@
   - 要有方向，向上的方向，不甘人后。
   - 要有见识，独立思考和判断的能力。
   - 要坚持，行百里者半九十。
+
