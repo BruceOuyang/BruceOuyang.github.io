@@ -3,7 +3,7 @@
 <!-- panels:start -->
 <!-- div:left-panel -->
 #### 干嘛的
-老欧用来对工作经验做和实验学习做一些沉淀的地方。  
+老欧用来对工作经验和实验学习过的一些项目等做一些经验积累与知识沉淀的地方。  
 
 原本已 issue 的形式记录在 [github 仓库](https://github.com/bruceouyang/issueList/issues) 里边，经过`俄乌事件`后，感觉很有必要将内容拉出来，万一哪天被搞了呢~
 
@@ -97,7 +97,7 @@ note right of 其他: csdn/简书/掘金等
 
 #### **long.woo**
 
-老欧，有点多东西
+老欧，有点东西
 
 #### **老欧**
 
