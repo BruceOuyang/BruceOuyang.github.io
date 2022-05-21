@@ -1,6 +1,9 @@
 * **Guitar入门**
   * [基础知识](/blog/guitar/base/基础知识.md)
 * **五月天**
-  * [疯狂世界](/blog/guitar/疯狂世界.md)
-  * [温柔](/blog/guitar/温柔.md)
-  * [倔强](/blog/guitar/倔强.md)
+  * [疯狂世界](/blog/guitar/mayday/疯狂世界.md)
+  * [温柔](/blog/guitar/mayday/温柔.md)
+  * [倔强](/blog/guitar/mayday/倔强.md)
+* **其他**
+  * [丁香花](/blog/guitar/other/丁香花.md)
+  * [有没有人告诉你](/blog/guitar/other/有没有人告诉你.md)
