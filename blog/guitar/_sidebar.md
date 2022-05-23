@@ -5,6 +5,11 @@
   * [疯狂世界](/blog/guitar/mayday/疯狂世界.md)
   * [温柔](/blog/guitar/mayday/温柔.md)
   * [倔强](/blog/guitar/mayday/倔强.md)
-* **其他**
+  * [知足](/blog/guitar/mayday/知足.md)
+  * [突然好想你](/blog/guitar/mayday/突然好想你.md)
+* **其他歌曲**
   * [丁香花](/blog/guitar/other/丁香花.md)
   * [有没有人告诉你](/blog/guitar/other/有没有人告诉你.md)
+  * [斑马斑马](/blog/guitar/other/斑马斑马.md)
+* **纯音乐**
+  * [天空之城](/blog/guitar/pure/天空之城.md)
