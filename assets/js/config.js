@@ -17,6 +17,10 @@ window.$docsify = {
     alias: {
       '/.*/_navbar.md': '/_navbar.md'
     },
+    themeable: {
+      readyTransition : true, // default
+      responsiveTables: true  // default
+    },
     search: {
       maxAge: 86400000,
       paths: 'auto',

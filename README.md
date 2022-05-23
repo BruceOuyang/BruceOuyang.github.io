@@ -3,9 +3,9 @@
 <!-- panels:start -->
 <!-- div:left-panel -->
 #### 干嘛的
-老欧用来对工作经验和实验学习过的一些项目等做一些经验积累与知识沉淀的地方。  
+老欧对工作经验和实验学习过的一些项目等做一些经验积累与知识沉淀，以及业余兴趣爱好做一些记录的地方。  
 
-原本已 issue 的形式记录在 [github 仓库](https://github.com/bruceouyang/issueList/issues) 里边，经过`俄乌事件`后，感觉很有必要将内容拉出来，万一哪天被搞了呢~
+原本已 issue 的形式记录在 [github 仓库 issue 面板](https://github.com/bruceouyang/issueList/issues) 里边，现将内容拉出来，维护成一个独立站点~
 
 我会把后续更新的内容优先在此站点发布，其他站点同步更新。
 
@@ -61,6 +61,28 @@ title 发布顺序
 note right of 其他: csdn/简书/掘金等
 @endum
 ```
+
+<!-- tab:mystify -->
+<!-- chat:start -->
+
+#### **霸哥**
+
+老欧，牛逼
+
+#### **女神**
+
+老欧，可以哦
+
+#### **龙炸**
+
+老欧，有点东西
+
+#### **老欧**
+
+:smile: 哈哈哈
+
+<!-- chat:end -->
+
 <!-- tabs:end -->
 
 <!-- div:right-panel -->
@@ -83,24 +105,3 @@ note right of 其他: csdn/简书/掘金等
   - 要有见识，独立思考和判断的能力。
   - 要坚持，行百里者半九十。
 <!-- panels:end -->
-
-
-<!-- chat:start -->
-
-#### **霸哥**
-
-老欧，牛逼
-
-#### **女神**
-
-老欧，可以哦
-
-#### **龙炸**
-
-老欧，有点东西
-
-#### **老欧**
-
-:smile: 哈哈哈
-
-<!-- chat:end -->
