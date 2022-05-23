@@ -1,6 +1,6 @@
 * **Guitar入门**
   * [基础知识](/blog/guitar/base/基础知识.md)
-  * [小蜜蜂](/blog/guitar/base/小蜜蜂.md)
+  * [拨片练习](/blog/guitar/base/拨片练习.md)
 * **五月天**
   * [疯狂世界](/blog/guitar/mayday/疯狂世界.md)
   * [温柔](/blog/guitar/mayday/温柔.md)
