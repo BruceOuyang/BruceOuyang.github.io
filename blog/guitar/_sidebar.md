@@ -12,5 +12,6 @@
   * [有没有人告诉你](/blog/guitar/other/有没有人告诉你.md)
   * [斑马斑马](/blog/guitar/other/斑马斑马.md)
   * [盗将行](/blog/guitar/other/盗将行.md)
+  * [鸽子](/blog/guitar/other/鸽子.md)
 * **纯音乐**
   * [天空之城](/blog/guitar/pure/天空之城.md)
