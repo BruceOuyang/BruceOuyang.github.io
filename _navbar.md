@@ -6,6 +6,10 @@
   * [架构设计](structure-design/)
   * [编程语言](tutorial/)
   * [设计模式](blog/design-pattern/)
+* [常阅书籍](/)
+  * [Thnking In Java](https://java.quanke.name/)
+  * [设计模式 Java 版](https://gof.quanke.name/)
+  * [Java 成神之路](https://hollischuang.gitee.io/tobetopjavaer/#/menu)
 * 其他站点
   * [CSDN](https://blog.csdn.net/boybruce)
   * [简书](https://www.jianshu.com/u/8bc5f4428ca2)
