@@ -6,14 +6,13 @@
   * [架构设计](structure-design/)
   * [编程语言](tutorial/)
   * [设计模式](blog/design-pattern/)
-* [常阅书籍](/)
-  * [Thnking In Java](https://java.quanke.name/)
-  * [设计模式 Java 版](https://gof.quanke.name/)
-  * [Java 成神之路](https://hollischuang.gitee.io/tobetopjavaer/#/menu)
-* 其他站点
+* [读书笔记](/)   
+  * [在线书籍推荐](/book/) 
+  * [Java并发编程的艺术](/book/concurrent/) 
+* [其他站点](/)
   * [CSDN](https://blog.csdn.net/boybruce)
   * [简书](https://www.jianshu.com/u/8bc5f4428ca2)
   * [掘金](https://juejin.cn/user/2506542242595927)
-* 业余时间
+* [业余时间](/)
   * [Guitar](blog/guitar/)
   <!-- * [极客时间](https://time.geekbang.org/dashboard/usercenter) -->
