@@ -1,3 +1,4 @@
+* **笔记：Java并发编程的艺术**
 * [**01-并发编程的挑战**](/book/concurrent/01并发编程的挑战.md) 
 * [**02-Java并发机制的底层实现**](/book/concurrent/02Java并发机制的底层实现.md)  
 * [**03-Java内存模型**](/book/concurrent/03Java内存模型.md)  
