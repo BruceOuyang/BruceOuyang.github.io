@@ -9,3 +9,4 @@
 ### 读书笔记
 
 * [Java 并发编程的艺术](/book/concurrent/)
+* [可伸缩服务架构·框架与中间件](/book/middleware/)
