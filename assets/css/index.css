@@ -23,3 +23,12 @@
   height: 100%;
   border-radius: 50%;
 }
+
+/* 聊天框 */
+.chat-panel {
+  border: solid 1px #ccc;
+}
+.chat-panel .controls .title {
+  border-bottom: solid 1px #ccc;
+  padding-bottom: 0.8rem;
+}
