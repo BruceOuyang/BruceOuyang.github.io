@@ -11,5 +11,8 @@
   * [笔记：Java并发编程的艺术](/book/concurrent/) 
   * [笔记：可伸缩服务架构·框架与中间件](/book/middleware/) 
 * [业余时间](/)
-  * [Guitar](blog/guitar/)
+  * [吉他](blog/guitar/)
+  * [足球](blog/soccer/)
+  * [宠物](blog/pets/)
+  * [朋友](blog/friends/)
   <!-- * [极客时间](https://time.geekbang.org/dashboard/usercenter) -->
