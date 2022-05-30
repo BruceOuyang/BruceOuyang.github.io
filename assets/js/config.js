@@ -78,11 +78,7 @@ window.$docsify = {
         { nickname: '老欧', avatar: 'assets/avatar/old-ou.jpg' },
         { nickname: '霸哥', avatar: 'assets/avatar/young-ou.png' },
         { nickname: '女神', avatar: 'assets/avatar/young-diao.png' },
-        { nickname: '龙炸', avatar: 'assets/avatar/long-woo.png' },
-        { nickname: '周队', avatar: '' },
-        { nickname: '队副', avatar: '' },
-        { nickname: '核心', avatar: '' },
-        { nickname: '奥斯卡', avatar: '' },
+        { nickname: '龙炸', avatar: 'assets/avatar/long-woo.png' }
       ],
       myself: '老欧',
       animation: 50,
