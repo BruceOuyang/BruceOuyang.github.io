@@ -36,10 +36,17 @@
 
 <!-- div:right-panel -->
 ### 曹杨之星 16/17 金靴
-![](img/hornor01.jpeg ':size=800')
-![](img/team05.jpeg ':size=800')
 
 <!-- chat:start -->
+#### **老欧**
+<img src="/blog/soccer/img/team05.jpeg" />
+
+#### **老欧**
+<img src="/blog/soccer/img/hornor01.jpeg" />
+
+#### **老欧**
+😄😄😄 
+
 #### **周队**
 👏🏻👏🏻👏🏻
 
@@ -51,9 +58,6 @@
 
 #### **奥斯卡**
 👏🏻👏🏻👏🏻
-
-#### **老欧**
-😄😄😄
 
 <!-- chat:end -->
 
