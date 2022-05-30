@@ -13,7 +13,7 @@
 <!-- panels:start -->
 <!-- div:left-panel -->
 ### 老欧的集锦
-<video width="800" height="600" controls>
+<video width="100%" style="max-width: 800px;" height="600" controls>
   <source src="/blog/soccer/video/02.mp4" type="video/mp4">
   您的浏览器不支持 HTML5 video 标签。
 </video>
