@@ -79,6 +79,7 @@
 ![](img/team01.jpeg ':size=400')
 
 ### 大曹杨队内德比
+![](img/team-inner-AvsB2.jpg ':size=800')
 ![](img/team-inner-AvsB.jpeg ':size=800')
 
 <!-- div:right-panel -->
