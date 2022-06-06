@@ -18,6 +18,7 @@
   * 小工具
     * [网络代理](/work/tools/网络代理.md)
     * [GIF录制](/work/tools/GIF录制.md)
+    * [md5加密excel表格数据](/work/tools/md5加密excel表格数据.md)
 * **mac 相关**
   * [mac 使用小技巧](/work/mac/mac小技巧.md)
   * [mac 远程连接 windows 桌面](/work/mac/mac远程windows桌面.md)
