@@ -615,5 +615,5 @@ https://memcached.org
 ## more
 
 * redis 具体操作相关内容
-* mysql 数据库相关内容
+* mysql 数据库分库分表技术，MyCat代理及客户端ShardingJDBC，及自研分库分表相关内容
 * RabbitMQ & Kafka 消息中间件相关内容
