@@ -5,7 +5,7 @@
   * 发号器
   * 消息队列
   * 分库分表
-  * 缓存
+  * [缓存技术](/structure-design/cache-design/)
   * 大数据
   * 定时任务
   * RPC 服务
